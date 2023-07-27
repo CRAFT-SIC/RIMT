@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.suntend.arktoolbox'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.suntend.arktoolbox"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "5.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // 必须引用kotlin库，在 Kotlin 1.5.0 及更高版本中，kotlin-stdlib-jdk7 和 kotlin-stdlib-jdk8 已经被合并为一个依赖项 kotlin-stdlib
+    // 即使使用的是Java编写，不引用该库仍会报错
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
+
+    //以下是自带库
+    implementation 'androidx.appcompat:appcompat:1.6.1' // 向后兼容库
+    implementation 'com.google.android.material:material:1.9.0' // 提供Material Design风格的 UI 控件
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // 提供了一种灵活的布局方式
+    implementation 'androidx.navigation:navigation-fragment:2.6.0' // 提供了一种简单的方式来实现Android应用程序中的导航
+    implementation 'androidx.navigation:navigation-ui:2.6.0' // 提供了一些控件，用于与 Navigation 组件一起使用
+    testImplementation 'junit:junit:4.13.2' // 提供了一些用于编写和运行Android应用程序测试的功能
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5' // 提供了一些用于编写和运行Android测试的功能
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' // 提供了一些用于编写和运行 Android 用户界面测试的功能
+    //以下是自加库
+    implementation 'com.makeramen:roundedimageview:2.3.0' //圆角图片库
+}

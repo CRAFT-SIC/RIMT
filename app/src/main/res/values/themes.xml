@@ -1,0 +1,49 @@
+<resources >
+    <!-- Base application theme. -->
+    <style name="Base.Theme.RIMT" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 设置状态栏背景颜色为浅色 -->
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <!-- 设置状态栏文字和图标颜色为深色 -->
+        <item name="android:windowLightStatusBar">false</item>
+        <!-- 设置导航栏透明 -->
+        <item name="android:windowTranslucentNavigation">true</item>
+
+        <item name="black">@color/black</item>
+        <item name="white">@color/white</item>
+
+        <item name="general_text_color">@color/general_text_color_day</item>
+        <item name="general_secondery_text_color">@color/general_secondery_text_color_day</item>
+
+        <!-- drawer Color colors -->
+        <item name="drawer_background_color">@color/drawer_background_color_day</item>
+        <item name="drawer_white">@color/drawer_white_day</item>
+        <item name="drawer_bind_button_background">@color/drawer_bind_button_background_day</item>
+        <item name="drawer_unbind_button_background">@color/drawer_unbind_button_background_day</item>
+        <item name="drawer_card_background">@color/drawer_card_background_day</item>
+        <item name="drawer_account_background">@color/drawer_account_background_day</item>
+        <item name="drawer_account_text_color">@color/drawer_account_text_color_day</item>
+
+        <!-- drawer toolbox colors -->
+        <item name="drawer_toolbox_checked_background">@color/drawer_toolbox_checked_background_day</item>
+        <item name="drawer_toolbox_unchecked_background">@color/drawer_toolbox_unchecked_background_day</item>
+        <item name="drawer_toolbox_checked_text_color">@color/drawer_toolbox_checked_text_color_day</item>
+        <item name="drawer_toolbox_unchecked_text_color">@color/drawer_toolbox_unchecked_text_color_day</item>
+        <item name="drawer_toolbox_checked_status_color">@color/drawer_toolbox_checked_status_color_day</item>
+        <item name="drawer_toolbox_unchecked_status_color">@color/drawer_toolbox_unchecked_status_color_day</item>
+
+        <item name="drawer_sel">@drawable/drawer_sel_day</item>
+        <item name="drawer_unsel">@drawable/drawer_unsel_day</item>
+        <item name="drawer_feedback">@drawable/drawer_feedback_day</item>
+        <item name="drawer_settings_autoupdate">@drawable/drawer_settings_autoupdate_day</item>
+        <item name="drawer_settings_display_mode">@drawable/drawer_settings_display_mode_day</item>
+        <item name="drawer_settings_display_mode_disable">@drawable/drawer_settings_display_mode_disable_day</item>
+        <item name="drawer_settings_display_system">@drawable/drawer_settings_display_system_day</item>
+        <item name="drawer_settings_shareholder">@drawable/drawer_settings_shareholder_day</item>
+
+
+        <item name="fragment_nav">@drawable/fragment_nav_day</item>
+
+
+    </style>
+
+</resources>

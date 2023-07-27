@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Day -->
+    <!-- drawer general colors -->
+    <color name="general_text_color_day">#1A1A1A</color>
+    <color name="general_secondery_text_color_day">#BDBDBD</color>
+    <!-- drawer Color colors -->
+    <color name="drawer_background_color_day">#F6F6F6</color>
+    <color name="drawer_white_day">#ffffff</color>
+    <color name="drawer_bind_button_background_day">#F33C2B</color>
+    <color name="drawer_unbind_button_background_day">#BDBDBD</color>
+    <color name="drawer_card_background_day">#FFFFFF</color>
+    <color name="drawer_account_background_day">#FFFFFF</color>
+    <color name="drawer_account_text_color_day">#767676</color>
+    <!-- drawer toolbox colors -->
+    <color name="drawer_toolbox_checked_background_day">#FFFFFF</color>
+    <color name="drawer_toolbox_unchecked_background_day">#EDEDED</color>
+    <color name="drawer_toolbox_checked_text_color_day">#1A1A1A</color>
+    <color name="drawer_toolbox_unchecked_text_color_day">#BDBDBD</color>
+    <color name="drawer_toolbox_checked_status_color_day">#BDBDBD</color>
+    <color name="drawer_toolbox_unchecked_status_color_day">#BDBDBD</color>
+
+    <!-- Night -->
+    <!-- drawer general colors -->
+    <color name="general_text_color_night">#FFFFFF</color>
+    <color name="general_secondery_text_color_night">#A5A5A8</color>
+    <!-- drawer colors -->
+    <color name="drawer_background_color_night">#1E1B28</color>
+    <color name="drawer_white_night">#ffffff</color>
+    <color name="drawer_bind_button_background_night">#9BCE00</color>
+    <color name="drawer_unbind_button_background_night">#bdbdbd</color>
+    <color name="drawer_card_background_night">#2A2637</color>
+    <color name="drawer_account_background_night">#424353</color>
+    <color name="drawer_account_text_color_night">#BDBDBD</color>
+    <!-- drawer toolbox colors -->
+    <color name="drawer_toolbox_checked_background_night">#424353</color>
+    <color name="drawer_toolbox_unchecked_background_night">#2A2637</color>
+    <color name="drawer_toolbox_checked_text_color_night">#FFFFFF</color>
+    <color name="drawer_toolbox_unchecked_text_color_night">#424353</color>
+    <color name="drawer_toolbox_checked_status_color_night">#BDBDBD</color>
+    <color name="drawer_toolbox_unchecked_status_color_night">#BDBDBD</color>
+
+</resources>

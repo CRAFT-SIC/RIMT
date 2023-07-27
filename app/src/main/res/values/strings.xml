@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">罗德岛移动终端</string>
+
+    <!-- General -->
+    <string name="general_on">开</string>
+    <string name="general_off">关</string>
+
+
+    <!-- User related strings -->
+    <string name="drawer_user_name">JamXi</string>
+    <string name="drawer_feedback">意见反馈</string>
+
+    <!-- Account related strings -->
+    <string name="drawer_account_name">JamXi #1</string>
+    <string name="drawer_unbind">解绑</string>
+
+    <!-- Toolbox related strings -->
+    <string name="drawer_toolbox_name">明日方舟工具箱 5.0</string>
+    <string name="drawer_more_toolbox">更多游戏工具箱</string>
+
+    <!-- Toolbox settings strings -->
+    <string name="drawer_settings_display_system">显示·跟随系统</string>
+    <string name="drawer_settings_display_mode">显示模式</string>
+    <string name="drawer_settings_shareholder">股东招募</string>
+    <string name="drawer_settings_autoupdate">自动检测更新</string>
+
+</resources>
