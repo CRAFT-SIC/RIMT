@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- 主布局 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="?attr/general_background_color"
+        android:fitsSystemWindows="true" >
 
         <!-- 在这里添加应用程序主要内容 -->
         <LinearLayout
@@ -21,13 +24,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <FrameLayout
                     android:id="@+id/fragment_controller"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="24dp"/>
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 
@@ -35,53 +38,51 @@
 
         <!-- 底部导航栏 -->
         <LinearLayout
-            android:id="@+id/navigation_bar"
+            android:id="@+id/bottomNav"
             android:layout_width="match_parent"
-            android:layout_height="44pt"
-            android:background="#efefef"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_height="wrap_content"
 
-            <ImageButton
-                android:id="@+id/navigation_bar_test_1"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/nav_home"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:padding="14dp"
                 android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/navigation_bar_test_1"
-                android:background="#efefef"/>
-            <ImageButton
-                android:id="@+id/navigation_bar_test_2"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
+                android:src="?attr/nav_home_sel" />
+
+            <ImageView
+                android:id="@+id/nav_flarum"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:padding="14dp"
                 android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/navigation_bar_test_2"
-                android:background="#efefef"/>
-            <ImageButton
-                android:id="@+id/navigation_bar_test_3"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
+                android:src="?attr/nav_flarum_unsel" />
+
+            <ImageView
+                android:id="@+id/nav_container"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:padding="14dp"
                 android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/navigation_bar_test_3"
-                android:background="#efefef"/>
-            <ImageButton
-                android:id="@+id/navigation_bar_test_4"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
+                android:src="?attr/nav_container_unsel" />
+
+            <ImageView
+                android:id="@+id/nav_ark"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:padding="14dp"
                 android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/navigation_bar_test_4"
-                android:background="#efefef"/>
-            <ImageButton
-                android:id="@+id/navigation_bar_test_5"
-                android:layout_width="30pt"
-                android:layout_height="30pt"
+                android:src="?attr/nav_ark_unsel" />
+
+            <ImageView
+                android:id="@+id/nav_about"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:padding="14dp"
                 android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/navigation_bar_test_5"
-                android:background="#efefef"/>
+                android:src="?attr/nav_about_unsel" />
 
         </LinearLayout>
 

@@ -23,7 +23,6 @@
             android:orientation="vertical">
 
             <!-- 头像+意见反馈 -->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -31,21 +30,32 @@
                 android:gravity="center">
 
                 <LinearLayout
+                    android:id="@+id/drawer_user_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left|center">
 
                     <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/drawer_user_avatar"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:src="?attr/general_secondery_text_color"
                         app:riv_corner_radius="24dp"/>
 
                     <TextView
+                        android:id="@+id/drawer_user_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/drawer_user_name"
+                        android:text="@string/drawer_user_login"
+                        android:layout_marginLeft="12dp"
+                        android:textColor="?attr/general_text_color"/>
+
+                    <TextView
+                        android:id="@+id/drawer_user_logout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="登出"
                         android:layout_marginLeft="12dp"
                         android:textColor="?attr/general_text_color"/>
 
@@ -121,6 +131,7 @@
 
                     <!-- 工具箱1 -->
                     <LinearLayout
+                        android:id="@+id/drawer_games_arktoolbox"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="?attr/drawer_toolbox_checked_background"
@@ -158,6 +169,7 @@
                             android:gravity="right">
 
                             <ImageView
+                                android:id="@+id/drawer_games_arktoolbox_sel"
                                 android:layout_width="28dp"
                                 android:layout_height="28dp"
                                 android:src="?attr/drawer_sel"/>
@@ -168,9 +180,10 @@
 
                     <!-- 工具箱2 -->
                     <LinearLayout
+                        android:id="@+id/drawer_games_genshin"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:background="?attr/drawer_toolbox_unchecked_background"
+                        android:background="?attr/drawer_toolbox_checked_background"
                         android:gravity="center"
                         android:paddingHorizontal="16dp"
                         android:weightSum="10"
@@ -185,16 +198,16 @@
                             <com.makeramen.roundedimageview.RoundedImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="?attr/drawer_account_text_color"
+                                android:src="@drawable/drawer_avatar"
                                 app:riv_corner_radius="24dp"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="12dp"
-                                android:text="Empty"
+                                android:text="崩坏：星穹铁道"
                                 android:textSize="14sp"
-                                android:textColor="?attr/drawer_toolbox_unchecked_text_color"/>
+                                android:textColor="?attr/general_text_color"/>
 
                         </LinearLayout>
 
@@ -205,6 +218,7 @@
                             android:gravity="right">
 
                             <ImageView
+                                android:id="@+id/drawer_games_genshin_sel"
                                 android:layout_width="28dp"
                                 android:layout_height="28dp"
                                 android:src="?attr/drawer_unsel"/>

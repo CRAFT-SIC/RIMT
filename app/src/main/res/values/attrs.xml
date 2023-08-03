@@ -3,6 +3,7 @@
     <attr name="black" format="color" />
     <attr name="white" format="color" />
 
+    <attr name="general_background_color" format="color" />
     <attr name="general_text_color" format="color" />
     <attr name="general_secondery_text_color" format="color" />
 
@@ -29,6 +30,20 @@
     <attr name="drawer_settings_display_mode_disable" format="reference|color" />
     <attr name="drawer_settings_display_system" format="reference|color" />
     <attr name="drawer_settings_shareholder" format="reference|color" />
+
+    <attr name="nav_about_sel" format="reference" />
+    <attr name="nav_about_unsel" format="reference" />
+    <attr name="nav_ark_sel" format="reference" />
+    <attr name="nav_ark_unsel" format="reference" />
+    <attr name="nav_container_sel" format="reference" />
+    <attr name="nav_container_unsel" format="reference" />
+    <attr name="nav_flarum_sel" format="reference" />
+    <attr name="nav_flarum_unsel" format="reference" />
+    <attr name="nav_home_sel" format="reference" />
+    <attr name="nav_home_unsel" format="reference" />
+    <attr name="nav_sel_bottom" format="reference" />
+
+    <attr name="login_image" format="reference" />
 
     <attr name="fragment_nav" format="reference|color" />
 

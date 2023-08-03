@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.RIMT" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- 设置状态栏背景颜色为浅色 -->
-        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:statusBarColor">#1E1B28</item>
         <!-- 设置状态栏文字和图标颜色为深色 -->
         <item name="android:windowLightStatusBar">false</item>
         <!-- 设置导航栏透明 -->
@@ -11,6 +11,7 @@
         <item name="black">@color/black</item>
         <item name="white">@color/white</item>
 
+        <item name="general_background_color">#1E1B28</item>
         <item name="general_text_color">@color/general_text_color_night</item>
         <item name="general_secondery_text_color">@color/general_secondery_text_color_night</item>
 
@@ -40,6 +41,19 @@
         <item name="drawer_settings_display_system">@drawable/drawer_settings_display_system_night</item>
         <item name="drawer_settings_shareholder">@drawable/drawer_settings_shareholder_night</item>
 
+        <item name="nav_about_sel">@drawable/nav_about_sel_night</item>
+        <item name="nav_about_unsel">@drawable/nav_about_unsel_night</item>
+        <item name="nav_ark_sel">@drawable/nav_ark_sel_night</item>
+        <item name="nav_ark_unsel">@drawable/nav_ark_unsel_night</item>
+        <item name="nav_container_sel">@drawable/nav_container_sel_night</item>
+        <item name="nav_container_unsel">@drawable/nav_container_unsel_night</item>
+        <item name="nav_flarum_sel">@drawable/nav_flarum_sel_night</item>
+        <item name="nav_flarum_unsel">@drawable/nav_flarum_unsel_night</item>
+        <item name="nav_home_sel">@drawable/nav_home_sel_night_2</item>
+        <item name="nav_home_unsel">@drawable/nav_home_unsel_night</item>
+        <item name="nav_sel_bottom">@drawable/nav_sel_bottom_night</item>
+
+        <item name="login_image">@drawable/login_image_night</item>
 
         <item name="fragment_nav">@drawable/fragment_nav_night</item>
 

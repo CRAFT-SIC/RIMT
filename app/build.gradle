@@ -32,6 +32,10 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.annotation:annotation:1.6.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+
     // 必须引用kotlin库，在 Kotlin 1.5.0 及更高版本中，kotlin-stdlib-jdk7 和 kotlin-stdlib-jdk8 已经被合并为一个依赖项 kotlin-stdlib
     // 即使使用的是Java编写，不引用该库仍会报错
     constraints {
@@ -54,4 +58,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' // 提供了一些用于编写和运行 Android 用户界面测试的功能
     //以下是自加库
     implementation 'com.makeramen:roundedimageview:2.3.0' //圆角图片库
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'androidx.media3:media3-datasource-okhttp:1.0.0-beta03'
 }
