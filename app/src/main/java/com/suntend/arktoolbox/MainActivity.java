@@ -4,18 +4,25 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper;
+import com.suntend.arktoolbox.database.bean.ToolCategoryBean;
+import com.suntend.arktoolbox.database.bean.ToolInfoBean;
+import com.suntend.arktoolbox.fragment.toolbox.ToolBoxFragment;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,11 +40,18 @@ public class MainActivity extends AppCompatActivity {
 
         // 创建Fragment实例
         ArkToolBoxFragment fragmentArkToolBox = new ArkToolBoxFragment();
+        ToolBoxFragment fragment = new ToolBoxFragment();
 
         // 使用FragmentManager将Fragment添加到FrameLayout中
         fragmentManager.beginTransaction()
-                .add(R.id.fragment_controller, fragmentArkToolBox)
+                .add(R.id.fragment_controller, fragment)
                 .commit();
+
+        ArkToolDatabaseHelper helper = ArkToolDatabaseHelper.getInstance(this);
+        helper.openReadLink();
+        List<ToolCategoryBean> list = helper.queryToolCategory("1=1");
+        List<ToolInfoBean> list1 = helper.queryToolInfo("1=1");
+        int i = 1;
     }
 
     // 设置侧边栏操作
@@ -57,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
             currentStatus = Settings_Preferences.getInt("AutoUpdate", 0);
             toolboxCheck(currentStatus, Drawer_Settings_AutoUpdate_Layout, Drawer_Settings_AutoUpdate_Text, Drawer_Settings_AutoUpdate_Status);
             Log.e("S", "AutoUpdate=" + Settings_Preferences.getInt("AutoUpdate", 0));
+        });
+
+        SwitchMaterial checkbox = findViewById(R.id.checkbox);
+        checkbox.setOnClickListener(view -> {
+            if (checkbox.isChecked())
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         });
     }
 
@@ -78,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         text.setTextColor(colorText);
         statusText.setText(statusResource);
     }
+
     public void openDrawer() {
         // 找到 DrawerLayout 和自定义的侧滑栏布局
         DrawerLayout = findViewById(R.id.drawer_layout);
