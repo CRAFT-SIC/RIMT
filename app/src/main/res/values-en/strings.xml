@@ -5,11 +5,12 @@
     <string name="general_on">On</string>
     <string name="general_off">Off</string>
 
-    <!-- User related strings -->
+    <!-- Drawer User strings -->
+    <string name="drawer_user_login">Login</string>
     <string name="drawer_user_name">JamXi</string>
     <string name="drawer_feedback">Feedback</string>
 
-    <!-- Account related strings -->
+    <!-- Drawer Account strings -->
     <string name="drawer_account_name">JamXi #1</string>
     <string name="drawer_unbind">Unbind</string>
 
@@ -20,8 +21,15 @@
     <!-- Toolbox settings strings -->
     <string name="drawer_settings_display_system">Display·Auto</string>
     <string name="drawer_settings_display_mode">Display Mode</string>
-
     <string name="drawer_settings_shareholder">Shareholder</string>
     <string name="drawer_settings_autoupdate">AutoUpdateCheck</string>
+
+    <!-- Login strings -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Log In</string>
+    <string name="test_account">Test Account</string>
+    <string name="login_waiting">Waiting for action</string>
+    <string name="jsg_llc_craft">*Can be logged in with JSG-LLC or CRAFT account</string>
 
 </resources>

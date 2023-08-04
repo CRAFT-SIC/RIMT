@@ -11,6 +11,7 @@
         <item name="black">@color/black</item>
         <item name="white">@color/white</item>
 
+        <item name="general_background_color">@color/white</item>
         <item name="general_text_color">@color/general_text_color_day</item>
         <item name="general_secondery_text_color">@color/general_secondery_text_color_day</item>
 
@@ -40,9 +41,21 @@
         <item name="drawer_settings_display_system">@drawable/drawer_settings_display_system_day</item>
         <item name="drawer_settings_shareholder">@drawable/drawer_settings_shareholder_day</item>
 
+        <item name="nav_about_sel">@drawable/nav_about_sel_day</item>
+        <item name="nav_about_unsel">@drawable/nav_about_unsel_day</item>
+        <item name="nav_ark_sel">@drawable/nav_ark_sel_day</item>
+        <item name="nav_ark_unsel">@drawable/nav_ark_unsel_day</item>
+        <item name="nav_container_sel">@drawable/nav_container_sel_day</item>
+        <item name="nav_container_unsel">@drawable/nav_container_unsel_day</item>
+        <item name="nav_flarum_sel">@drawable/nav_flarum_sel_day</item>
+        <item name="nav_flarum_unsel">@drawable/nav_flarum_unsel_day</item>
+        <item name="nav_home_sel">@drawable/nav_home_sel_day_2</item>
+        <item name="nav_home_unsel">@drawable/nav_home_unsel_day</item>
+        <item name="nav_sel_bottom">@drawable/nav_sel_bottom_day</item>
+
+        <item name="login_image">@drawable/login_image_day</item>
 
         <item name="fragment_nav">@drawable/fragment_nav_day</item>
-
 
     </style>
 

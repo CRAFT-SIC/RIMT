@@ -22,10 +22,7 @@
                 android:layout_height="24dp"
                 android:src="?attr/fragment_nav"/>
 
-
-
         </LinearLayout>
-
 
     </LinearLayout>
 
