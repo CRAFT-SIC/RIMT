@@ -1,33 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/img_tool_open_nav"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="?attr/fragment_nav" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical">
+            android:layout_centerInParent="true"
+            android:text="@string/drawer_toolbox_name"
+            android:textColor="?attr/general_text_color"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/img_tool_open_nav"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="?attr/fragment_nav" />
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="明日方舟 工具箱5.0"
-                android:textColor="?attr/general_text_color" />
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_toolbox"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:background="?attr/bg_search_view"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@android:color/transparent"
+        app:queryHint="输入搜索内容"
+        app:showAsAction="ifRoom|collapseActionView" />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
 
-        </RelativeLayout>
-    </LinearLayout>
-</FrameLayout>
+        <com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView
+            android:id="@+id/spinner_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:dropDownVerticalOffset="40dp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:button="?attr/img_checkbox_follow"
+            android:text="@string/checkbox_follow_text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="10dp"
+            android:background="?attr/color_simple_divider" />
+    </RelativeLayout>
+</LinearLayout>

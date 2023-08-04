@@ -32,4 +32,14 @@
     <string name="login_waiting">等待操作</string>
     <string name="jsg_llc_craft">*JSG-LLC与CRAFT账号均可登录</string>
 
+    <string name="checkbox_follow_text">只看收藏</string>
+
+    <string-array name="subjects">
+        <item>安卓开发</item>
+        <item>Web开发</item>
+        <item>数据结构</item>
+        <item>网络技术</item>
+        <item>Python编程</item>
+        <item>形势与政策</item>
+    </string-array>
 </resources>

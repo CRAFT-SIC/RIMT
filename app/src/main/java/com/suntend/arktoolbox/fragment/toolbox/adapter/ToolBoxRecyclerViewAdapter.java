@@ -1,4 +1,4 @@
-package com.suntend.arktoolbox.fragment.toolbox;
+package com.suntend.arktoolbox.fragment.toolbox.adapter;
 
 import androidx.recyclerview.widget.RecyclerView;
 

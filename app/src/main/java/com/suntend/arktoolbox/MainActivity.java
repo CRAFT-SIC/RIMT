@@ -16,6 +16,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -35,6 +36,7 @@ import com.suntend.arktoolbox.database.bean.ToolInfoBean;
 import com.suntend.arktoolbox.fragment.toolbox.ToolBoxFragment;
 
 import java.util.List;
+
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -98,16 +100,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction()
                 .add(R.id.fragment_controller, fragment)
                 .commit();
-
-        ArkToolDatabaseHelper helper = ArkToolDatabaseHelper.getInstance(this);
-        helper.openReadLink();
-        List<ToolCategoryBean> list = helper.queryToolCategory("1=1");
-        List<ToolInfoBean> list1 = helper.queryToolInfo("1=1");
-        int i = 1;
     }
 
     // 设置游戏列表
-    private void InitGameList(){
+    private void InitGameList() {
         drawerGames = new LinearLayout[]{findViewById(R.id.drawer_games_arktoolbox), findViewById(R.id.drawer_games_genshin)};
         drawerGamesSel = new ImageView[]{findViewById(R.id.drawer_games_arktoolbox_sel), findViewById(R.id.drawer_games_genshin_sel)};
         gameList.add("L0-P1.明日方舟工具箱");
@@ -115,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 设置导航栏列表-暂时无作用
-    private void InitNavList(){
+    private void InitNavList() {
         navList.add("L0-P1.首页");
         navList.add("L1-P2.论坛");
         navList.add("L2-P3.未知");
@@ -124,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 设置导航栏
-    private void InitNavController(){
+    private void InitNavController() {
         navHome = findViewById(R.id.nav_home);
         navFlarum = findViewById(R.id.nav_flarum);
         navContainer = findViewById(R.id.nav_container);
@@ -171,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                     theme.resolveAttribute(selAttributeResIds[index], typedValue, true);
                     imageViews[index].setImageResource(typedValue.resourceId);
                     dataExchange.setNavSelected(index);
-                    RIMTUtil.ShowToast(getApplicationContext(),"游戏名:"+ gameList.get(dataExchange.getGameSelected())+"\n导航名:"+(navList.get(dataExchange.getNavSelected())));
+                    RIMTUtil.ShowToast(getApplicationContext(), "游戏名:" + gameList.get(dataExchange.getGameSelected()) + "\n导航名:" + (navList.get(dataExchange.getNavSelected())));
                     // 点击事件处理
                     switch (index) {
                         case 0:
@@ -195,15 +191,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void SetUser(){
+    private void SetUser() {
         ImageView drawer_user_avatar = findViewById(R.id.drawer_user_avatar);
         TextView drawer_user_username = findViewById(R.id.drawer_user_username);
-        if (getUser(getApplicationContext(),"isLogined").equals("1")) {
+        if (getUser(getApplicationContext(), "isLogined").equals("1")) {
             Bitmap Avatar = FileUtil.decodeSampleBitmapFromPath(FileUtil.getPackageDataDir(getApplicationContext()) + "/userdata/avatar.png", 128, 128);
             Glide.with(this).load(Avatar).into(drawer_user_avatar);
-            drawer_user_username.setText(getUser(getApplicationContext(),"displayname"));
-        }
-        else{
+            drawer_user_username.setText(getUser(getApplicationContext(), "displayname"));
+        } else {
             drawer_user_avatar.setImageDrawable(getDrawable(R.color.black));
             drawer_user_username.setText("登陆");
         }
@@ -224,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 给自动更新设置添加点击事件监听器
         Drawer_Settings_AutoUpdate_Layout.setOnClickListener(view -> {
-            if(dataExchange.getAutoUpdateStatus(getApplicationContext()) == 1){
+            if (dataExchange.getAutoUpdateStatus(getApplicationContext()) == 1) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("取消更新检测");
                 builder.setMessage("自动更新检测可以让您获得最新的 app 版本，您真的要取消吗？");
@@ -246,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
-            }else{
+            } else {
                 dataExchange.toggleAutoUpdate(getApplicationContext());
                 // 根据更新后的自动更新设置的值，重新设置相应的布局、文本和状态文本视图
                 toolboxCheck(dataExchange.getAutoUpdateStatus(getApplicationContext()), Drawer_Settings_AutoUpdate_Layout, Drawer_Settings_AutoUpdate_Text, Drawer_Settings_AutoUpdate_Status);
@@ -254,22 +249,29 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Drawer_User_Username.setOnClickListener(view -> {
-            if(!getUser(getApplicationContext(),"isLogined").equals("1")) {
+            if (!getUser(getApplicationContext(), "isLogined").equals("1")) {
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
             }
         });
 
         Drawer_User_Logout.setOnClickListener(view -> {
-            if(getUser(getApplicationContext(),"isLogined").equals("1")){
+            if (getUser(getApplicationContext(), "isLogined").equals("1")) {
                 FlarumUserUtil.Logout(getApplicationContext());
                 SetUser();
             }
         });
         gameSelect();
+
+        SwitchMaterial checkbox = findViewById(R.id.checkbox);
+        checkbox.setOnClickListener(view -> {
+            if (checkbox.isChecked())
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        });
     }
 
-    private void gameSelect(){
+    private void gameSelect() {
         View.OnClickListener gameClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -299,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
     private void handleGameClick(int clickedIndex) {
         // 添加点击事件代码
         dataExchange.setGameSelected(clickedIndex);
-        RIMTUtil.ShowToast(getApplicationContext(),"游戏名:"+ gameList.get(dataExchange.getGameSelected())+"\n导航名:"+(navList.get(dataExchange.getNavSelected())));
+        RIMTUtil.ShowToast(getApplicationContext(), "游戏名:" + gameList.get(dataExchange.getGameSelected()) + "\n导航名:" + (navList.get(dataExchange.getNavSelected())));
     }
 
     // 设置工具箱的开关颜色

@@ -61,7 +61,7 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * 只有初次创建数据库文件时调用,卸载或清空APP数据后再安装也会调用
+     * 只有初次创建数据库文件时调用,卸载再安装或清空APP数据后也会调用
      *
      * @param db 数据库对象
      */
@@ -156,6 +156,7 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
     public void initArkToolData() {
         //分类
         List<ToolCategoryBean> categoryList = new ArrayList<>();
+        categoryList.add(new ToolCategoryBean(0, "全部功能", 0));
         categoryList.add(new ToolCategoryBean(1, "A.D.T.G 开发组", 1));
         categoryList.add(new ToolCategoryBean(2, "PRTS-方舟wiki", 1));
         categoryList.add(new ToolCategoryBean(3, "企鹅物流", 1));

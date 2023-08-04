@@ -44,5 +44,13 @@
     <color name="drawer_toolbox_unchecked_text_color_night">#424353</color>
     <color name="drawer_toolbox_checked_status_color_night">#BDBDBD</color>
     <color name="drawer_toolbox_unchecked_status_color_night">#BDBDBD</color>
-
+    <color name="color_bg_search_view_night">#414453</color>
+    <color name="color_divider_day">#F5F5F5</color>
+    <color name="color_divider_night">#3F3D49</color>
+    <color name="color_category_divider_day">#F43D28</color>
+    <color name="color_category_divider_night">#A1CC00</color>
+    <color name="color_category_select_day">#EC3C33</color>
+    <color name="color_category_select_night">#94B70B</color>
+    <color name="color_category_unselect_day">#7A7A7A</color>
+    <color name="color_category_unselect_night">#BDBBC5</color>
 </resources>

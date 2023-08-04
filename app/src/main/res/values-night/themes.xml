@@ -56,7 +56,13 @@
         <item name="login_image">@drawable/login_image_night</item>
 
         <item name="fragment_nav">@drawable/fragment_nav_night</item>
-
+        <item name="bg_search_view">@drawable/bg_search_view_night</item>
+        <item name="color_simple_divider">@color/color_divider_night</item>
+        <item name="color_category_divider">@color/color_category_divider_night</item>
+        <item name="color_category_select">@color/color_category_select_night</item>
+        <item name="color_category_unselect">@color/color_category_unselect_night</item>
+        <item name="img_category_list_open">@mipmap/icon_arrow_up_green</item>
+        <item name="img_category_list_close">@mipmap/icon_arrow_down_green</item>
+        <item name="img_checkbox_follow">@drawable/checkbox_follow_night</item>
     </style>
-
 </resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:paddingHorizontal="40dp">
+
+    <CheckedTextView
+        android:id="@+id/checked_text_select_item"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="测试填充文本" />
+
+    <ImageView
+        android:id="@+id/img_spinner_expansion"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="6dp"
+        android:layout_toEndOf="@id/checked_text_select_item"
+        android:src="@mipmap/icon_arrow_up_red" />
+
+    <View
+        android:id="@+id/divider_spinner_select"
+        android:layout_width="wrap_content"
+        android:layout_height="4dp"
+        android:layout_alignEnd="@+id/img_spinner_expansion"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/color_category_divider" />
+</RelativeLayout>

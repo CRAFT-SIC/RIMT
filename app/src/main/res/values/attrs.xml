@@ -46,5 +46,12 @@
     <attr name="login_image" format="reference" />
 
     <attr name="fragment_nav" format="reference|color" />
-
+    <attr name="bg_search_view" format="reference" />
+    <attr name="color_simple_divider" format="color" />
+    <attr name="color_category_divider" format="color" />
+    <attr name="color_category_select" format="color" />
+    <attr name="color_category_unselect" format="color" />
+    <attr name="img_category_list_open" format="reference" />
+    <attr name="img_category_list_close" format="reference" />
+    <attr name="img_checkbox_follow" format="reference" />
 </resources>

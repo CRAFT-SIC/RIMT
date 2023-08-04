@@ -56,7 +56,13 @@
         <item name="login_image">@drawable/login_image_day</item>
 
         <item name="fragment_nav">@drawable/fragment_nav_day</item>
-
+        <item name="bg_search_view">@drawable/bg_search_view_day</item>
+        <item name="color_simple_divider">@color/color_divider_day</item>
+        <item name="color_category_divider">@color/color_category_divider_day</item>
+        <item name="color_category_select">@color/color_category_select_day</item>
+        <item name="color_category_unselect">@color/color_category_unselect_day</item>
+        <item name="img_category_list_open">@mipmap/icon_arrow_up_red</item>
+        <item name="img_category_list_close">@mipmap/icon_arrow_down_red</item>
+        <item name="img_checkbox_follow">@drawable/checkbox_follow_day</item>
     </style>
-
 </resources>
