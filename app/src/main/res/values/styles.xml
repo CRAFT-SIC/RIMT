@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TransDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowFrame">@null</item><!-- 边框 -->
+        <item name="android:windowIsFloating">true</item><!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item><!-- 半透明 -->
+
+        <!-- 对话框弹出后，父窗体是否为全黑，需要跟backgroundDimEnabled配合使用 -->
+        <item name="android:backgroundDimAmount">0.6</item>
+
+    </style>
+</resources>

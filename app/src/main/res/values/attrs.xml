@@ -47,4 +47,28 @@
 
     <attr name="fragment_nav" format="reference|color" />
 
+    <!-- ark Label-->
+    <attr name="ark_label_general_text_color" format="color" />
+    <attr name="ark_label_tip_text_color" format="color" />
+    <attr name="ark_label_secondary_text_color" format="color" />
+    <attr name="ark_label_hint_text_color" format="color" />
+    <attr name="ark_label_accent_text_color" format="color" />
+
+    <attr name="ark_label_background_color" format="color" />
+    <attr name="ark_label_tip_background_color" format="color" />
+    <attr name="ark_label_card_background_color" format="color" />
+    <attr name="ark_label_divider_color" format="color" />
+
+    <attr name="icon_ark_label_input_clear" format="reference" />
+    <attr name="icon_ark_label_add" format="reference" />
+    <attr name="icon_ark_label_more_option" format="reference" />
+    <attr name="icon_ark_label_arrow_right" format="reference" />
+    <attr name="icon_ark_label_close" format="reference" />
+    <attr name="icon_ark_label_save_normal" format="reference" />
+    <attr name="icon_ark_label_save_success" format="reference" />
+
+
+    <!-- Platform Icons -->
+    <attr name="icon_platform_normal" format="reference" />
+    <attr name="icon_platform_facebook" format="reference" />
 </resources>

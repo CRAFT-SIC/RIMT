@@ -45,4 +45,29 @@
     <color name="drawer_toolbox_checked_status_color_night">#BDBDBD</color>
     <color name="drawer_toolbox_unchecked_status_color_night">#BDBDBD</color>
 
+    <!-- Label -->
+    <!-- Day -->
+    <color name="ark_label_general_text_color_day">#1A1A1A</color>
+    <color name="ark_label_tip_text_color_day">#767676</color>
+    <color name="ark_label_secondary_text_color_day">#AAAAAA</color>
+    <color name="ark_label_hint_text_color_day">#BDBDBD</color>
+    <color name="ark_label_accent_text_color_day">#FF644C</color>
+
+    <color name="ark_label_background_color_day">#F6F6F6</color>
+    <color name="ark_label_tip_background_color_day">#E8E8E8</color>
+    <color name="ark_label_card_background_color_day">#FFFFFF</color>
+    <color name="ark_label_divider_color_day">#D8D8D8</color>
+
+    <!-- Day -->
+    <color name="ark_label_general_text_color_night">#FFFFFF</color>
+    <color name="ark_label_tip_text_color_night">#BDBDBD</color>
+    <color name="ark_label_secondary_text_color_night">#AAAAAA</color>
+    <color name="ark_label_hint_text_color_night">#BDBDBD</color>
+    <color name="ark_label_accent_text_color_night">#9BCE00</color>
+
+    <color name="ark_label_background_color_night">#1E1B28</color>
+    <color name="ark_label_tip_background_color_night">#424353</color>
+    <color name="ark_label_card_background_color_night">#424353</color>
+    <color name="ark_label_divider_color_night">#1A1A1A</color>
+
 </resources>

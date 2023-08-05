@@ -53,6 +53,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // 提供了一种灵活的布局方式
     implementation 'androidx.navigation:navigation-fragment:2.6.0' // 提供了一种简单的方式来实现Android应用程序中的导航
     implementation 'androidx.navigation:navigation-ui:2.6.0' // 提供了一些控件，用于与 Navigation 组件一起使用
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
     testImplementation 'junit:junit:4.13.2' // 提供了一些用于编写和运行Android应用程序测试的功能
     androidTestImplementation 'androidx.test.ext:junit:1.1.5' // 提供了一些用于编写和运行Android测试的功能
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' // 提供了一些用于编写和运行 Android 用户界面测试的功能
@@ -63,4 +64,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'androidx.palette:palette:1.0.0'
     implementation 'androidx.media3:media3-datasource-okhttp:1.0.0-beta03'
+
 }

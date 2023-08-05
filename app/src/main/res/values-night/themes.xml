@@ -57,6 +57,30 @@
 
         <item name="fragment_nav">@drawable/fragment_nav_night</item>
 
+        <!--ark Label-->
+        <item name="ark_label_general_text_color">@color/ark_label_general_text_color_night</item>
+        <item name="ark_label_tip_text_color">@color/ark_label_tip_text_color_night</item>
+        <item name="ark_label_secondary_text_color">@color/ark_label_secondary_text_color_night</item>
+        <item name="ark_label_hint_text_color">@color/ark_label_hint_text_color_night</item>
+        <item name="ark_label_accent_text_color">@color/ark_label_accent_text_color_night</item>
+
+        <item name="ark_label_background_color">@color/ark_label_background_color_night</item>
+        <item name="ark_label_tip_background_color">@color/ark_label_tip_background_color_night</item>
+        <item name="ark_label_card_background_color">@color/ark_label_card_background_color_night</item>
+        <item name="ark_label_divider_color">@color/ark_label_divider_color_night</item>
+
+        <item name="icon_ark_label_add">@drawable/icon_ark_label_add_night</item>
+        <item name="icon_ark_label_more_option">@drawable/icon_ark_label_more_option_night</item>
+        <item name="icon_ark_label_arrow_right">@drawable/icon_ark_label_arrow_right_night</item>
+        <item name="icon_ark_label_close">@drawable/icon_ark_label_close_night</item>
+        <item name="icon_ark_label_input_clear">@drawable/icon_ark_label_input_clear_night</item>
+        <item name="icon_ark_label_save_normal">@drawable/icon_ark_label_save_normal_night</item>
+        <item name="icon_ark_label_save_success">@drawable/icon_ark_label_save_success_night</item>
+
+        <!-- Platform Icons -->
+        <item name="icon_platform_normal">@drawable/icon_platform_normal_night</item>
+        <item name="icon_platform_facebook">@drawable/icon_platform_facebook_night</item>
+
     </style>
 
 </resources>
