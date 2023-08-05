@@ -134,7 +134,7 @@ public class ToolBoxFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 searchContent = newText;
                 refreshRecyclerList();
-                return false;
+                return true;
             }
         });
         searchView.setOnQueryTextFocusChangeListener((view, b) -> {
@@ -188,7 +188,6 @@ public class ToolBoxFragment extends Fragment {
         });
         gridView.setOnItemClickListener((adapterView, view, i, l) -> {
             searchView.setQuery(girdAdapter.getItem(i), false);
-            searchView.clearFocus();
         });
     }
 
