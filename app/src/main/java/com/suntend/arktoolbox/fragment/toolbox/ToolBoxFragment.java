@@ -4,6 +4,7 @@ import static com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper.ATDG_
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -26,10 +28,12 @@ import com.suntend.arktoolbox.R;
 import com.suntend.arktoolbox.database.bean.ToolCategoryBean;
 import com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper;
 import com.suntend.arktoolbox.fragment.toolbox.adapter.CategoryArrayAdapter;
+import com.suntend.arktoolbox.fragment.toolbox.adapter.RecommendGirdAdapter;
 import com.suntend.arktoolbox.fragment.toolbox.adapter.ToolBoxRecyclerViewAdapter;
 import com.suntend.arktoolbox.fragment.toolbox.bean.ToolboxBean;
 import com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,10 +47,12 @@ public class ToolBoxFragment extends Fragment {
     private RecyclerView recyclerView;//主要列表
     private LinearLayout layoutMention, layoutRecommend;//提示页面与推荐功能
     private RelativeLayout layoutCategory;//推荐部分
+    private GridView gridView;//推荐列表和搜索历史
     private TextView textMention, textMentionButton, textRecommend;//提示页面的显示
     private ArkToolDatabaseHelper helper;//数据库辅助类
     private CategoryArrayAdapter categoryArrayAdapter;//分类列表适配器
     private ToolBoxRecyclerViewAdapter recyclerViewAdapter;
+    private RecommendGirdAdapter girdAdapter;
     private Context mContext;//上下文
     private Boolean followChecked = false;//记录是否选中仅查看收藏
     private String searchContent = "";//记录当前的搜索框内容
@@ -85,6 +91,7 @@ public class ToolBoxFragment extends Fragment {
         layoutRecommend = view.findViewById(R.id.linear_recommend);
         textRecommend = view.findViewById(R.id.text_recommend);
         imgToolboxDelete = view.findViewById(R.id.img_toolbox_delete);
+        gridView = view.findViewById(R.id.grid_view_recommend);
 
         //修改搜索栏字体大小
         EditText searchText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
@@ -98,6 +105,14 @@ public class ToolBoxFragment extends Fragment {
         recyclerViewAdapter = new ToolBoxRecyclerViewAdapter(mContext, beanList, helper);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.setAdapter(recyclerViewAdapter);
+        //加载推荐列表
+        List<String> gridList = new ArrayList<>();
+        gridList.add("抽卡分析");
+        gridList.add("敌人一览");
+        gridList.add("干员档案");
+        gridList.add("掉落汇总");
+        girdAdapter = new RecommendGirdAdapter(mContext, gridList);
+        gridView.setAdapter(girdAdapter);
     }
 
     private void initListener() {
@@ -121,6 +136,14 @@ public class ToolBoxFragment extends Fragment {
                 refreshRecyclerList();
                 return false;
             }
+        });
+        searchView.setOnQueryTextFocusChangeListener((view, b) -> {
+            //当搜索框被选中，显示推荐
+            layoutCategory.setVisibility(b ? View.GONE : View.VISIBLE);
+            recyclerView.setVisibility(b ? View.GONE : View.VISIBLE);
+            layoutMention.setVisibility(b ? View.GONE : (followChecked && recyclerViewAdapter.getItemCount() == 0 ? View.VISIBLE : View.GONE));
+            layoutRecommend.setVisibility(b ? View.VISIBLE : View.GONE);
+            gridView.setVisibility(b ? View.VISIBLE : View.GONE);
         });
         //打开关闭分类框监听
         spinner.setSpinnerPopStatusListener(new CustomSpinnerView.OnSpinnerPopStatusListener() {
@@ -160,8 +183,12 @@ public class ToolBoxFragment extends Fragment {
             if (categoryArrayAdapter.getSelectCategoryId() != ATDG_ID) {
                 checkBoxFollow.setChecked(false);
             } else {
-                //todo：去提需求的逻辑
+                //todo：去提需求的跳转逻辑
             }
+        });
+        gridView.setOnItemClickListener((adapterView, view, i, l) -> {
+            searchView.setQuery(girdAdapter.getItem(i), false);
+            searchView.clearFocus();
         });
     }
 
@@ -173,6 +200,9 @@ public class ToolBoxFragment extends Fragment {
         List<ToolboxBean> beanList = helper.queryToolBoxInfo(searchContent, followChecked, categoryArrayAdapter.getSelectCategoryId());
         recyclerViewAdapter.setNewData(beanList, searchContent);
 
+        layoutCategory.setVisibility(View.VISIBLE);
+        layoutRecommend.setVisibility(View.GONE);
+        gridView.setVisibility(View.GONE);
         //切换页面逻辑
         if (followChecked && beanList.size() == 0) {
             layoutMention.setVisibility(View.VISIBLE);

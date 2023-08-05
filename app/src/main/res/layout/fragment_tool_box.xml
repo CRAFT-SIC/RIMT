@@ -37,11 +37,11 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:background="?attr/bg_search_view"
+        app:closeIcon="@mipmap/icon_search_view_close"
         app:iconifiedByDefault="false"
         app:queryBackground="@android:color/transparent"
         app:queryHint="输入搜索内容"
-        app:searchIcon="@mipmap/icon_toolbox_search"
-        app:showAsAction="ifRoom|collapseActionView" />
+        app:searchIcon="@mipmap/icon_toolbox_search" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView
                 android:id="@+id/spinner_category"
@@ -92,7 +92,7 @@
             android:orientation="horizontal"
             android:paddingStart="40dp"
             android:paddingEnd="16dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/text_recommend"
@@ -107,7 +107,8 @@
                 android:layout_width="36dp"
                 android:layout_height="40dp"
                 android:padding="10dp"
-                android:src="@mipmap/icon_delete_box" />
+                android:src="@mipmap/icon_delete_box"
+                android:visibility="gone" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -119,8 +120,21 @@
             android:id="@+id/recycle_view_tool_box"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layoutManager="LinearLayoutManager" />
+
+        <GridView
+            android:id="@+id/grid_view_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="3"
+            android:paddingHorizontal="10dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/linear_mention"

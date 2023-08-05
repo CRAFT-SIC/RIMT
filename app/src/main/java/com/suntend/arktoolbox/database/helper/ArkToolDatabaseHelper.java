@@ -77,9 +77,9 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
         dropSql = "drop table if exists " + TABLE_TOOL_INFO + ";";
         Log.d(TAG, "dropSql = " + dropSql);
         db.execSQL(dropSql);
-        dropSql = "drop table if exists " + TABLE_SEARCH_HISTORY + ";";
+        /*dropSql = "drop table if exists " + TABLE_SEARCH_HISTORY + ";";
         Log.d(TAG, "dropSql = " + dropSql);
-        db.execSQL(dropSql);
+        db.execSQL(dropSql);*/
 
         // 新建表
         String createQql = "create table if not exists " + TABLE_TOOL_CATEGORY + " ("
@@ -103,13 +103,13 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
         Log.d(TAG, "createQql = " + createQql);
         db.execSQL(createQql);
 
-        createQql = "create table if not exists " + TABLE_SEARCH_HISTORY + " ("
+        /*createQql = "create table if not exists " + TABLE_SEARCH_HISTORY + " ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," //主键
                 + "search_content text," //搜索内容
                 + "create_time text" //时间戳(yyyy-MM-dd HH:mm:ss)
                 + ");";
         Log.d(TAG, "createQql = " + createQql);
-        db.execSQL(createQql);
+        db.execSQL(createQql);*/
 
         // 初始化插入数据
         initArkToolData();
