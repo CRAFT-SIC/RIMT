@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".fragment.toolbox.ToolBoxFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,35 +40,115 @@
         app:iconifiedByDefault="false"
         app:queryBackground="@android:color/transparent"
         app:queryHint="输入搜索内容"
+        app:searchIcon="@mipmap/icon_toolbox_search"
         app:showAsAction="ifRoom|collapseActionView" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:gravity="center_vertical">
 
-        <com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView
-            android:id="@+id/spinner_category"
+        <RelativeLayout
+            android:id="@+id/relative_category"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@null"
-            android:dropDownVerticalOffset="40dp" />
+            android:gravity="center_vertical"
+            android:visibility="gone">
 
-        <CheckBox
-            android:id="@+id/checkbox_follow"
+            <com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView
+                android:id="@+id/spinner_category"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:dropDownVerticalOffset="40dp"
+                android:popupBackground="@drawable/bg_spinner_round" />
+
+            <CheckBox
+                android:id="@+id/checkbox_follow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:button="@null"
+                android:drawableStart="?attr/img_checkbox_follow"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="5dp"
+                android:text="@string/checkbox_follow_text"
+                android:textColor="?attr/color_checkbox_text_unselect" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="10dp"
+                android:background="?attr/color_simple_divider" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingStart="40dp"
+            android:paddingEnd="16dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/text_recommend"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="推荐功能" />
+
+            <ImageView
+                android:id="@+id/img_toolbox_delete"
+                android:layout_width="36dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:src="@mipmap/icon_delete_box" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view_tool_box"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layoutManager="LinearLayoutManager" />
+
+        <LinearLayout
+            android:id="@+id/linear_mention"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:button="?attr/img_checkbox_follow"
-            android:text="@string/checkbox_follow_text" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginHorizontal="10dp"
-            android:background="?attr/color_simple_divider" />
+            <TextView
+                android:id="@+id/text_toolbox_mention"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text_toolbox_mention_follow"
+                android:textColor="?attr/color_toolbox_mention_text" />
+
+            <TextView
+                android:id="@+id/text_toolbox_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_toolbox_mention_button"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="5dp"
+                android:text="@string/text_toolbox_button_mention_follow"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

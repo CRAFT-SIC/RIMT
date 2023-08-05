@@ -23,7 +23,7 @@ import java.util.List;
 public class CategoryArrayAdapter extends ArrayAdapter<String> {
     private final Context mContext;
     private final List<ToolCategoryBean> categoryList;
-    private Integer selectCategoryId = 0;//当前选择项的id
+    private Integer selectCategoryId = -1;//当前选择项的id
     private Boolean openStatus = false;
 
     public CategoryArrayAdapter(Context context, List<ToolCategoryBean> list, String[] s) {
@@ -43,16 +43,14 @@ public class CategoryArrayAdapter extends ArrayAdapter<String> {
         }
         ToolCategoryBean bean = categoryList.get(position);
 
-        TextView tv = (TextView) convertView.findViewById(R.id.checked_text_dropdown_item);
+        TextView tv = convertView.findViewById(R.id.checked_text_dropdown_item);
         tv.setText(bean.getCategoryName());
         //修改文字颜色
-        TypedValue select = new TypedValue();
-        mContext.getTheme().resolveAttribute(R.attr.color_category_select, select, true);
-        TypedValue unselect = new TypedValue();
-        mContext.getTheme().resolveAttribute(R.attr.color_category_unselect, unselect, true);
-        tv.setTextColor(
+        TypedValue color = new TypedValue();
+        mContext.getTheme().resolveAttribute(
                 bean.getCategoryId().equals(selectCategoryId) ?
-                        mContext.getColor(select.resourceId) : mContext.getColor(unselect.resourceId));
+                        R.attr.color_category_select : R.attr.color_category_unselect, color, true);
+        tv.setTextColor(mContext.getColor(color.resourceId));
         return convertView;
     }
 
@@ -69,18 +67,15 @@ public class CategoryArrayAdapter extends ArrayAdapter<String> {
         ToolCategoryBean bean = categoryList.get(position);
         selectCategoryId = bean.getCategoryId();
 
-        TextView tv = (TextView) convertView.findViewById(R.id.checked_text_select_item);
+        TextView tv = convertView.findViewById(R.id.checked_text_select_item);
         tv.setText(bean.getCategoryName());
         convertView.findViewById(R.id.divider_spinner_select)
                 .setVisibility(bean.getCategoryId() == 0 ? View.INVISIBLE : View.VISIBLE);
         //设置图标
         ImageView img = convertView.findViewById(R.id.img_spinner_expansion);
-        TypedValue open = new TypedValue();
-        mContext.getTheme().resolveAttribute(R.attr.img_category_list_open, open, true);
-        TypedValue close = new TypedValue();
-        mContext.getTheme().resolveAttribute(R.attr.img_category_list_close, close, true);
-        img.setImageDrawable(openStatus ? ContextCompat.getDrawable(mContext, open.resourceId)
-                : ContextCompat.getDrawable(mContext, close.resourceId));
+        TypedValue drawable = new TypedValue();
+        mContext.getTheme().resolveAttribute(openStatus ? R.attr.img_category_list_open : R.attr.img_category_list_close, drawable, true);
+        img.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
         return convertView;
     }
 
@@ -90,5 +85,14 @@ public class CategoryArrayAdapter extends ArrayAdapter<String> {
     public void updateTriangleImg(Boolean openStatus) {
         this.openStatus = openStatus;
         this.notifyDataSetChanged();
+    }
+
+    /**
+     * 获取当前选中的分类id
+     *
+     * @return 分类id
+     */
+    public Integer getSelectCategoryId() {
+        return this.selectCategoryId;
     }
 }

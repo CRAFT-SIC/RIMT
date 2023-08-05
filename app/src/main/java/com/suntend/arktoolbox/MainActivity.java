@@ -13,10 +13,12 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -89,11 +91,13 @@ public class MainActivity extends AppCompatActivity {
         // 调用设置侧边栏的方法
         SetDrawer();
 
+        //避免切换显示模式后fragment多次创建
+        if (savedInstanceState != null) return;
+
         // 获取FragmentManager
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         // 创建Fragment实例
-        ArkToolBoxFragment fragmentArkToolBox = new ArkToolBoxFragment();
         ToolBoxFragment fragment = new ToolBoxFragment();
 
         // 使用FragmentManager将Fragment添加到FrameLayout中

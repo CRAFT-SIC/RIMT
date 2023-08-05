@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.suntend.arktoolbox.database.bean.ToolCategoryBean;
 import com.suntend.arktoolbox.database.bean.ToolInfoBean;
+import com.suntend.arktoolbox.fragment.toolbox.bean.ToolboxBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "ArkToolDatabaseHelper";//log标签
     private static final String DB_NAME = "arkToolDB.db";//数据库文件名
     private static final int DB_VERSION = 1;//当前数据库版本号
+    public static final int ATDG_ID = 1;//ATDG的分类id，用于显示判断所有固定
     private static ArkToolDatabaseHelper mHelper = null;//单例
     private SQLiteDatabase mDB = null;//数据库对象
     private static final String TABLE_TOOL_CATEGORY = "tool_category";//工具分类表
@@ -156,45 +158,45 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
     public void initArkToolData() {
         //分类
         List<ToolCategoryBean> categoryList = new ArrayList<>();
-        categoryList.add(new ToolCategoryBean(0, "全部功能", 0));
-        categoryList.add(new ToolCategoryBean(1, "A.D.T.G 开发组", 1));
-        categoryList.add(new ToolCategoryBean(2, "PRTS-方舟wiki", 1));
-        categoryList.add(new ToolCategoryBean(3, "企鹅物流", 1));
-        categoryList.add(new ToolCategoryBean(4, "泰拉通讯地址", 1));
+        categoryList.add(new ToolCategoryBean(-1, "全部功能", 0));
+        categoryList.add(new ToolCategoryBean(ATDG_ID, "A.D.T.G 开发组", 1));
+        categoryList.add(new ToolCategoryBean(2, "PRTS-方舟wiki", 2));
+        categoryList.add(new ToolCategoryBean(3, "企鹅物流", 3));
+        categoryList.add(new ToolCategoryBean(4, "泰拉通讯地址", 4));
         insertCategory(categoryList);
         //详情
         List<ToolInfoBean> infoList = new ArrayList<>();
         infoList.add(new ToolInfoBean(1, "抽卡分析", 1,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 1));
+                "icon_glory_path", "www.baidu.com", false, 1));
         infoList.add(new ToolInfoBean(2, "干员一览", 1,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 2));
+                "icon_glory_path", "www.baidu.com", false, 2));
         infoList.add(new ToolInfoBean(3, "时装回廊", 1,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 3));
+                "icon_glory_path", "www.baidu.com", false, 3));
         infoList.add(new ToolInfoBean(4, "敌人一览", 1,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 4));
+                "icon_glory_path", "www.baidu.com", false, 4));
         infoList.add(new ToolInfoBean(5, "资源规划", 2,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 5));
+                "icon_glory_path", "www.baidu.com", false, 5));
 
-        infoList.add(new ToolInfoBean(6, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 6));
-        infoList.add(new ToolInfoBean(7, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 7));
-        infoList.add(new ToolInfoBean(8, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", true, 8));
+        infoList.add(new ToolInfoBean(6, "资源规划xxxxx", 3,
+                "icon_glory_path", "www.baidu.com", false, 6));
+        infoList.add(new ToolInfoBean(7, "资源规划sssss", 3,
+                "icon_glory_path", "www.baidu.com", false, 7));
+        infoList.add(new ToolInfoBean(8, "资源规划wwwww", 3,
+                "icon_glory_path", "www.baidu.com", true, 8));
         infoList.add(new ToolInfoBean(9, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 9));
+                "icon_glory_path", "www.baidu.com", false, 9));
         infoList.add(new ToolInfoBean(10, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 10));
+                "icon_glory_path", "www.baidu.com", false, 10));
         infoList.add(new ToolInfoBean(11, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 11));
-        infoList.add(new ToolInfoBean(12, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 12));
+                "icon_glory_path", "www.baidu.com", false, 11));
+        infoList.add(new ToolInfoBean(12, "资源规划fffff", 3,
+                "icon_glory_path", "www.baidu.com", false, 12));
         infoList.add(new ToolInfoBean(13, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 13));
+                "icon_glory_path", "www.baidu.com", false, 13));
         infoList.add(new ToolInfoBean(14, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 14));
+                "icon_glory_path", "www.baidu.com", false, 14));
         infoList.add(new ToolInfoBean(15, "资源规划", 3,
-                "R.mipmap.ic_launcher", "www.baidu.com", false, 15));
+                "icon_glory_path", "www.baidu.com", false, 15));
         insertToolInfo(infoList);
     }
 
@@ -252,5 +254,67 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return result;
+    }
+
+    /**
+     * 条件查询工具箱列表数据
+     *
+     * @param searchText 搜索内容(包含分类名称，模糊查询)
+     * @param onlyFollow 查询仅收藏(false则查全部)
+     * @param categoryId 查询具体分类下数据(-1查全部)
+     * @return 列表数据
+     */
+    public List<ToolboxBean> queryToolBoxInfo(String searchText, Boolean onlyFollow, Integer categoryId) {
+        String sql = "select info.category_id,category_name,info_id,info_name,icon,address_url,follow,info.order_id,category.order_id from " + TABLE_TOOL_INFO + " as info" +
+                " inner join " + TABLE_TOOL_CATEGORY + " as category on info.category_id = category.category_id where 1=1 " +
+                (searchText.equals("") ? "" : " and (info.info_name like '%" + searchText + "%' or category.category_name like '%" + searchText + "%')") +
+                (onlyFollow ? " and info.follow == 1" : "") +
+                (categoryId == -1 ? "" : " and info.category_id = " + categoryId) +
+                " order by category.order_id,follow desc,info.order_id;";
+        Log.d(TAG, "query sql: " + sql);
+        List<ToolboxBean> result = new ArrayList<>();
+        List<Integer> categoryIds = new ArrayList<>();//记录分类标签id
+        // 获得游标对象
+        Cursor cursor = mDB.rawQuery(sql, null);
+        if (cursor.moveToFirst()) {
+            for (; ; cursor.moveToNext()) {
+                Integer tempCategoryId = cursor.getInt(0);
+                String categoryName = cursor.getString(1);
+                Integer infoId = cursor.getInt(2);
+                String name = cursor.getString(3);
+                String icon = cursor.getString(4);
+                String addressUrl = cursor.getString(5);
+                Boolean follow = cursor.getInt(6) == 1;
+                Integer orderId = cursor.getInt(7);
+                if (!categoryIds.contains(tempCategoryId) && categoryId == -1) {
+                    //添加分类标签
+                    categoryIds.add(tempCategoryId);
+                    ToolboxBean bean = new ToolboxBean(tempCategoryId, categoryName, ToolboxBean.ToolInfoType.TYPE_CATEGORY);
+                    result.add(bean);
+                }
+                ToolboxBean bean = new ToolboxBean(infoId, tempCategoryId, name, icon, addressUrl, follow, orderId, ToolboxBean.ToolInfoType.TYPE_INFO);
+                result.add(bean);
+                if (cursor.isLast()) break;
+            }
+        }
+        //添加底部提示
+        if (result.size() != 0) {
+            ToolboxBean bean = new ToolboxBean(-10, "已经到底了", ToolboxBean.ToolInfoType.TYPE_BOTTOM);
+            result.add(bean);
+        }
+        cursor.close();
+        return result;
+    }
+
+    /**
+     * 更新收藏状态
+     *
+     * @param infoId   对象id
+     * @param ifFollow true:收藏，false:取消收藏
+     */
+    public void updateFollowStatus(Integer infoId, Boolean ifFollow) {
+        ContentValues values = new ContentValues();
+        values.put("follow", ifFollow ? 1 : 0);
+        mDB.update(TABLE_TOOL_INFO, values, "info_id = ?", new String[]{String.valueOf(infoId)});
     }
 }

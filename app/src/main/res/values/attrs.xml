@@ -54,4 +54,14 @@
     <attr name="img_category_list_open" format="reference" />
     <attr name="img_category_list_close" format="reference" />
     <attr name="img_checkbox_follow" format="reference" />
+    <attr name="color_checkbox_text_select" format="color" />
+    <attr name="color_checkbox_text_unselect" format="color" />
+    <attr name="color_list_icon_bg" format="color" />
+    <attr name="color_list_icon_bg_stroke" format="color" />
+    <attr name="color_search_text_highlight" format="color" />
+    <attr name="color_spinner_bg" format="color" />
+    <attr name="img_follow_cant_check" format="reference" />
+    <attr name="img_follow_checked" format="reference" />
+    <attr name="img_follow_unchecked" format="reference" />
+    <attr name="color_toolbox_mention_text" format="color" />
 </resources>

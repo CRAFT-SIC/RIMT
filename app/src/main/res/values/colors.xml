@@ -51,6 +51,20 @@
     <color name="color_category_divider_night">#A1CC00</color>
     <color name="color_category_select_day">#EC3C33</color>
     <color name="color_category_select_night">#94B70B</color>
-    <color name="color_category_unselect_day">#7A7A7A</color>
+    <color name="color_category_unselect_day">#767676</color>
     <color name="color_category_unselect_night">#BDBBC5</color>
+    <color name="color_checkbox_text_select_day">#F43D2B</color>
+    <color name="color_checkbox_text_unselect_day">#C5C5C5</color>
+    <color name="color_checkbox_text_select_night">#95C700</color>
+    <color name="color_checkbox_text_unselect_night">#B9B8BF</color>
+    <color name="color_list_icon_bg_day">#F7F7F7</color>
+    <color name="color_list_icon_bg_night">#BDBDBD</color>
+    <color name="color_list_icon_bg_stroke_day">#E6E6E6</color>
+    <color name="color_list_icon_bg_stroke_night">#727273</color>
+    <color name="color_search_text_highlight_day">#F63E2F</color>
+    <color name="color_search_text_highlight_night">#9DCF00</color>
+    <color name="color_spinner_bg_day">#FFFFFF</color>
+    <color name="color_spinner_bg_night">#1D1B27</color>
+    <color name="color_toolbox_mention_text_day">#BABABA</color>
+    <color name="color_toolbox_mention_text_night">#BBB9C3</color>
 </resources>
