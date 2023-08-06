@@ -37,4 +37,6 @@
     <string name="text_toolbox_button_mention_follow">go add</string>
     <string name="text_toolbox_mention_advice">no function you want？</string>
     <string name="text_toolbox_button_mention_advice">go advice</string>
+    <string name="text_toolbox_title">Arknights Toolbox5.0</string>
+    <string name="text_toolbox_search">Toolbox5.0 Search</string>
 </resources>

@@ -21,7 +21,7 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "ArkToolDatabaseHelper";//log标签
     private static final String DB_NAME = "arkToolDB.db";//数据库文件名
     private static final int DB_VERSION = 1;//当前数据库版本号
-    public static final int ATDG_ID = 1;//ATDG的分类id，用于显示判断所有固定
+    public static final int ATDG_ID = 1;//ATDG的分类id，用于显示判断所以固定
     private static ArkToolDatabaseHelper mHelper = null;//单例
     private SQLiteDatabase mDB = null;//数据库对象
     private static final String TABLE_TOOL_CATEGORY = "tool_category";//工具分类表
@@ -159,44 +159,25 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
         //分类
         List<ToolCategoryBean> categoryList = new ArrayList<>();
         categoryList.add(new ToolCategoryBean(-1, "全部功能", 0));
-        categoryList.add(new ToolCategoryBean(ATDG_ID, "A.D.T.G 开发组", 1));
-        categoryList.add(new ToolCategoryBean(2, "PRTS-方舟wiki", 2));
+        categoryList.add(new ToolCategoryBean(ATDG_ID, "终端工具", 1));
+        categoryList.add(new ToolCategoryBean(2, "PRTS wiki", 2));
         categoryList.add(new ToolCategoryBean(3, "企鹅物流", 3));
-        categoryList.add(new ToolCategoryBean(4, "泰拉通讯地址", 4));
+        categoryList.add(new ToolCategoryBean(4, "方舟计算器", 4));
+        categoryList.add(new ToolCategoryBean(5, "其他", 5));
         insertCategory(categoryList);
         //详情
         List<ToolInfoBean> infoList = new ArrayList<>();
-        infoList.add(new ToolInfoBean(1, "抽卡分析", 1,
-                "icon_glory_path", "www.baidu.com", false, 1));
-        infoList.add(new ToolInfoBean(2, "干员一览", 1,
-                "icon_glory_path", "www.baidu.com", false, 2));
-        infoList.add(new ToolInfoBean(3, "时装回廊", 1,
-                "icon_glory_path", "www.baidu.com", false, 3));
-        infoList.add(new ToolInfoBean(4, "敌人一览", 1,
-                "icon_glory_path", "www.baidu.com", false, 4));
-        infoList.add(new ToolInfoBean(5, "资源规划", 2,
-                "icon_glory_path", "www.baidu.com", false, 5));
+        infoList.add(new ToolInfoBean(1, "", 1, "", "", false, 1));
+        infoList.add(new ToolInfoBean(2, "", 1, "", "", false, 2));
+        infoList.add(new ToolInfoBean(3, "", 1, "", "", false, 3));
+        infoList.add(new ToolInfoBean(4, "", 1, "", "", false, 4));
+        infoList.add(new ToolInfoBean(5, "", 1, "", "", false, 5));
+        infoList.add(new ToolInfoBean(6, "", 1, "", "", false, 6));
+        infoList.add(new ToolInfoBean(7, "", 1, "", "", false, 7));
+        infoList.add(new ToolInfoBean(8, "", 1, "", "", false, 8));
+        infoList.add(new ToolInfoBean(9, "", 1, "", "", false, 9));
 
-        infoList.add(new ToolInfoBean(6, "资源规划xxxxx", 3,
-                "icon_glory_path", "www.baidu.com", false, 6));
-        infoList.add(new ToolInfoBean(7, "资源规划sssss", 3,
-                "icon_glory_path", "www.baidu.com", false, 7));
-        infoList.add(new ToolInfoBean(8, "资源规划wwwww", 3,
-                "icon_glory_path", "www.baidu.com", true, 8));
-        infoList.add(new ToolInfoBean(9, "资源规划", 3,
-                "icon_glory_path", "www.baidu.com", false, 9));
-        infoList.add(new ToolInfoBean(10, "资源规划", 3,
-                "icon_glory_path", "www.baidu.com", false, 10));
-        infoList.add(new ToolInfoBean(11, "资源规划", 3,
-                "icon_glory_path", "www.baidu.com", false, 11));
-        infoList.add(new ToolInfoBean(12, "资源规划fffff", 3,
-                "icon_glory_path", "www.baidu.com", false, 12));
-        infoList.add(new ToolInfoBean(13, "资源规划", 3,
-                "icon_glory_path", "www.baidu.com", false, 13));
-        infoList.add(new ToolInfoBean(14, "资源规划", 3,
-                "icon_glory_path", "www.baidu.com", false, 14));
-        infoList.add(new ToolInfoBean(15, "资源规划", 3,
-                "icon_glory_path", "www.baidu.com", false, 15));
+
         insertToolInfo(infoList);
     }
 

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,13 +34,19 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     private String searchContent = "";//高亮匹配的字符串片段
     private Boolean followChecked = false;//外部是否点击了仅查看收藏
     private ArkToolDatabaseHelper helper;
+    private OnItemClickListener onItemClickListener;
 
-    public ToolBoxRecyclerViewAdapter(Context context, List<ToolboxBean> dataList, ArkToolDatabaseHelper helper) {
+    public ToolBoxRecyclerViewAdapter(Context context, List<ToolboxBean> dataList, ArkToolDatabaseHelper helper, OnItemClickListener onItemClickListener) {
         //初始化适配器
         this.mContext = context;
         this.dataList = dataList;
         this.helper = helper;
         this.imgResMap = new HashMap<>();
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemOnClick(View view, int position);
     }
 
     @NonNull
@@ -83,6 +90,7 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
                 imageResId = mContext.getResources().getIdentifier(bean.getIcon(), "mipmap", packageName);
                 imgResMap.put(bean.getIcon(), imageResId);
             }
+            ((ViewHolderInfo) holder).linearInfo.setOnClickListener(view -> onItemClickListener.onItemOnClick(view, position));
             ((ViewHolderInfo) holder).imgIcon.setImageDrawable(ContextCompat.getDrawable(mContext, imageResId));
             //关注按钮的显示逻辑
             ImageView checkFollow = ((ViewHolderInfo) holder).imgFollow;
@@ -125,6 +133,10 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         return dataList.size();
     }
 
+    public ToolboxBean getItemByPosition(int position) {
+        return dataList.get(position);
+    }
+
     public void setNewData(List<ToolboxBean> dataList, String searchContent) {
         this.dataList = dataList;
         this.searchContent = searchContent;
@@ -152,12 +164,14 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     public static class ViewHolderInfo extends RecyclerView.ViewHolder {
         public final ImageView imgIcon, imgFollow;
         public final TextView textInfoName;
+        public final LinearLayout linearInfo;
 
         public ViewHolderInfo(View view) {
             super(view);
             imgIcon = view.findViewById(R.id.img_tool_info_icon);
             imgFollow = view.findViewById(R.id.img_follow_check);
             textInfoName = view.findViewById(R.id.text_list_info_name);
+            linearInfo = view.findViewById(R.id.linear_toolbox_info);
         }
     }
 
