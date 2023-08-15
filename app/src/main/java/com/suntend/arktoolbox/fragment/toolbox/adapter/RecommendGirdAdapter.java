@@ -41,7 +41,7 @@ public class RecommendGirdAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View v, ViewGroup viewGroup) {
         v = inflater.inflate(R.layout.item_grid_recommend, null);
-        TextView tv = (TextView) v.findViewById(R.id.text_recommend_item);
+        TextView tv = v.findViewById(R.id.text_recommend_item);
         tv.setText(dataList.get(position));
         return v;
     }

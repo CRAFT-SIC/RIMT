@@ -63,6 +63,10 @@
     <attr name="img_follow_cant_check" format="reference" />
     <attr name="img_follow_checked" format="reference" />
     <attr name="img_follow_unchecked" format="reference" />
+    <attr name="img_follow_grid_checked" format="reference" />
+    <attr name="img_follow_grid_unchecked" format="reference" />
     <attr name="color_toolbox_mention_text" format="color" />
     <attr name="color_item_recommend_stroke" format="color" />
+    <attr name="img_icon_list" format="reference" />
+    <attr name="img_icon_grid" format="reference" />
 </resources>

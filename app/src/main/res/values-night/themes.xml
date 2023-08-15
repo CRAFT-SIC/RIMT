@@ -90,7 +90,11 @@
         <item name="img_follow_cant_check">@mipmap/icon_follow_cant_check_night</item>
         <item name="img_follow_checked">@mipmap/icon_follow_checked_night</item>
         <item name="img_follow_unchecked">@mipmap/icon_follow_unchecked_night</item>
+        <item name="img_follow_grid_checked">@mipmap/icon_follow_grid_checked_night</item>
+        <item name="img_follow_grid_unchecked">@mipmap/icon_follow_grid_unchecked_night</item>
         <item name="color_toolbox_mention_text">@color/color_toolbox_mention_text_night</item>
         <item name="color_item_recommend_stroke">@color/color_item_recommend_stroke_night</item>
+        <item name="img_icon_list">@mipmap/icon_list_night</item>
+        <item name="img_icon_grid">@mipmap/icon_grid_night</item>
     </style>
 </resources>

@@ -6,7 +6,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="5dp"
         android:paddingHorizontal="20dp">
 
         <View
@@ -24,6 +25,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:paddingHorizontal="8dp"
-            android:text="测试填充文本" />
+            android:text="测试填充文本"
+            android:textSize="18sp" />
     </RelativeLayout>
 </RelativeLayout>

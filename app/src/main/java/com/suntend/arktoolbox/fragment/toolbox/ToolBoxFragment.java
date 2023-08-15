@@ -1,9 +1,13 @@
 package com.suntend.arktoolbox.fragment.toolbox;
 
 import static com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper.ATDG_ID;
+import static com.suntend.arktoolbox.fragment.toolbox.bean.ToolboxBean.ToolInfoType.TYPE_INFO;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +25,7 @@ import android.widget.TextView;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,7 +47,7 @@ import java.util.List;
  * 工具箱页面的fragment
  */
 public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdapter.OnItemClickListener {
-    private ImageView openNav, imgToolboxDelete;//导航栏按钮,搜索历史删除
+    private ImageView openNav, imgListSwitch, imgToolboxDelete;//导航栏按钮,切换按钮,搜索历史删除
     private SearchView searchView;//搜索栏
     private CustomSpinnerView spinner;//分类下拉
     private CheckBox checkBoxFollow;//查看收藏按钮
@@ -60,6 +65,8 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     private Boolean followChecked = false;//记录是否选中仅查看收藏
     private String searchContent = "";//记录当前的搜索框内容
     private WebView webView;
+    public static final String LIST_TYPE_KEY = "tool_list_view_type";
+    private String listType;
 
     public ToolBoxFragment() {
     }
@@ -99,7 +106,13 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
         viewMask = view.findViewById(R.id.view_mask_transparent);
         webView = view.findViewById(R.id.webView_fragment_toolbox);
         textTitle = view.findViewById(R.id.text_toolbox_title);
+        imgListSwitch = view.findViewById(R.id.img_tool_list_switch);
 
+        //初始化切换按钮的图像资源
+        listType = helper.getConfigValue(LIST_TYPE_KEY);//初始化列表类型
+        TypedValue drawable = new TypedValue();
+        mContext.getTheme().resolveAttribute(listType.equals("list") ? R.attr.img_icon_grid : R.attr.img_icon_list, drawable, true);
+        imgListSwitch.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
         //修改搜索栏字体大小
         EditText searchText = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
         searchText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
@@ -108,10 +121,7 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
         categoryArrayAdapter = new CategoryArrayAdapter(mContext, categoryList, new String[categoryList.size()]);
         spinner.setAdapter(categoryArrayAdapter);
         //加载列表
-        List<ToolboxBean> beanList = helper.queryToolBoxInfo(searchContent, followChecked, -1);
-        recyclerViewAdapter = new ToolBoxRecyclerViewAdapter(mContext, beanList, helper, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        recyclerView.setAdapter(recyclerViewAdapter);
+        refreshRecyclerList();
         //加载推荐列表
         List<String> gridList = new ArrayList<>();
         gridList.add("抽卡分析");
@@ -133,6 +143,17 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
                 if (mainActivity != null)
                     mainActivity.openDrawer();
             }
+        });
+        //列表模式切换
+        imgListSwitch.setOnClickListener(view -> {
+            //先切换类型
+            listType = listType.equals("list") ? "grid" : "list";
+            helper.updateConfigKey(LIST_TYPE_KEY, listType);
+            //切换显示
+            TypedValue drawable = new TypedValue();
+            mContext.getTheme().resolveAttribute(listType.equals("list") ? R.attr.img_icon_grid : R.attr.img_icon_list, drawable, true);
+            imgListSwitch.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
+            refreshRecyclerList();
         });
         //搜索监听
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -222,10 +243,12 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     public void onItemOnClick(View view, int position) {
         //todo:打开网页的逻辑
         ToolboxBean bean = recyclerViewAdapter.getItemByPosition(position);
-        RIMTUtil.ShowToast(mContext, "正在前往网页");
+        RIMTUtil.ShowToast(mContext, "正在前往网页(待完善)");
         //webView.setVisibility(View.VISIBLE);
         //webView.loadUrl(bean.getAddressUrl());
-        webView.loadUrl(bean.getAddressUrl());
+        Uri uri = Uri.parse(bean.getAddressUrl());
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 
     /**
@@ -234,7 +257,34 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     private void refreshRecyclerList() {
         //刷新列表
         List<ToolboxBean> beanList = helper.queryToolBoxInfo(searchContent, followChecked, categoryArrayAdapter.getSelectCategoryId());
-        recyclerViewAdapter.setNewData(beanList, searchContent);
+        if (recyclerViewAdapter == null)
+            recyclerViewAdapter = new ToolBoxRecyclerViewAdapter(mContext, new ArrayList<>(), helper, this);
+        if (listType.equals("list")) {
+            //列表显示
+            recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+            //添加底部提示
+            if (beanList.size() != 0) {
+                ToolboxBean bean = new ToolboxBean(-10, "已经到底了", ToolboxBean.ToolInfoType.TYPE_BOTTOM);
+                beanList.add(bean);
+            }
+        } else {
+            //网格显示
+            List<Integer> singlePosition = new ArrayList<>();
+            for (int i = 0; i < beanList.size(); i++)
+                if (!beanList.get(i).getType().equals(TYPE_INFO)) singlePosition.add(i);
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 4);
+            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    // position是第几列,显示的列数 = spanCount / spanSize ;
+                    return singlePosition.contains(position) ? 4 : 1;
+                }
+            });
+            recyclerView.setLayoutManager(gridLayoutManager);
+        }
+
+        recyclerViewAdapter.setNewData(beanList, searchContent, listType);
+        recyclerView.setAdapter(recyclerViewAdapter);//重载列表
 
         layoutCategory.setVisibility(View.VISIBLE);
         layoutRecommend.setVisibility(View.GONE);

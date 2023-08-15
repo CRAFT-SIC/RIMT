@@ -6,6 +6,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,7 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     private Map<String, Integer> imgResMap;//暂存图片资源名字与id的map，提高效率
     private String searchContent = "";//高亮匹配的字符串片段
     private Boolean followChecked = false;//外部是否点击了仅查看收藏
+    private String listType = "list";//列表模式：list  网格模式：grid
     private ArkToolDatabaseHelper helper;
     private OnItemClickListener onItemClickListener;
 
@@ -57,7 +59,8 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
             View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tool_recycler_view_category, null);
             return new ViewHolderCategory(mView);
         } else if (viewType == 2) {
-            View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tool_recycler_view_info, null);
+            View mView = LayoutInflater.from(parent.getContext()).inflate(listType.equals("list") ?
+                    R.layout.item_tool_recycler_view_info : R.layout.item_tool_grid_view_info, null);
             return new ViewHolderInfo(mView);
         } else {
             View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tool_recycler_view_bottom, null);
@@ -83,23 +86,41 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
             if (!searchContent.equals(""))
                 setTextHighlight(((ViewHolderInfo) holder).textInfoName, bean.getName());
             //显示对应icon
-            int imageResId;
-            if (imgResMap.containsKey(bean.getIcon())) imageResId = imgResMap.get(bean.getIcon());
-            else {
+            Integer imageResId = null;
+            if (imgResMap.containsKey(bean.getIcon()))
+                imageResId = imgResMap.get(bean.getIcon());
+            if (imageResId == null) {
                 String packageName = mContext.getPackageName();
                 imageResId = mContext.getResources().getIdentifier(bean.getIcon(), "mipmap", packageName);
                 imgResMap.put(bean.getIcon(), imageResId);
             }
             ((ViewHolderInfo) holder).linearInfo.setOnClickListener(view -> onItemClickListener.onItemOnClick(view, position));
-            ((ViewHolderInfo) holder).imgIcon.setImageDrawable(ContextCompat.getDrawable(mContext, imageResId));
+            try {
+                ((ViewHolderInfo) holder).imgIcon.setImageDrawable(ContextCompat.getDrawable(mContext, imageResId));
+            } catch (Exception e) {
+                Log.e("ToolBoxRecyclerViewAdapter", e.getMessage() + ":" + bean.getIcon());
+            }
+            //如果是网格，切换icon的外圈背景显示
+            if (listType.equals("grid"))
+                ((ViewHolderInfo) holder).imgIcon.setBackground(ContextCompat.getDrawable(mContext, bean.getFollow() ?
+                        R.drawable.bg_grid_icon_select : R.drawable.bg_grid_icon_unselect));
             //关注按钮的显示逻辑
             ImageView checkFollow = ((ViewHolderInfo) holder).imgFollow;
+
+            int resource_img_follow_checked = listType.equals("list") ? R.attr.img_follow_checked : R.attr.img_follow_grid_checked;
+            int resource_img_follow_unchecked = listType.equals("list") ? R.attr.img_follow_unchecked : R.attr.img_follow_grid_unchecked;
             if (followChecked) {
-                //显示无法点击的按钮
-                checkFollow.setOnClickListener(null);
-                TypedValue drawable = new TypedValue();
-                mContext.getTheme().resolveAttribute(R.attr.img_follow_cant_check, drawable, true);
-                checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
+                //查看收藏状态,仅可取消收藏
+                checkFollow.setOnClickListener(view -> {
+                    //取消收藏
+                    helper.updateFollowStatus(bean.getId(), !bean.getFollow());
+                    bean.setFollow(!bean.getFollow());
+                    RIMTUtil.ShowToast(mContext, bean.getFollow() ? "功能收藏成功" : "取消收藏成功");
+                    TypedValue drawable = new TypedValue();
+                    mContext.getTheme().resolveAttribute(resource_img_follow_unchecked, drawable, true);
+                    checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, bean.getFollow() ? R.mipmap.icon_common_cancel : drawable.resourceId));
+                });
+                checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, R.mipmap.icon_common_cancel));
             } else {
                 checkFollow.setOnClickListener(view -> {
                     //修改数据库，并修改本项显示
@@ -107,11 +128,15 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
                     bean.setFollow(!bean.getFollow());
                     RIMTUtil.ShowToast(mContext, bean.getFollow() ? "功能收藏成功" : "取消收藏成功");
                     TypedValue drawable = new TypedValue();
-                    mContext.getTheme().resolveAttribute(bean.getFollow() ? R.attr.img_follow_checked : R.attr.img_follow_unchecked, drawable, true);
+                    mContext.getTheme().resolveAttribute(bean.getFollow() ? resource_img_follow_checked : resource_img_follow_unchecked, drawable, true);
                     checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
+                    //如果是网格，切换icon的外圈背景显示
+                    if (listType.equals("grid"))
+                        ((ViewHolderInfo) holder).imgIcon.setBackground(ContextCompat.getDrawable(mContext, bean.getFollow() ?
+                                R.drawable.bg_grid_icon_select : R.drawable.bg_grid_icon_unselect));
                 });
                 TypedValue drawable = new TypedValue();
-                mContext.getTheme().resolveAttribute(bean.getFollow() ? R.attr.img_follow_checked : R.attr.img_follow_unchecked, drawable, true);
+                mContext.getTheme().resolveAttribute(bean.getFollow() ? resource_img_follow_checked : resource_img_follow_unchecked, drawable, true);
                 checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
             }
         }
@@ -137,10 +162,10 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         return dataList.get(position);
     }
 
-    public void setNewData(List<ToolboxBean> dataList, String searchContent) {
+    public void setNewData(List<ToolboxBean> dataList, String searchContent, String listType) {
         this.dataList = dataList;
         this.searchContent = searchContent;
-        this.notifyDataSetChanged();
+        this.listType = listType;
     }
 
     /**
