@@ -153,6 +153,7 @@
                                 app:riv_corner_radius="24dp"/>
 
                             <TextView
+                                android:id="@+id/drawer_games_arktoolbox_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="12dp"
@@ -170,8 +171,8 @@
 
                             <ImageView
                                 android:id="@+id/drawer_games_arktoolbox_sel"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="?attr/drawer_sel"/>
 
                         </LinearLayout>
@@ -180,7 +181,7 @@
 
                     <!-- 工具箱2 -->
                     <LinearLayout
-                        android:id="@+id/drawer_games_genshin"
+                        android:id="@+id/drawer_games_starrail"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="?attr/drawer_toolbox_checked_background"
@@ -218,9 +219,9 @@
                             android:gravity="right">
 
                             <ImageView
-                                android:id="@+id/drawer_games_genshin_sel"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
+                                android:id="@+id/drawer_games_starrail_sel"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="?attr/drawer_unsel"/>
 
                         </LinearLayout>
@@ -283,8 +284,8 @@
                             android:layout_weight="1">
 
                             <ImageView
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="?attr/drawer_sel"/>
 
                         </LinearLayout>

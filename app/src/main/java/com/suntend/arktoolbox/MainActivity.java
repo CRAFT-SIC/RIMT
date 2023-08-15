@@ -1,5 +1,7 @@
 package com.suntend.arktoolbox;
-
+/*
+ * JamXi
+ */
 import static com.suntend.arktoolbox.RIMTUtil.FlarumUserUtil.getUser;
 
 import android.content.DialogInterface;
@@ -31,7 +33,9 @@ import com.bumptech.glide.Glide;
 import com.suntend.arktoolbox.RIMTUtil.DataExchange;
 import com.suntend.arktoolbox.RIMTUtil.FileUtil;
 import com.suntend.arktoolbox.RIMTUtil.FlarumUserUtil;
+import com.suntend.arktoolbox.RIMTUtil.NavController;
 import com.suntend.arktoolbox.RIMTUtil.RIMTUtil;
+import com.suntend.arktoolbox.RIMTUtil.ThemeManager;
 import com.suntend.arktoolbox.arklabel.ArkLabelFragment;
 
 import java.util.ArrayList;
@@ -40,10 +44,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout DrawerLayout;
-    private ImageView navHome, navFlarum, navContainer, navArk, navAbout;
+    private ImageView nav_0, nav_1, nav_2, nav_3, nav_4;
+    private ImageView nav_sel_0, nav_sel_1, nav_sel_2, nav_sel_3, nav_sel_4;
     DataExchange dataExchange = new DataExchange();
     List<String> gameList = new ArrayList<>();
-    List<String> navList = new ArrayList<>();
 
     LinearLayout[] drawerGames;
     ImageView[] drawerGamesSel;
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeManager.checkTheme(getApplicationContext());
+        setTheme(ThemeManager.getTheme(getApplicationContext()));
         setContentView(R.layout.activity_main);
 
         // 设置状态栏颜色
@@ -89,54 +95,64 @@ public class MainActivity extends AppCompatActivity {
 
     // 设置游戏列表
     private void InitGameList() {
-        drawerGames = new LinearLayout[]{findViewById(R.id.drawer_games_arktoolbox), findViewById(R.id.drawer_games_genshin)};
-        drawerGamesSel = new ImageView[]{findViewById(R.id.drawer_games_arktoolbox_sel), findViewById(R.id.drawer_games_genshin_sel)};
+        drawerGames = new LinearLayout[]{findViewById(R.id.drawer_games_arktoolbox), findViewById(R.id.drawer_games_starrail)};
+        drawerGamesSel = new ImageView[]{findViewById(R.id.drawer_games_arktoolbox_sel), findViewById(R.id.drawer_games_starrail_sel)};
         gameList.add("L0-P1.明日方舟工具箱");
         gameList.add("L1-P2.崩坏：星穹铁道");
     }
 
     // 设置导航栏列表-暂时无作用
     private void InitNavList() {
-        navList.add("L0-P1.首页");
-        navList.add("L1-P2.论坛");
-        navList.add("L2-P3.未知");
-        navList.add("L3-P4.ARK");
-        navList.add("L4-P5.关于");
+        NavController.resetNavList();
+        NavController.setNavList("L0-P1.首页","L1-P2","L2-P3","L3-P4","L4-P5");
     }
 
     // 设置导航栏
     private void InitNavController() {
-        navHome = findViewById(R.id.nav_home);
-        navFlarum = findViewById(R.id.nav_flarum);
-        navContainer = findViewById(R.id.nav_container);
-        navArk = findViewById(R.id.nav_ark);
-        navAbout = findViewById(R.id.nav_about);
+        nav_0 = findViewById(R.id.nav_0);
+        nav_1 = findViewById(R.id.nav_1);
+        nav_2 = findViewById(R.id.nav_2);
+        nav_3 = findViewById(R.id.nav_3);
+        nav_4 = findViewById(R.id.nav_4);
+        nav_sel_0 = findViewById(R.id.nav_sel_0);
+        nav_sel_1 = findViewById(R.id.nav_sel_1);
+        nav_sel_2 = findViewById(R.id.nav_sel_2);
+        nav_sel_3 = findViewById(R.id.nav_sel_3);
+        nav_sel_4 = findViewById(R.id.nav_sel_4);
         // 创建TypedValue对象，用于获取主题中的属性值
         TypedValue typedValue = new TypedValue();
         // 获取当前Activity的主题
         Resources.Theme theme = this.getTheme();
         ImageView[] imageViews = {
-                navHome,
-                navFlarum,
-                navContainer,
-                navArk,
-                navAbout
+                nav_0,
+                nav_1,
+                nav_2,
+                nav_3,
+                nav_4
+        };
+
+        ImageView[] imageViewsB = {
+                nav_sel_0,
+                nav_sel_1,
+                nav_sel_2,
+                nav_sel_3,
+                nav_sel_4
         };
 
         int[] selAttributeResIds = {
-                R.attr.nav_home_sel,
-                R.attr.nav_flarum_sel,
-                R.attr.nav_container_sel,
-                R.attr.nav_ark_sel,
-                R.attr.nav_about_sel
+                R.attr.nav_0_sel,
+                R.attr.nav_1_sel,
+                R.attr.nav_2_sel,
+                R.attr.nav_3_sel,
+                R.attr.nav_4_sel
         };
 
         int[] unselAttributeResIds = {
-                R.attr.nav_home_unsel,
-                R.attr.nav_flarum_unsel,
-                R.attr.nav_container_unsel,
-                R.attr.nav_ark_unsel,
-                R.attr.nav_about_unsel
+                R.attr.nav_0_unsel,
+                R.attr.nav_1_unsel,
+                R.attr.nav_2_unsel,
+                R.attr.nav_3_unsel,
+                R.attr.nav_4_unsel
         };
 
         for (int i = 0; i < imageViews.length; i++) {
@@ -152,26 +168,42 @@ public class MainActivity extends AppCompatActivity {
                     theme.resolveAttribute(selAttributeResIds[index], typedValue, true);
                     imageViews[index].setImageResource(typedValue.resourceId);
                     dataExchange.setNavSelected(index);
-                    RIMTUtil.ShowToast(getApplicationContext(), "游戏名:" + gameList.get(dataExchange.getGameSelected()) + "\n导航名:" + (navList.get(dataExchange.getNavSelected())));
+                    Log.e("Set", String.valueOf(dataExchange.getNavSelected()));
+                    RIMTUtil.ShowToast(getApplicationContext(), "游戏名:" + gameList.get(dataExchange.getGameSelected()) + "\n导航名:" + (NavController.getNavList().get(dataExchange.getNavSelected())));
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_controller, fragments.get(index))
                             .commit();
-                    // 点击事件处理
+
+                    // 设置ImageView可见性
+                    for (int k = 0; k < imageViewsB.length; k++) {
+                        if (k == index) {
+                            imageViewsB[k].setVisibility(View.VISIBLE);
+                        } else {
+                            imageViewsB[k].setVisibility(View.INVISIBLE);
+                        }
+                    }
+
+                    // 根据导航索引执行对应的操作
                     switch (index) {
                         case 0:
                             // 第一个导航的点击
+                            // 添加您想要执行的逻辑
                             break;
                         case 1:
                             // 第二个导航的点击
+                            // 添加您想要执行的逻辑
                             break;
                         case 2:
                             // 第三个导航的点击
+                            // 添加您想要执行的逻辑
                             break;
                         case 3:
                             // 第四个导航的点击
+                            // 添加您想要执行的逻辑
                             break;
                         case 4:
                             // 第五个导航的点击
+                            // 添加您想要执行的逻辑
                             break;
                     }
                 }
@@ -249,6 +281,10 @@ public class MainActivity extends AppCompatActivity {
                 SetUser();
             }
         });
+        if (getUser(getApplicationContext(), "isLogined").equals("0")) {
+            Drawer_User_Logout.setVisibility(View.GONE);
+        }
+
         gameSelect();
     }
 
@@ -282,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
     private void handleGameClick(int clickedIndex) {
         // 添加点击事件代码
         dataExchange.setGameSelected(clickedIndex);
-        RIMTUtil.ShowToast(getApplicationContext(), "游戏名:" + gameList.get(dataExchange.getGameSelected()) + "\n导航名:" + (navList.get(dataExchange.getNavSelected())));
+        RIMTUtil.ShowToast(getApplicationContext(), "游戏名:" + gameList.get(dataExchange.getGameSelected()) + "\n导航名:" + (NavController.getNavList().get(dataExchange.getNavSelected())));
     }
 
     // 设置工具箱的开关颜色

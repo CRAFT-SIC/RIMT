@@ -5,25 +5,73 @@
     android:layout_height="match_parent"
     tools:context=".ArkToolBoxFragment">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-            <ImageView
-                android:id="@+id/openNav"
-                android:layout_width="24dp"
+            <!--打开侧边栏 JamXi-->
+            <LinearLayout
+                android:id="@+id/drawerLayout"
+                android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:src="?attr/fragment_nav"/>
+                android:gravity="left"
+                android:src="?attr/fragment_nav"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/openDrawer"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="left"
+                    android:src="?attr/fragment_nav" />
+
+            </LinearLayout>
+
+            <!--主题切换 JamXi-->
+            <LinearLayout
+                android:id="@+id/themeChange"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:gravity="right"
+                android:src="?attr/fragment_nav"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/themeChange_0"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/drawer_sel_day_kaltsit"/>
+
+                <ImageView
+                    android:id="@+id/themeChange_1"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/drawer_sel_day_amiya"/>
+
+                <ImageView
+                    android:id="@+id/themeChange_2"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/drawer_sel_day_w"/>
+
+                <ImageView
+                    android:id="@+id/themeChange_3"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/drawer_sel_day_frostnova"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </FrameLayout>
 
 </FrameLayout>

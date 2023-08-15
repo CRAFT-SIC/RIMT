@@ -31,16 +31,16 @@
     <attr name="drawer_settings_display_system" format="reference|color" />
     <attr name="drawer_settings_shareholder" format="reference|color" />
 
-    <attr name="nav_about_sel" format="reference" />
-    <attr name="nav_about_unsel" format="reference" />
-    <attr name="nav_ark_sel" format="reference" />
-    <attr name="nav_ark_unsel" format="reference" />
-    <attr name="nav_container_sel" format="reference" />
-    <attr name="nav_container_unsel" format="reference" />
-    <attr name="nav_flarum_sel" format="reference" />
-    <attr name="nav_flarum_unsel" format="reference" />
-    <attr name="nav_home_sel" format="reference" />
-    <attr name="nav_home_unsel" format="reference" />
+    <attr name="nav_0_sel" format="reference" />
+    <attr name="nav_0_unsel" format="reference" />
+    <attr name="nav_1_sel" format="reference" />
+    <attr name="nav_1_unsel" format="reference" />
+    <attr name="nav_2_sel" format="reference" />
+    <attr name="nav_2_unsel" format="reference" />
+    <attr name="nav_3_sel" format="reference" />
+    <attr name="nav_3_unsel" format="reference" />
+    <attr name="nav_4_sel" format="reference" />
+    <attr name="nav_4_unsel" format="reference" />
     <attr name="nav_sel_bottom" format="reference" />
 
     <attr name="login_image" format="reference" />

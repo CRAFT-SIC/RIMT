@@ -1,5 +1,7 @@
 package com.suntend.arktoolbox;
-
+/*
+ * JamXi
+ */
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
