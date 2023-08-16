@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +30,7 @@ import com.suntend.arktoolbox.RIMTUtil.ConvertUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Class:
@@ -37,14 +39,13 @@ import java.util.ArrayList;
  */
 public class ArkLabelFragment extends Fragment {
     private RecyclerView mRv;
-    private ArrayList<ArkLabelEntity> list = new ArrayList<>();
-    private ArkLabelMoreOptionDialog optionDialog;
     private ArkLabelAdapter adapter;
-    private final ArkLabelSp.OnArkLabelChangeListener arkLabelChangeListener= new ArkLabelSp.OnArkLabelChangeListener() {
+    private CardView mCardTopTip;
+    private final ArkLabelSp.OnArkLabelChangeListener arkLabelChangeListener = new ArkLabelSp.OnArkLabelChangeListener() {
         @Override
-        public void onChange(ArrayList<ArkLabelEntity> list) {
-            ArkLabelFragment.this.list = list;
-            adapter.setNewData(list);
+        public void onChange(ArkLabelDirEntity data) {
+            if (adapter != null)
+                adapter.setNewData(data);
         }
     };
 
@@ -75,17 +76,46 @@ public class ArkLabelFragment extends Fragment {
                 }
             }
         });
+        mCardTopTip = root.findViewById(R.id.card_top_tip);
+        mCardTopTip.setVisibility(ArkLabelSp.getInstance().isTopTipShowing() ? View.VISIBLE : View.GONE);
+
         root.findViewById(R.id.iv_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), ArkLabelEditActivity.class);
-                ArkLabelEntity entity = new ArkLabelEntity();
-                entity.url="https://";
-                intent.putExtra("entity", entity);
-                startActivityForResult(intent, 1);
+                new ArkLabelBaseDialog(getContext())
+                        .setTitle("新建项目")
+                        .setMessage("标签格式符合要求可以自动获取更新")
+                        .setData(Arrays.asList("新建标签页", "新建文件夹"))
+                        .setOnOptionClickListener(new ArkLabelBaseDialog.OnOptionClickListener() {
+                            @Override
+                            public void onClick(int index) {
+                                if (index == 0) {
+                                    Intent intent = new Intent(getContext(), ArkLabelEditActivity.class);
+                                    ArkLabelEntity entity = new ArkLabelEntity();
+                                    entity.url = "https://";
+                                    intent.putExtra("entity", entity);
+                                    startActivityForResult(intent, 1);
+                                } else {
+                                    Intent intent = new Intent(getContext(), ArkLabelDirEditActivity.class);
+                                    ArkLabelDirEntity entity = new ArkLabelDirEntity();
+                                    intent.putExtra("entity", entity);
+                                    startActivityForResult(intent, 2);
+                                }
+                            }
+                        }).show();
+
             }
         });
-        adapter = new ArkLabelAdapter(new ArkLabelAdapter.OnArkLabelAdapterItemClickListener() {
+        root.findViewById(R.id.tv_tip_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArkLabelSp.getInstance().setTopTipShowing(false);
+                mCardTopTip.setVisibility(View.GONE);
+            }
+        });
+        adapter = new ArkLabelAdapter();
+        adapter.setNewData(ArkLabelSp.getInstance().getRootEntity());
+        adapter.setOnItemClick(new ArkLabelAdapter.OnArkLabelAdapterItemClickListener() {
             @Override
             public void onItemClick(ArkLabelEntity entity) {
                 try {
@@ -99,22 +129,70 @@ public class ArkLabelFragment extends Fragment {
 
             @Override
             public void onOptionClick(ArkLabelEntity entity) {
-                optionDialog.show(entity);
-            }
-        });
-        optionDialog = new ArkLabelMoreOptionDialog(getContext(), new ArkLabelMoreOptionDialog.OnArkLabelOptionCallback() {
-            @Override
-            public void onEdit(ArkLabelEntity entity) {
-                Intent intent = new Intent(getContext(), ArkLabelEditActivity.class);
-                intent.putExtra("entity", entity);
-                startActivityForResult(intent, 1);
+                new ArkLabelBaseDialog(getContext())
+                        .setTitle("选择操作")
+                        .setMessage("长摁标签可更改标签顺序")
+                        .setData(Arrays.asList("编辑标签", "删除标签", "移入文件夹"))
+                        .setOnOptionClickListener(new ArkLabelBaseDialog.OnOptionClickListener() {
+                            @Override
+                            public void onClick(int index) {
+                                switch (index) {
+                                    case 0: {
+                                        Intent intent = new Intent(getContext(), ArkLabelEditActivity.class);
+                                        intent.putExtra("entity", entity);
+                                        startActivityForResult(intent, 1);
+                                    }
+                                    break;
+                                    case 1:
+                                        ArkLabelSp.getInstance().deleteLabel(entity);
+                                        break;
+                                    case 2: {
+                                        Intent intent = new Intent(getContext(), ArkLabelDirSelectActivity.class);
+                                        intent.putExtra("entity", entity);
+                                        startActivityForResult(intent, 3);
+                                    }
+                                    break;
+                                }
+                            }
+                        }).show();
             }
 
             @Override
-            public void onDelete(ArkLabelEntity entity) {
-                list.remove(entity);
-                adapter.notifyDataSetChanged();
-                ArkLabelSp.getInstance().saveLabelList(list);
+            public void onDirItemClick(ArkLabelDirEntity entity) {
+                if (entity.labels.size() == 0 && entity.dirs.size() == 0) {
+                    return;
+                }
+                Intent intent = new Intent(getContext(), ArkLabelDirSelectActivity.class);
+                intent.putExtra("entity", entity);
+                startActivityForResult(intent, 3);
+            }
+
+            @Override
+            public void onDirOptionClick(ArkLabelDirEntity entity) {
+                new ArkLabelBaseDialog(getContext())
+                        .setTitle("选择操作")
+                        .setMessage("删除文件夹会将文件夹内标签一起删除")
+                        .setData(Arrays.asList("编辑文件夹", "删除文件夹"))
+                        .setOnOptionClickListener(new ArkLabelBaseDialog.OnOptionClickListener() {
+                            @Override
+                            public void onClick(int index) {
+                                switch (index) {
+                                    case 0: {
+                                        Intent intent = new Intent(getContext(), ArkLabelDirEditActivity.class);
+                                        intent.putExtra("entity", entity);
+                                        startActivityForResult(intent, 2);
+                                    }
+                                    break;
+                                    case 1:
+                                        ArkLabelSp.getInstance().deleteDir(entity);
+                                        break;
+                                    case 2:
+
+                                        break;
+                                }
+
+                            }
+                        }).show();
             }
         });
         //查询本地存储的内容
@@ -153,7 +231,6 @@ public class ArkLabelFragment extends Fragment {
             }
         });
         mRv.setAdapter(adapter);
-        ArkLabelSp.getInstance().loadLabelList();
         return root;
     }
 
@@ -172,33 +249,25 @@ public class ArkLabelFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK && data != null) {
-            ArkLabelEntity entity = (ArkLabelEntity) data.getSerializableExtra("entity");
+            if (requestCode == 1) {
+                ArkLabelEntity entity = (ArkLabelEntity) data.getSerializableExtra("entity");
 
-            if (entity.id == 0) {
-                //添加
-                int nowId = 0;
-                for (int i = 0; i < list.size(); i++) {
-                    ArkLabelEntity item = list.get(i);
-                    if (item.id > nowId) {
-                        nowId = item.id;
-                    }
+                if (entity.id == 0) {
+                    ArkLabelSp.getInstance().addLabel(entity);
+                } else {
+                    ArkLabelSp.getInstance().updateLabel(entity);
                 }
-                entity.id = nowId + 1;
-                list.add(entity);
-                adapter.notifyDataSetChanged();
-                ArkLabelSp.getInstance().saveLabelList(list);
-            } else {
-                for (int i = 0; i < list.size(); i++) {
-                    ArkLabelEntity item = list.get(i);
-                    if (item.id == entity.id) {
-                        item.name = entity.name;
-                        item.url = entity.url;
-                        item.game = entity.game;
-                        break;
-                    }
+            } else if (requestCode == 2) {
+                ArkLabelDirEntity entity = (ArkLabelDirEntity) data.getSerializableExtra("entity");
+
+                if (entity.id == 0) {
+                    //添加
+                    ArkLabelSp.getInstance().addDir(entity);
+                } else {
+                    ArkLabelSp.getInstance().updateDir(entity);
                 }
-                adapter.notifyDataSetChanged();
-                ArkLabelSp.getInstance().saveLabelList(list);
+            } else if (requestCode == 3) {
+                //刷新数据
             }
         }
     }

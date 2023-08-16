@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_more"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:padding="15dp"
+        android:src="?attr/icon_ark_label_more_option"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="?attr/ark_label_general_text_color"
+        app:layout_constraintBottom_toTopOf="@id/tv_count"
+        app:layout_constraintLeft_toRightOf="@id/iv_icon"
+        app:layout_constraintRight_toLeftOf="@id/iv_more"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="123" />
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:ellipsize="end"
+        android:textSize="10sp"
+        android:maxLines="1"
+        android:textColor="?attr/ark_label_hint_text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/iv_icon"
+        app:layout_constraintRight_toLeftOf="@id/iv_more"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        tools:text="123" />
+</androidx.constraintlayout.widget.ConstraintLayout>
