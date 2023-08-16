@@ -7,6 +7,7 @@
         android:id="@+id/linear_toolbox_info"
         android:layout_width="match_parent"
         android:layout_height="54dp"
+        android:background="@drawable/bg_tool_list_item"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="36dp"

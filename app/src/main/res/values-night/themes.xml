@@ -96,5 +96,6 @@
         <item name="color_item_recommend_stroke">@color/color_item_recommend_stroke_night</item>
         <item name="img_icon_list">@mipmap/icon_list_night</item>
         <item name="img_icon_grid">@mipmap/icon_grid_night</item>
+        <item name="color_grid_icon_bg">@color/color_grid_icon_bg_night</item>
     </style>
 </resources>

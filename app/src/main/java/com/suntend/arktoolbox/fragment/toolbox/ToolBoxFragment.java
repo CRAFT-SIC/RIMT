@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +23,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.suntend.arktoolbox.MainActivity;
 import com.suntend.arktoolbox.R;
+import com.suntend.arktoolbox.RIMTUtil.DensityUtil;
 import com.suntend.arktoolbox.RIMTUtil.RIMTUtil;
 import com.suntend.arktoolbox.database.bean.ToolCategoryBean;
 import com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper;
@@ -51,7 +52,8 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     private SearchView searchView;//搜索栏
     private CustomSpinnerView spinner;//分类下拉
     private CheckBox checkBoxFollow;//查看收藏按钮
-    private View viewMask;//遮罩层视图
+    private View viewMask, viewDividerUnderSearch;//遮罩层视图
+    private NestedScrollView scrollView;
     private RecyclerView recyclerView;//主要列表
     private LinearLayout layoutMention, layoutRecommend;//提示页面与推荐功能
     private RelativeLayout layoutCategory;//推荐部分
@@ -107,6 +109,8 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
         webView = view.findViewById(R.id.webView_fragment_toolbox);
         textTitle = view.findViewById(R.id.text_toolbox_title);
         imgListSwitch = view.findViewById(R.id.img_tool_list_switch);
+        scrollView = view.findViewById(R.id.scrollView_tool_box);
+        viewDividerUnderSearch = view.findViewById(R.id.view_divider_under_search);
 
         //初始化切换按钮的图像资源
         listType = helper.getConfigValue(LIST_TYPE_KEY);//初始化列表类型
@@ -231,6 +235,9 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
         gridView.setOnItemClickListener((adapterView, view, i, l) -> {
             searchView.setQuery(girdAdapter.getItem(i), false);
         });
+        //根据滑动高度显示视图
+        scrollView.setOnScrollChangeListener((View.OnScrollChangeListener) (view, l, t, ol, ot) ->
+                viewDividerUnderSearch.setVisibility(t > DensityUtil.dpToPx(mContext, 40) ? View.VISIBLE : View.INVISIBLE));
     }
 
     /**

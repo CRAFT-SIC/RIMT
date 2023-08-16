@@ -51,6 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="6dp"
             android:background="?attr/bg_search_view"
             app:closeIcon="@mipmap/icon_search_view_close"
             app:iconifiedByDefault="false"
@@ -58,138 +59,167 @@
             app:queryHint="输入搜索内容"
             app:searchIcon="@mipmap/icon_toolbox_search" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical">
-
-            <RelativeLayout
-                android:id="@+id/relative_category"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:visibility="visible">
-
-                <com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView
-                    android:id="@+id/spinner_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:dropDownVerticalOffset="40dp"
-                    android:popupBackground="@drawable/bg_spinner_round" />
-
-                <CheckBox
-                    android:id="@+id/checkbox_follow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:button="@null"
-                    android:drawableStart="?attr/img_checkbox_follow"
-                    android:drawablePadding="6dp"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="25dp"
-                    android:text="@string/checkbox_follow_text"
-                    android:textColor="?attr/color_checkbox_text_unselect" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="?attr/color_simple_divider" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_recommend"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingStart="40dp"
-                android:paddingEnd="16dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/text_recommend"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="推荐功能" />
-
-                <ImageView
-                    android:id="@+id/img_toolbox_delete"
-                    android:layout_width="36dp"
-                    android:layout_height="40dp"
-                    android:padding="10dp"
-                    android:src="@mipmap/icon_delete_box"
-                    android:visibility="gone" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
+        <View
+            android:id="@+id/view_divider_under_search"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="?attr/color_simple_divider"
+            android:visibility="invisible" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycle_view_tool_box"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible"
-                app:layoutManager="LinearLayoutManager" />
-
-            <GridView
-                android:id="@+id/grid_view_recommend"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:horizontalSpacing="10dp"
-                android:numColumns="3"
-                android:paddingHorizontal="10dp"
-                android:stretchMode="columnWidth"
-                android:verticalSpacing="10dp"
-                android:visibility="gone" />
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView_tool_box"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
 
             <LinearLayout
-                android:id="@+id/linear_mention"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/text_toolbox_mention"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/text_toolbox_mention_follow"
-                    android:textColor="?attr/color_toolbox_mention_text" />
-
-                <TextView
-                    android:id="@+id/text_toolbox_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_toolbox_mention_button"
-                    android:paddingHorizontal="25dp"
-                    android:paddingVertical="5dp"
-                    android:text="@string/text_toolbox_button_mention_follow"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <View
-                android:id="@+id/view_mask_transparent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/color_view_mask_transparent"
-                android:clickable="true"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:visibility="gone" />
-        </RelativeLayout>
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/relative_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:visibility="visible">
+
+                        <com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView
+                            android:id="@+id/spinner_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:dropDownVerticalOffset="40dp"
+                            android:popupBackground="@drawable/bg_spinner_round" />
+
+                        <CheckBox
+                            android:id="@+id/checkbox_follow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:button="@null"
+                            android:drawableStart="?attr/img_checkbox_follow"
+                            android:drawablePadding="6dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="25dp"
+                            android:text="@string/checkbox_follow_text"
+                            android:textColor="?attr/color_checkbox_text_unselect" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="?attr/color_simple_divider" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingStart="40dp"
+                        android:paddingEnd="16dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/text_recommend"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="推荐功能" />
+
+                        <ImageView
+                            android:id="@+id/img_toolbox_delete"
+                            android:layout_width="36dp"
+                            android:layout_height="40dp"
+                            android:padding="10dp"
+                            android:src="@mipmap/icon_delete_box"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycle_view_tool_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusable="false"
+                        android:nestedScrollingEnabled="true"
+                        android:visibility="visible"
+                        app:layoutManager="LinearLayoutManager" />
+
+                    <GridView
+                        android:id="@+id/grid_view_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:horizontalSpacing="10dp"
+                        android:numColumns="3"
+                        android:paddingHorizontal="10dp"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="10dp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_mention"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/text_toolbox_mention"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/text_toolbox_mention_follow"
+                            android:textColor="?attr/color_toolbox_mention_text" />
+
+                        <TextView
+                            android:id="@+id/text_toolbox_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_toolbox_mention_button"
+                            android:paddingHorizontal="25dp"
+                            android:paddingVertical="5dp"
+                            android:text="@string/text_toolbox_button_mention_follow"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view_mask_transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_view_mask_transparent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="?attr/color_simple_divider" />
     </LinearLayout>
 
     <WebView

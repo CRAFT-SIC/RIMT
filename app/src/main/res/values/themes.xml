@@ -79,5 +79,6 @@
         <item name="color_item_recommend_stroke">@color/color_item_recommend_stroke_day</item>
         <item name="img_icon_list">@mipmap/icon_list_day</item>
         <item name="img_icon_grid">@mipmap/icon_grid_day</item>
+        <item name="color_grid_icon_bg">@color/color_grid_icon_bg_day</item>
     </style>
 </resources>

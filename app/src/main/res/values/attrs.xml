@@ -69,4 +69,5 @@
     <attr name="color_item_recommend_stroke" format="color" />
     <attr name="img_icon_list" format="reference" />
     <attr name="img_icon_grid" format="reference" />
+    <attr name="color_grid_icon_bg" format="color" />
 </resources>
