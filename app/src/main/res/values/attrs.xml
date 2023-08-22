@@ -47,6 +47,8 @@
 
     <attr name="fragment_nav" format="reference|color" />
 
+    <!-- MainPage -->
+    <attr name="change_theme" format="reference|color" />
     <!-- ark Label-->
     <attr name="ark_label_general_text_color" format="color" />
     <attr name="ark_label_tip_text_color" format="color" />
