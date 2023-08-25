@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.suntend.arktoolbox.APP;
-import com.suntend.arktoolbox.arklabel.ArkLabelEntity;
+import com.suntend.arktoolbox.ui.arklabel.ArkLabelEntity;
 
 import java.util.ArrayList;
 

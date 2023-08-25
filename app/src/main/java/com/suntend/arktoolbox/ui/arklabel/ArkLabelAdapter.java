@@ -1,4 +1,4 @@
-package com.suntend.arktoolbox.arklabel;
+package com.suntend.arktoolbox.ui.arklabel;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.suntend.arktoolbox.arklabel;
+package com.suntend.arktoolbox.ui.arklabel;
 
 import com.suntend.arktoolbox.enums.GameEnum;
 import com.suntend.arktoolbox.enums.PlatformIconEnum;

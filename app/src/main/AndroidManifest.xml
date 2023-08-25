@@ -33,7 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.suntend.arktoolbox.arklabel.ArkLabelEditActivity" />
+        <activity android:name="com.suntend.arktoolbox.ui.arklabel.ArkLabelEditActivity" />
+        <activity android:name="com.suntend.arktoolbox.ui.arkofficial.ArkOfficialInfoActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,24 @@
+[
+{
+    "cover": "https://img1.baidu.com/it/u=3834820558,1776972742&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=400&amp;h=400",
+    "name": "塞壬唱片-MSR",
+    "subName": "MonsterSirenRecords",
+    "desc": "泰拉世界十世纪最大的音乐发行商之一。",
+    "createTime": 1692876949000,
+    "links": [
+       { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
+         { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
+           { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
+                     { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
+    ]
+},{
+      "cover": "https://img1.baidu.com/it/u=3834820558,1776972742&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=400&amp;h=400",
+      "name": "塞壬唱片-MSR2",
+      "subName": "MonsterSirenRecords",
+      "desc": "泰拉世界十世纪最大的音乐发行商之一。",
+      "createTime": 1692876949000,
+      "links": [
+         { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
+      ]
+  }
+  ]

@@ -1,13 +1,11 @@
-package com.suntend.arktoolbox.arklabel;
+package com.suntend.arktoolbox.ui.arklabel;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 
 import androidx.annotation.NonNull;
