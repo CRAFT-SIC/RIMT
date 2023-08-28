@@ -104,6 +104,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
+                            android:background="@null"
                             android:button="@null"
                             android:drawableStart="?attr/img_checkbox_follow"
                             android:drawablePadding="6dp"
@@ -166,11 +167,11 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:horizontalSpacing="10dp"
+                        android:horizontalSpacing="8dp"
                         android:numColumns="3"
-                        android:paddingHorizontal="10dp"
+                        android:paddingHorizontal="20dp"
                         android:stretchMode="columnWidth"
-                        android:verticalSpacing="10dp"
+                        android:verticalSpacing="18dp"
                         android:visibility="gone" />
 
                     <LinearLayout

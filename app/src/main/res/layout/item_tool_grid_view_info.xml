@@ -12,22 +12,24 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="66dp"
-            android:layout_height="66dp"
-            android:layout_margin="7dp">
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_margin="7dp"
+            android:background="@drawable/bg_tool_grid_item">
 
             <ImageView
                 android:id="@+id/img_tool_info_icon"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_centerInParent="true"
                 android:background="@drawable/bg_grid_icon_unselect"
                 android:padding="4dp"
                 android:src="@mipmap/icon_glory_path" />
 
             <ImageView
                 android:id="@+id/img_follow_check"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:padding="3dp"

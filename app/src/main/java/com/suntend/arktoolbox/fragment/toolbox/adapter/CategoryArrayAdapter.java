@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.suntend.arktoolbox.R;
+import com.suntend.arktoolbox.RIMTUtil.DensityUtil;
 import com.suntend.arktoolbox.database.bean.ToolCategoryBean;
 
 import java.util.List;
@@ -44,6 +45,16 @@ public class CategoryArrayAdapter extends ArrayAdapter<String> {
         ToolCategoryBean bean = categoryList.get(position);
 
         TextView tv = convertView.findViewById(R.id.checked_text_dropdown_item);
+        if (position > 0 && position == (categoryList.size() - 1)) {
+            // 获取视图的布局参数
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) tv.getLayoutParams();
+            params.bottomMargin = DensityUtil.dpToPx(mContext, 10);
+            tv.setLayoutParams(params);
+        } else {
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) tv.getLayoutParams();
+            params.bottomMargin = 0;
+            tv.setLayoutParams(params);
+        }
         tv.setText(bean.getCategoryName());
         //修改文字颜色
         TypedValue color = new TypedValue();

@@ -169,7 +169,16 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
             @Override
             public boolean onQueryTextChange(String newText) {
                 searchContent = newText;
-                refreshRecyclerList();
+                if (searchView.hasFocus() && searchContent.equals("")) {
+                    //重新展示推荐
+                    layoutCategory.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.GONE);
+                    layoutMention.setVisibility(View.GONE);
+                    layoutRecommend.setVisibility(View.VISIBLE);
+                    gridView.setVisibility(View.VISIBLE);
+                } else {
+                    refreshRecyclerList();
+                }
                 return true;
             }
         });
@@ -187,6 +196,7 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
                 TypedValue drawable = new TypedValue();
                 mContext.getTheme().resolveAttribute(R.attr.fragment_nav, drawable, true);
                 openNav.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
+                refreshRecyclerList();
             }
         });
         //打开关闭分类框监听
@@ -247,7 +257,7 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
      * @param position 位置
      */
     @Override
-    public void onItemOnClick(View view, int position) {
+    public void onItemClick(View view, int position) {
         //todo:打开网页的逻辑
         ToolboxBean bean = recyclerViewAdapter.getItemByPosition(position);
         RIMTUtil.ShowToast(mContext, "正在前往网页(待完善)");
@@ -279,12 +289,12 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
             List<Integer> singlePosition = new ArrayList<>();
             for (int i = 0; i < beanList.size(); i++)
                 if (!beanList.get(i).getType().equals(TYPE_INFO)) singlePosition.add(i);
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 4);
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 5);
             gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
                     // position是第几列,显示的列数 = spanCount / spanSize ;
-                    return singlePosition.contains(position) ? 4 : 1;
+                    return singlePosition.contains(position) ? 5 : 1;
                 }
             });
             recyclerView.setLayoutManager(gridLayoutManager);

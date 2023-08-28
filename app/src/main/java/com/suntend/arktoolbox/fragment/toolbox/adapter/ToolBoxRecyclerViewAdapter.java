@@ -48,7 +48,7 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     public interface OnItemClickListener {
-        void onItemOnClick(View view, int position);
+        void onItemClick(View view, int position);
     }
 
     @NonNull
@@ -94,7 +94,7 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
                 imageResId = mContext.getResources().getIdentifier(bean.getIcon(), "mipmap", packageName);
                 imgResMap.put(bean.getIcon(), imageResId);
             }
-            ((ViewHolderInfo) holder).linearInfo.setOnClickListener(view -> onItemClickListener.onItemOnClick(view, position));
+            ((ViewHolderInfo) holder).linearInfo.setOnClickListener(view -> onItemClickListener.onItemClick(view, position));
             try {
                 ((ViewHolderInfo) holder).imgIcon.setImageDrawable(ContextCompat.getDrawable(mContext, imageResId));
             } catch (Exception e) {
@@ -106,40 +106,51 @@ public class ToolBoxRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
                         R.drawable.bg_grid_icon_select : R.drawable.bg_grid_icon_unselect));
             //关注按钮的显示逻辑
             ImageView checkFollow = ((ViewHolderInfo) holder).imgFollow;
+            ImageView infoIcon = ((ViewHolderInfo) holder).imgIcon;
 
             int resource_img_follow_checked = listType.equals("list") ? R.attr.img_follow_checked : R.attr.img_follow_grid_checked;
             int resource_img_follow_unchecked = listType.equals("list") ? R.attr.img_follow_unchecked : R.attr.img_follow_grid_unchecked;
-            if (followChecked) {
-                //查看收藏状态,仅可取消收藏
-                checkFollow.setOnClickListener(view -> {
-                    //取消收藏
-                    helper.updateFollowStatus(bean.getId(), !bean.getFollow());
-                    bean.setFollow(!bean.getFollow());
-                    RIMTUtil.ShowToast(mContext, bean.getFollow() ? "功能收藏成功" : "取消收藏成功");
-                    TypedValue drawable = new TypedValue();
-                    mContext.getTheme().resolveAttribute(resource_img_follow_unchecked, drawable, true);
-                    checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, bean.getFollow() ? R.mipmap.icon_common_cancel : drawable.resourceId));
-                });
-                checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, R.mipmap.icon_common_cancel));
-            } else {
-                checkFollow.setOnClickListener(view -> {
-                    //修改数据库，并修改本项显示
-                    helper.updateFollowStatus(bean.getId(), !bean.getFollow());
-                    bean.setFollow(!bean.getFollow());
-                    RIMTUtil.ShowToast(mContext, bean.getFollow() ? "功能收藏成功" : "取消收藏成功");
-                    TypedValue drawable = new TypedValue();
-                    mContext.getTheme().resolveAttribute(bean.getFollow() ? resource_img_follow_checked : resource_img_follow_unchecked, drawable, true);
-                    checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
-                    //如果是网格，切换icon的外圈背景显示
-                    if (listType.equals("grid"))
-                        ((ViewHolderInfo) holder).imgIcon.setBackground(ContextCompat.getDrawable(mContext, bean.getFollow() ?
-                                R.drawable.bg_grid_icon_select : R.drawable.bg_grid_icon_unselect));
-                });
-                TypedValue drawable = new TypedValue();
-                mContext.getTheme().resolveAttribute(bean.getFollow() ? resource_img_follow_checked : resource_img_follow_unchecked, drawable, true);
-                checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, drawable.resourceId));
-            }
+            int resource_img_follow_cancel = listType.equals("list") ? R.mipmap.icon_common_cancel_night : R.mipmap.icon_common_cancel;
+            //视图长按以及点击按钮都修改收藏状态
+            ((ViewHolderInfo) holder).linearInfo.setOnLongClickListener(view -> {
+                changeFollowStatus(bean, checkFollow, infoIcon);
+                return true;
+            });
+            checkFollow.setOnClickListener(view -> {
+                changeFollowStatus(bean, checkFollow, infoIcon);
+            });
+            checkFollow.setOnLongClickListener(view -> {
+                changeFollowStatus(bean, checkFollow, infoIcon);
+                return true;
+            });
+            TypedValue drawable = new TypedValue();
+            mContext.getTheme().resolveAttribute(bean.getFollow() ? resource_img_follow_checked : resource_img_follow_unchecked, drawable, true);
+            checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, followChecked ? resource_img_follow_cancel : drawable.resourceId));
         }
+    }
+
+    /**
+     * 统一修改收藏改变后的效果监听
+     *
+     * @param bean        item数据对象
+     * @param checkFollow 点击收藏的按钮
+     * @param infoIcon    工具图标
+     */
+    private void changeFollowStatus(ToolboxBean bean, ImageView checkFollow, ImageView infoIcon) {
+        int resource_img_follow_checked = listType.equals("list") ? R.attr.img_follow_checked : R.attr.img_follow_grid_checked;
+        int resource_img_follow_unchecked = listType.equals("list") ? R.attr.img_follow_unchecked : R.attr.img_follow_grid_unchecked;
+        int resource_img_follow_cancel = listType.equals("list") ? R.mipmap.icon_common_cancel_night : R.mipmap.icon_common_cancel;
+
+        helper.updateFollowStatus(bean.getId(), !bean.getFollow());
+        bean.setFollow(!bean.getFollow());
+        RIMTUtil.ShowToast(mContext, bean.getFollow() ? "功能收藏成功" : "取消收藏成功");
+        TypedValue drawable = new TypedValue();
+        mContext.getTheme().resolveAttribute(bean.getFollow() ? resource_img_follow_checked : resource_img_follow_unchecked, drawable, true);
+        checkFollow.setImageDrawable(ContextCompat.getDrawable(mContext, followChecked ? (bean.getFollow() ? resource_img_follow_cancel : drawable.resourceId) : drawable.resourceId));
+        //如果是网格，切换icon的外圈背景显示
+        if (!followChecked && listType.equals("grid"))
+            infoIcon.setBackground(ContextCompat.getDrawable(mContext, bean.getFollow() ?
+                    R.drawable.bg_grid_icon_select : R.drawable.bg_grid_icon_unselect));
     }
 
     @Override
