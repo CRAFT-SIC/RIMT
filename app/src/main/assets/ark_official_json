@@ -1,6 +1,6 @@
 [
 {
-    "cover": "https://img1.baidu.com/it/u=3834820558,1776972742&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=400&amp;h=400",
+    "cover": "official_cover_siren",
     "name": "塞壬唱片-MSR",
     "subName": "MonsterSirenRecords",
     "desc": "泰拉世界十世纪最大的音乐发行商之一。",
@@ -9,16 +9,56 @@
        { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
          { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
            { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
+           { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
+           { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
+           { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
+           { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"},
                      { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
     ]
 },{
-      "cover": "https://img1.baidu.com/it/u=3834820558,1776972742&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=400&amp;h=400",
-      "name": "塞壬唱片-MSR2",
-      "subName": "MonsterSirenRecords",
-      "desc": "泰拉世界十世纪最大的音乐发行商之一。",
-      "createTime": 1692876949000,
-      "links": [
-         { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
-      ]
-  }
+       "cover": "official_cover_terra",
+       "name": "terra",
+       "subName": "MonsterSirenRecords",
+       "desc": "明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包,明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包",
+       "createTime": 1692876949000,
+       "links": [
+          { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
+       ]
+   },{
+          "cover": "official_cover_arknights",
+          "name": "arknights",
+          "subName": "MonsterSirenRecords",
+          "desc": "明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包,明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包",
+          "createTime": 1692876949000,
+          "links": [
+             { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
+          ]
+      },{
+             "cover": "official_cover_choshan",
+             "name": "choshan",
+             "subName": "MonsterSirenRecords",
+             "desc": "明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包,明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包",
+             "createTime": 1692876949000,
+             "links": [
+                { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
+             ]
+         },{
+                "cover": "official_cover_gravitywall",
+                "name": "gravitywall",
+                "subName": "MonsterSirenRecords",
+                "desc": "明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包,明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包",
+                "createTime": 1692876949000,
+                "links": [
+                   { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
+                ]
+            },{
+                   "cover": "official_cover_skland",
+                   "name": "skland",
+                   "subName": "MonsterSirenRecords",
+                   "desc": "明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包,明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包",
+                   "createTime": 1692876949000,
+                   "links": [
+                      { "platform": "facebook","url": "https://www.facebook.com/ssssxxxx"}
+                   ]
+               }
   ]

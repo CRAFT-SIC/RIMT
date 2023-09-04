@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.suntend.arktoolbox.MainActivity
 import com.suntend.arktoolbox.R
+import com.suntend.arktoolbox.RIMTUtil.AttrUtil
 
 
 class ArkOfficialAdapter() :
@@ -29,13 +30,21 @@ class ArkOfficialAdapter() :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var item = data[position]
-        Glide.with(holder.itemView.context).load(item.cover).into(holder.mIvCover)
+        if (item.cover.startsWith("http")) {
+            Glide.with(holder.itemView.context).load(item.cover).into(holder.mIvCover)
+        } else {
+            holder.mIvCover.setImageResource(AttrUtil.getDrawableId(holder.itemView.context,item.cover))
+        }
         holder.mTvName.setText(item.name)
         holder.mTvTitleName.setText(item.name)
         holder.mTvSubName.setText(item.subName)
         holder.mTvDesc.setText(item.desc)
         if (holder.mRvPlatform.tag == null) {
-            holder.mRvPlatform.layoutManager = LinearLayoutManager(holder.mRvPlatform.context,LinearLayoutManager.HORIZONTAL,false)
+            holder.mRvPlatform.layoutManager = LinearLayoutManager(
+                holder.mRvPlatform.context,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
             val adapter = ArkOfficialListPlatformAdapter()
             holder.mRvPlatform.adapter = adapter
             holder.mRvPlatform.tag = adapter
@@ -46,24 +55,35 @@ class ArkOfficialAdapter() :
         //holder.mIvCover.transitionName="cover$position"
         //holder.mTvName.transitionName="name$position"
         holder.itemView.setOnClickListener {
-          var context= holder.itemView.context
+            var context = holder.itemView.context
             val intent = Intent(holder.itemView.context, ArkOfficialInfoActivity::class.java)
-            intent.putExtra("bean",item)
+            intent.putExtra("bean", item)
 
 
             val transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(
                 context as MainActivity?,
-                Pair.create(holder.mCardCover,
-                    "cardCover"),
-                Pair.create(holder.mTvName,
-                    "name"),Pair.create(holder.mTvTitleName,
-                    "titleName"),
-                Pair.create(holder.mTvSubName,
-                    "subName"),
-                Pair.create(holder.mTvDesc,
-                    "desc"),
+                Pair.create(
+                    holder.mCardCover,
+                    "cardCover"
+                ),
+                Pair.create(
+                    holder.mTvName,
+                    "name"
+                ),
+                Pair.create(
+                    holder.mTvTitleName,
+                    "titleName"
+                ),
+                Pair.create(
+                    holder.mTvSubName,
+                    "subName"
+                ),
+                Pair.create(
+                    holder.mTvDesc,
+                    "desc"
+                ),
 
-            )
+                )
 
             context.startActivity(intent, transitionActivityOptions.toBundle())
 

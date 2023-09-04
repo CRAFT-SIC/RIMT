@@ -116,10 +116,12 @@
             android:paddingRight="12dp">
 
             <TextView
+                android:maxLines="1"
                 android:id="@+id/tv_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="泰拉世界十世纪最大的音乐发行商之一。"
+                android:ellipsize="end"
+                android:text="泰拉世界十世纪最大的音乐发行商之一泰拉世界十世纪最大的音乐发行商之一泰拉世界十世纪最大的音乐发行商之一。"
                 android:textColor="?attr/ark_label_hint_text_color"
                 android:textSize="12sp" />
 

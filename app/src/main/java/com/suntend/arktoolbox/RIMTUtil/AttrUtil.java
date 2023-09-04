@@ -1,5 +1,6 @@
 package com.suntend.arktoolbox.RIMTUtil;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.util.TypedValue;
 
@@ -23,5 +24,8 @@ public class AttrUtil {
         TypedValue value = new TypedValue();
         theme.resolveAttribute(attr, value, true);
         return value.resourceId;
+    }
+    public static int getDrawableId(Context context, String defType) {
+        return context.getResources().getIdentifier(defType, "drawable", context.getPackageName());
     }
 }

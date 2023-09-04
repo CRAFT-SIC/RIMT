@@ -3,6 +3,7 @@ package com.suntend.arktoolbox.ui.arkofficial
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,6 +12,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import com.bumptech.glide.Glide
 import com.suntend.arktoolbox.R
+import com.suntend.arktoolbox.RIMTUtil.AttrUtil
 import com.suntend.arktoolbox.enums.PlatformIconEnum
 import com.suntend.arktoolbox.widgets.OfficialInfoPlatformLinksLayout
 import java.text.SimpleDateFormat
@@ -25,6 +27,10 @@ class ArkOfficialInfoActivity : AppCompatActivity() {
         window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
         setContentView(R.layout.activity_ark_official_info)
 
+        findViewById<View>(R.id.iv_back).setOnClickListener {
+            finishAfterTransition()
+        }
+
         var mIvCover = findViewById<ImageView>(R.id.iv_cover)
         var mCardCover = findViewById<CardView>(R.id.card_cover)
         val mTvName = findViewById<TextView>(R.id.tv_name)
@@ -35,7 +41,11 @@ class ArkOfficialInfoActivity : AppCompatActivity() {
         val mLinks = findViewById<OfficialInfoPlatformLinksLayout>(R.id.platform_links)
 
         entity = intent.getParcelableExtra<ArkOfficialEntity>("bean")!!
-        Glide.with(this).load(entity.cover).into(mIvCover)
+        if (entity.cover.startsWith("http")) {
+            Glide.with(this).load(entity.cover).into(mIvCover)
+        } else {
+            mIvCover.setImageResource(AttrUtil.getDrawableId(this,entity.cover))
+        }
         mTvName.setText(entity.name)
         mTvTitleName.setText(entity.name)
         mTvSubName.setText(entity.subName)

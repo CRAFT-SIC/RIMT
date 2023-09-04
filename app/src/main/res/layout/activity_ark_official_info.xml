@@ -49,121 +49,135 @@
 
     </FrameLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_info"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="152dp"
-            android:layout_marginRight="20dp"
-            android:clipChildren="false"
-            android:clipToOutline="false"
-            android:clipToPadding="false"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="17dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_info"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="60dp"
+                android:layout_width="335dp"
+                android:layout_height="486dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="152dp"
+                android:layout_marginRight="20dp"
+                android:clipChildren="false"
+                android:clipToOutline="false"
+                android:clipToPadding="false"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="17dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:paddingHorizontal="20dp">
-
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="99dp"
-                    android:gravity="center"
-                    android:text="塞壬唱片-MSR"
-                    android:textColor="?attr/ark_label_general_text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_sub_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="MonsterSirenRecords"
-                    android:textColor="?attr/ark_label_secondary_text_color"
-                    android:textSize="12sp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/tv_create_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="30dp"
-                    android:backgroundTint="?attr/ark_label_background_color"
-                    android:elevation="0dp"
-                    android:gravity="center"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:minWidth="150dp"
-                    android:padding="0dp"
-                    android:text="成立时间      2015年11月11日"
-                    android:textAllCaps="false"
-                    android:textColor="?attr/ark_label_general_text_color"
-                    android:textSize="10sp"
-                    app:cornerRadius="8dp" />
-
-                <TextView
-                    android:id="@+id/tv_desc"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包,明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包"
-                    android:textColor="#ff1a1a1a"
-                    android:textSize="12sp" />
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp">
 
-                <com.google.android.material.divider.MaterialDivider
-                    android:id="@+id/divider"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="官方链接"
-                    android:textColor="?attr/ark_label_hint_text_color"
-                    android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="99dp"
+                        android:gravity="center"
+                        android:text="塞壬唱片-MSR"
+                        android:textColor="?attr/ark_label_general_text_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                <com.suntend.arktoolbox.widgets.OfficialInfoPlatformLinksLayout
-                    android:id="@+id/platform_links"
+                    <TextView
+                        android:id="@+id/tv_sub_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="MonsterSirenRecords"
+                        android:textColor="?attr/ark_label_secondary_text_color"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tv_create_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="30dp"
+                        android:backgroundTint="?attr/ark_label_background_color"
+                        android:elevation="0dp"
+                        android:gravity="center"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:minWidth="150dp"
+                        android:padding="0dp"
+                        android:text="成立时间      2015年11月11日"
+                        android:textAllCaps="false"
+                        android:textColor="?attr/ark_label_general_text_color"
+                        android:textSize="10sp"
+                        app:cornerRadius="8dp" />
+
+                    <TextView
+                        android:id="@+id/tv_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minLines="4"
+                        android:layout_marginTop="24dp"
+                        android:ellipsize="end"
+                        android:maxLines="4"
+                        android:text="明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包,明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包明日方舟周边衍生品牌，营业员为兔兔，兔兔带着可爱的最新表情包"
+                        android:textColor="#ff1a1a1a"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="官方链接"
+                        android:textColor="?attr/ark_label_hint_text_color"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:minHeight="110dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <com.suntend.arktoolbox.widgets.OfficialInfoPlatformLinksLayout
+                            android:id="@+id/platform_links"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_cover"
+                android:layout_width="112dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="-77dp"
+                app:cardElevation="18dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/card_info">
+
+                <ImageView
+                    android:id="@+id/iv_cover"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="15dp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_cover"
-            android:layout_width="112dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="-77dp"
-            app:cardElevation="18dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/card_info">
-
-            <ImageView
-                android:id="@+id/iv_cover"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
-
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </LinearLayout>
