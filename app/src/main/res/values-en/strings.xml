@@ -39,4 +39,22 @@
     <string name="text_toolbox_button_mention_advice">go advice</string>
     <string name="text_toolbox_title">Arknights Toolbox5.0</string>
     <string name="text_toolbox_search">Toolbox5.0 Search</string>
+    <!-- main page strings -->
+    <string name="more_features">More features >></string>
+    <string name="Detailed_features">Detailed features >></string>
+    <string name="apps_line_1">Drawing analysis</string>
+    <string name="apps_line_2">PRTS</string>
+    <string name="apps_line_3">Penguin Statistics</string>
+    <string name="apps_line_4">Enemy Overview</string>
+    <string name="mainpage_app_line">Toolbox · Common Apps</string>
+    <string name="mainpage_derivative">HYPERGRYPH · IP Derivative</string>
+    <string name="checkbox_item_1">Amiya</string>
+    <string name="checkbox_item_2">Kaltsit</string>
+    <string name="checkbox_item_3">Skadi</string>
+    <string name="home_card_label1">WELCOME BACK DOCTOR</string>
+    <string name="home_card_label2">XXXX @ X</string>
+    <string name="card_act_title">DOSSOLES HOLIDAY</string>
+    <string name="card_act_days">3</string>
+    <string name="card_act_hours">3</string>
+
 </resources>

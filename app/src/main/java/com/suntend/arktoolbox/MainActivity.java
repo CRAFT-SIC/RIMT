@@ -38,6 +38,7 @@ import com.suntend.arktoolbox.RIMTUtil.RIMTUtil;
 import com.suntend.arktoolbox.RIMTUtil.ThemeManager;
 import com.suntend.arktoolbox.ui.arklabel.ArkLabelFragment;
 import com.suntend.arktoolbox.ui.arkofficial.ArkOfficialFragment;
+import com.suntend.arktoolbox.widgets.mainpage.MainPageFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 获取FragmentManager
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragments.add(new ArkToolBoxFragment());
+        fragments.add(new MainPageFragment());
         fragments.add(new ArkOfficialFragment());
         fragments.add(new ArkToolBoxFragment());
         fragments.add(new ArkLabelFragment());

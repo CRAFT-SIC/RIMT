@@ -48,4 +48,22 @@
         <item>Python编程</item>
         <item>形势与政策</item>
     </string-array>
+    <!-- main page strings -->
+    <string name="more_features">更多功能 >></string>
+    <string name="Detailed_features">详细功能 >></string>
+    <string name="apps_line_1">抽卡分析</string>
+    <string name="apps_line_2">PRTS</string>
+    <string name="apps_line_3">企鹅物流</string>
+    <string name="apps_line_4">敌人一览</string>
+    <string name="mainpage_app_line">工具箱 · 常用应用</string>
+    <string name="mainpage_derivative">鹰角网络 · 官方IP衍生</string>
+    <string name="checkbox_item_1">阿米娅</string>
+    <string name="checkbox_item_2">凯尔希</string>
+    <string name="checkbox_item_3">斯卡蒂</string>
+    <string name="home_card_label1">WELCOME BACK DOCTOR</string>
+    <string name="home_card_label2">XXXX @ X</string>
+    <string name="card_act_title">多索留斯假日</string>
+    <string name="card_act_days">3</string>
+    <string name="card_act_hours">3</string>
+
 </resources>

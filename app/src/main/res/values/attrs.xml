@@ -71,6 +71,8 @@
     <attr name="img_icon_grid" format="reference" />
     <attr name="color_grid_icon_bg" format="color" />
 
+    <!-- MainPage -->
+    <attr name="change_theme" format="reference|color" />
     <!-- ark Label-->
     <attr name="ark_label_general_text_color" format="color" />
     <attr name="ark_label_tip_text_color" format="color" />
