@@ -88,9 +88,6 @@ public class MainActivity extends AppCompatActivity {
         //避免切换显示模式后fragment多次创建
         if (savedInstanceState != null) return;
 
-        //初始化数据库
-        ArkToolDatabaseHelper.getInstance(this);
-
         // 获取FragmentManager
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragments.add(new MainPageFragment());
