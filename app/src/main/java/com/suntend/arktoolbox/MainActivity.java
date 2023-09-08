@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
         // 调用设置侧边栏的方法
         SetDrawer();
 
+        //避免切换显示模式后fragment多次创建
+        if (savedInstanceState != null) return;
+
         // 获取FragmentManager
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragments.add(new MainPageFragment());

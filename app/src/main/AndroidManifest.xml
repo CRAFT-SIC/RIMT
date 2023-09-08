@@ -17,6 +17,9 @@
         android:theme="@style/Theme.RIMT"
         tools:targetApi="31">
         <activity
+            android:name=".WebActivity"
+            android:exported="false" />
+        <activity
             android:name=".DrawerActivity"
             android:exported="false" />
         <activity
