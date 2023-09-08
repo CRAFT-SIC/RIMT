@@ -1,13 +1,10 @@
 package com.suntend.arktoolbox.base
 
 import android.graphics.Color
-import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.suntend.arktoolbox.R
-import com.suntend.arktoolbox.RIMTUtil.AttrUtil
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 
 open class BasicActivity : AppCompatActivity() {

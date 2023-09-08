@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.suntend.arktoolbox.R;
 import com.suntend.arktoolbox.RIMTUtil.AttrUtil;
+import com.suntend.arktoolbox.enums.GameEnum;
 
 /**
  * Class:
@@ -21,9 +22,10 @@ import com.suntend.arktoolbox.RIMTUtil.AttrUtil;
  * Create by jsji on  2023/8/4.
  */
 class ArkLabelSelectGameDialog extends Dialog {
-    private ArkLabelEntity entity;
+    private GameEnum selectGame;
     private RecyclerView mRv;
     private ArkLabelSelectGameAdapter adapter;
+    private  ArkLabelSelectGameAdapter.OnGameSelectCallBack onGameSelectCallBack;
 
     public ArkLabelSelectGameDialog(@NonNull Context context) {
         super(context, R.style.TransDialog);
@@ -45,7 +47,7 @@ class ArkLabelSelectGameDialog extends Dialog {
         mRv.setLayoutManager(new LinearLayoutManager(getContext()));
         mRv.addItemDecoration(new RecyclerView.ItemDecoration() {
             final Paint paint = new Paint();
-            final int dividerColor= AttrUtil.getColor(R.attr.ark_label_divider_color);
+            final int dividerColor = AttrUtil.getColor(R.attr.ark_label_divider_color);
 
             {
                 paint.setColor(dividerColor);
@@ -60,7 +62,7 @@ class ArkLabelSelectGameDialog extends Dialog {
                 for (int i = 0; i < parent.getChildCount(); i++) {
                     View child = parent.getChildAt(i);
                     int position = parent.getChildAdapterPosition(child);
-                    if (position != adapter.getItemCount()-1) {
+                    if (position != adapter.getItemCount() - 1) {
                         c.drawLine(child.getLeft(), child.getBottom(), child.getRight(), child.getBottom(), paint);
                     }
                 }
@@ -75,21 +77,28 @@ class ArkLabelSelectGameDialog extends Dialog {
             }
         });
 
-        adapter = new ArkLabelSelectGameAdapter( new View.OnClickListener() {
+        adapter = new ArkLabelSelectGameAdapter(new ArkLabelSelectGameAdapter.OnGameSelectCallBack() {
             @Override
-            public void onClick(View view) {
+            public void onClick(GameEnum game) {
+                if (onGameSelectCallBack!=null){
+                    onGameSelectCallBack.onClick(game);
+                }
                 dismiss();
             }
         });
-        adapter.setEntity(entity);
+        adapter.setSelectGame(selectGame);
         mRv.setAdapter(adapter);
     }
 
-    public void show(ArkLabelEntity entity) {
+    public void setOnGameSelectCallBack(ArkLabelSelectGameAdapter.OnGameSelectCallBack onGameSelectCallBack) {
+        this.onGameSelectCallBack = onGameSelectCallBack;
+    }
+
+    public void show(GameEnum game) {
         super.show();
-        this.entity = entity;
+        this.selectGame = game;
         if (adapter != null) {
-            adapter.setEntity(entity);
+            adapter.setSelectGame(game);
             adapter.notifyDataSetChanged();
         }
     }

@@ -33,6 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.suntend.arktoolbox.ui.arklabel.ArkLabelDirEditActivity" />
+        <activity android:name="com.suntend.arktoolbox.ui.arklabel.ArkLabelDirSelectActivity" />
         <activity android:name="com.suntend.arktoolbox.ui.arklabel.ArkLabelEditActivity" />
         <activity android:name="com.suntend.arktoolbox.ui.arkofficial.ArkOfficialInfoActivity" />
         <activity android:name="com.suntend.arktoolbox.ui.arkcardanalyzer.ArkCardAnalyzerActivity"/>

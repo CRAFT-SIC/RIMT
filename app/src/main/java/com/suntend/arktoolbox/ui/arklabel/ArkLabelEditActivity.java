@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.suntend.arktoolbox.R;
 import com.suntend.arktoolbox.RIMTUtil.AttrUtil;
+import com.suntend.arktoolbox.enums.GameEnum;
 import com.suntend.arktoolbox.enums.PlatformIconEnum;
 
 /**
@@ -176,10 +177,16 @@ public class ArkLabelEditActivity extends AppCompatActivity {
                 mTvGameName.setText(entity.game.label);
             }
         });
+        selectGameDialog.setOnGameSelectCallBack(new ArkLabelSelectGameAdapter.OnGameSelectCallBack() {
+            @Override
+            public void onClick(GameEnum game) {
+                entity.game = game;
+            }
+        });
         findViewById(R.id.ll_game_name).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                selectGameDialog.show(entity);
+                selectGameDialog.show(entity.game);
             }
         });
         mEditName.addTextChangedListener(new TextWatcher() {
