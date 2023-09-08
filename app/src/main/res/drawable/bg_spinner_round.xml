@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <!-- 圆角度 -->
+            <corners
+                android:bottomLeftRadius="14dp"
+                android:bottomRightRadius="14dp" />
+            <!-- 使用填充色 -->
+            <solid android:color="?attr/color_spinner_bg" />
+        </shape>
+    </item>
+</layer-list>

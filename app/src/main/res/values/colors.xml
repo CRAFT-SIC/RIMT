@@ -44,6 +44,34 @@
     <color name="drawer_toolbox_unchecked_text_color_night">#424353</color>
     <color name="drawer_toolbox_checked_status_color_night">#BDBDBD</color>
     <color name="drawer_toolbox_unchecked_status_color_night">#BDBDBD</color>
+    <color name="color_bg_search_view_night">#414453</color>
+    <color name="color_divider_day">#F5F5F5</color>
+    <color name="color_divider_night">#3F3D49</color>
+    <color name="color_category_divider_day">#F43D28</color>
+    <color name="color_category_divider_night">#A1CC00</color>
+    <color name="color_category_select_day">#EC3C33</color>
+    <color name="color_category_select_night">#94B70B</color>
+    <color name="color_category_unselect_day">#767676</color>
+    <color name="color_category_unselect_night">#BDBBC5</color>
+    <color name="color_checkbox_text_select_day">#F43D2B</color>
+    <color name="color_checkbox_text_unselect_day">#C5C5C5</color>
+    <color name="color_checkbox_text_select_night">#95C700</color>
+    <color name="color_checkbox_text_unselect_night">#B9B8BF</color>
+    <color name="color_list_icon_bg_day">#F7F7F7</color>
+    <color name="color_list_icon_bg_night">#BDBDBD</color>
+    <color name="color_list_icon_bg_stroke_day">#E6E6E6</color>
+    <color name="color_list_icon_bg_stroke_night">#727273</color>
+    <color name="color_search_text_highlight_day">#F63E2F</color>
+    <color name="color_search_text_highlight_night">#9DCF00</color>
+    <color name="color_spinner_bg_day">#FFFFFF</color>
+    <color name="color_spinner_bg_night">#1D1B27</color>
+    <color name="color_toolbox_mention_text_day">#BABABA</color>
+    <color name="color_toolbox_mention_text_night">#BBB9C3</color>
+    <color name="color_item_recommend_stroke_day">#C5C5C5</color>
+    <color name="color_item_recommend_stroke_night">#B6B4C0</color>
+    <color name="color_view_mask_transparent">#62000000</color>
+    <color name="color_grid_icon_bg_day">#F6F6F6</color>
+    <color name="color_grid_icon_bg_night">#414453</color>
 
     <!-- Label -->
     <!-- Day -->

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.toolbox.ToolBoxFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/img_tool_open_nav"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="?attr/fragment_nav" />
+
+            <TextView
+                android:id="@+id/text_toolbox_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/drawer_toolbox_name"
+                android:textColor="?attr/general_text_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/img_tool_list_switch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:padding="8dp"
+                android:src="?attr/img_icon_grid" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view_toolbox"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="6dp"
+            android:background="?attr/bg_search_view"
+            app:closeIcon="@mipmap/icon_search_view_close"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent"
+            app:queryHint="输入搜索内容"
+            app:searchIcon="@mipmap/icon_toolbox_search" />
+
+        <View
+            android:id="@+id/view_divider_under_search"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="?attr/color_simple_divider"
+            android:visibility="invisible" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView_tool_box"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/relative_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:visibility="visible">
+
+                        <com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView
+                            android:id="@+id/spinner_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:dropDownVerticalOffset="40dp"
+                            android:popupBackground="@drawable/bg_spinner_round" />
+
+                        <CheckBox
+                            android:id="@+id/checkbox_follow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:background="@null"
+                            android:button="@null"
+                            android:drawableStart="?attr/img_checkbox_follow"
+                            android:drawablePadding="6dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="25dp"
+                            android:text="@string/checkbox_follow_text"
+                            android:textColor="?attr/color_checkbox_text_unselect" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="?attr/color_simple_divider" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingStart="40dp"
+                        android:paddingEnd="16dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/text_recommend"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="推荐功能" />
+
+                        <ImageView
+                            android:id="@+id/img_toolbox_delete"
+                            android:layout_width="36dp"
+                            android:layout_height="40dp"
+                            android:padding="10dp"
+                            android:src="@mipmap/icon_delete_box"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycle_view_tool_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusable="false"
+                        android:nestedScrollingEnabled="true"
+                        android:visibility="visible"
+                        app:layoutManager="LinearLayoutManager" />
+
+                    <GridView
+                        android:id="@+id/grid_view_recommend"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:horizontalSpacing="8dp"
+                        android:numColumns="3"
+                        android:paddingHorizontal="20dp"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="18dp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_mention"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/text_toolbox_mention"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/text_toolbox_mention_follow"
+                            android:textColor="?attr/color_toolbox_mention_text" />
+
+                        <TextView
+                            android:id="@+id/text_toolbox_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_toolbox_mention_button"
+                            android:paddingHorizontal="25dp"
+                            android:paddingVertical="5dp"
+                            android:text="@string/text_toolbox_button_mention_follow"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view_mask_transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_view_mask_transparent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="?attr/color_simple_divider" />
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/webView_fragment_toolbox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+</RelativeLayout>

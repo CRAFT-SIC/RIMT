@@ -51,6 +51,30 @@
         <item name="login_image">@drawable/login_image_night</item>
 
         <item name="fragment_nav">@drawable/fragment_nav_night</item>
+        <item name="bg_search_view">@drawable/bg_search_view_night</item>
+        <item name="color_simple_divider">@color/color_divider_night</item>
+        <item name="color_category_divider">@color/color_category_divider_night</item>
+        <item name="color_category_select">@color/color_category_select_night</item>
+        <item name="color_category_unselect">@color/color_category_unselect_night</item>
+        <item name="img_category_list_open">@mipmap/icon_arrow_up_green</item>
+        <item name="img_category_list_close">@mipmap/icon_arrow_down_green</item>
+        <item name="img_checkbox_follow">@drawable/checkbox_follow_night</item>
+        <item name="color_checkbox_text_select">@color/color_checkbox_text_select_night</item>
+        <item name="color_checkbox_text_unselect">@color/color_checkbox_text_unselect_night</item>
+        <item name="color_list_icon_bg">@color/color_list_icon_bg_night</item>
+        <item name="color_list_icon_bg_stroke">@color/color_list_icon_bg_stroke_night</item>
+        <item name="color_search_text_highlight">@color/color_search_text_highlight_night</item>
+        <item name="color_spinner_bg">@color/color_spinner_bg_night</item>
+        <item name="img_follow_cant_check">@mipmap/icon_follow_cant_check_night</item>
+        <item name="img_follow_checked">@mipmap/icon_follow_checked_night</item>
+        <item name="img_follow_unchecked">@mipmap/icon_follow_unchecked_night</item>
+        <item name="img_follow_grid_checked">@mipmap/icon_follow_grid_checked_night</item>
+        <item name="img_follow_grid_unchecked">@mipmap/icon_follow_grid_unchecked_night</item>
+        <item name="color_toolbox_mention_text">@color/color_toolbox_mention_text_night</item>
+        <item name="color_item_recommend_stroke">@color/color_item_recommend_stroke_night</item>
+        <item name="img_icon_list">@mipmap/icon_list_night</item>
+        <item name="img_icon_grid">@mipmap/icon_grid_night</item>
+        <item name="color_grid_icon_bg">@color/color_grid_icon_bg_night</item>
 
         <!--ark Label-->
         <item name="ark_label_general_text_color">@color/ark_label_general_text_color_night</item>
@@ -123,5 +147,5 @@
         <item name="nav_3_sel">@drawable/nav_ark_3_sel_night_w</item>
         <item name="nav_4_sel">@drawable/nav_ark_4_sel_night_w</item>
     </style>
-    
+
 </resources>

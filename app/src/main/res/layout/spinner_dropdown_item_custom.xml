@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <CheckedTextView
+        android:id="@+id/checked_text_dropdown_item"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:paddingHorizontal="40dp"
+        android:singleLine="true"
+        android:text="测试填充文本" />
+</RelativeLayout>
+

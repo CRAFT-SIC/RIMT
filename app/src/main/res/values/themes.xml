@@ -51,6 +51,30 @@
         <item name="login_image">@drawable/login_image_day</item>
 
         <item name="fragment_nav">@drawable/fragment_nav_day</item>
+        <item name="bg_search_view">@drawable/bg_search_view_day</item>
+        <item name="color_simple_divider">@color/color_divider_day</item>
+        <item name="color_category_divider">@color/color_category_divider_day</item>
+        <item name="color_category_select">@color/color_category_select_day</item>
+        <item name="color_category_unselect">@color/color_category_unselect_day</item>
+        <item name="img_category_list_open">@mipmap/icon_arrow_up_red</item>
+        <item name="img_category_list_close">@mipmap/icon_arrow_down_red</item>
+        <item name="img_checkbox_follow">@drawable/checkbox_follow_day</item>
+        <item name="color_checkbox_text_select">@color/color_checkbox_text_select_day</item>
+        <item name="color_checkbox_text_unselect">@color/color_checkbox_text_unselect_day</item>
+        <item name="color_list_icon_bg">@color/color_list_icon_bg_day</item>
+        <item name="color_list_icon_bg_stroke">@color/color_list_icon_bg_stroke_day</item>
+        <item name="color_search_text_highlight">@color/color_search_text_highlight_day</item>
+        <item name="color_spinner_bg">@color/color_spinner_bg_day</item>
+        <item name="img_follow_cant_check">@mipmap/icon_follow_cant_check_day</item>
+        <item name="img_follow_checked">@mipmap/icon_follow_checked_day</item>
+        <item name="img_follow_unchecked">@mipmap/icon_follow_unchecked_night</item>
+        <item name="img_follow_grid_checked">@mipmap/icon_follow_grid_checked_day</item>
+        <item name="img_follow_grid_unchecked">@mipmap/icon_follow_grid_unchecked_day</item>
+        <item name="color_toolbox_mention_text">@color/color_toolbox_mention_text_day</item>
+        <item name="color_item_recommend_stroke">@color/color_item_recommend_stroke_day</item>
+        <item name="img_icon_list">@mipmap/icon_list_day</item>
+        <item name="img_icon_grid">@mipmap/icon_grid_day</item>
+        <item name="color_grid_icon_bg">@color/color_grid_icon_bg_day</item>
 
         <!--ark Label-->
         <item name="ark_label_general_text_color">@color/ark_label_general_text_color_day</item>

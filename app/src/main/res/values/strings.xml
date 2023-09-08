@@ -32,4 +32,20 @@
     <string name="login_waiting">等待操作</string>
     <string name="jsg_llc_craft">*JSG-LLC与CRAFT账号均可登录</string>
 
+    <string name="checkbox_follow_text">只看收藏</string>
+    <string name="text_toolbox_mention_follow">该分类下博士还没有收藏任何功能哦</string>
+    <string name="text_toolbox_button_mention_follow">去添加</string>
+    <string name="text_toolbox_mention_advice">没有你想要的功能？</string>
+    <string name="text_toolbox_button_mention_advice">去提需求</string>
+    <string name="text_toolbox_title">明日方舟 工具箱5.0</string>
+    <string name="text_toolbox_search">工具箱5.0 搜索</string>
+
+    <string-array name="subjects">
+        <item>安卓开发</item>
+        <item>Web开发</item>
+        <item>数据结构</item>
+        <item>网络技术</item>
+        <item>Python编程</item>
+        <item>形势与政策</item>
+    </string-array>
 </resources>
