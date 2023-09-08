@@ -40,6 +40,7 @@ import com.suntend.arktoolbox.fragment.toolbox.adapter.RecommendGirdAdapter;
 import com.suntend.arktoolbox.fragment.toolbox.adapter.ToolBoxRecyclerViewAdapter;
 import com.suntend.arktoolbox.fragment.toolbox.bean.ToolboxBean;
 import com.suntend.arktoolbox.fragment.toolbox.view.CustomSpinnerView;
+import com.suntend.arktoolbox.ui.arkcardanalyzer.ArkCardAnalyzerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -260,6 +261,10 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     public void onItemClick(View view, int position) {
         //todo:打开网页的逻辑
         ToolboxBean bean = recyclerViewAdapter.getItemByPosition(position);
+        if (bean.getName().equals("抽卡分析")){
+            mContext.startActivity(new Intent(mContext, ArkCardAnalyzerActivity.class));
+            return;
+        }
         RIMTUtil.ShowToast(mContext, "正在前往网页(待完善)");
         //webView.setVisibility(View.VISIBLE);
         //webView.loadUrl(bean.getAddressUrl());
