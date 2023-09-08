@@ -2,6 +2,7 @@ package com.suntend.arktoolbox;
 /*
  * JamXi
  */
+
 import static com.suntend.arktoolbox.RIMTUtil.FlarumUserUtil.getUser;
 
 import android.content.DialogInterface;
@@ -20,6 +21,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -30,12 +32,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.suntend.arktoolbox.RIMTUtil.DataExchange;
 import com.suntend.arktoolbox.RIMTUtil.FileUtil;
 import com.suntend.arktoolbox.RIMTUtil.FlarumUserUtil;
 import com.suntend.arktoolbox.RIMTUtil.NavController;
 import com.suntend.arktoolbox.RIMTUtil.RIMTUtil;
 import com.suntend.arktoolbox.RIMTUtil.ThemeManager;
+import com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper;
 import com.suntend.arktoolbox.fragment.toolbox.ToolBoxFragment;
 import com.suntend.arktoolbox.ui.arklabel.ArkLabelFragment;
 import com.suntend.arktoolbox.ui.arkofficial.ArkOfficialFragment;
@@ -81,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
         // 调用设置侧边栏的方法
         SetDrawer();
 
+        //避免切换显示模式后fragment多次创建
+        if (savedInstanceState != null) return;
+
+        //初始化数据库
+        ArkToolDatabaseHelper.getInstance(this);
+
         // 获取FragmentManager
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragments.add(new MainPageFragment());
@@ -107,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     // 设置导航栏列表-暂时无作用
     private void InitNavList() {
         NavController.resetNavList();
-        NavController.setNavList("L0-P1.首页","L1-P2","L2-P3","L3-P4","L4-P5");
+        NavController.setNavList("L0-P1.首页", "L1-P2", "L2-P3", "L3-P4", "L4-P5");
     }
 
     // 设置导航栏
@@ -289,6 +299,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         gameSelect();
+
+        //暂时加个切换日间与夜间
+        SwitchMaterial checkbox = findViewById(R.id.checkbox);
+        checkbox.setOnClickListener(view -> {
+            if (checkbox.isChecked())
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        });
     }
 
     private void gameSelect() {
