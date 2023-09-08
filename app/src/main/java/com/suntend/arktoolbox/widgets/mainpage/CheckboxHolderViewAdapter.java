@@ -20,32 +20,32 @@ public class CheckboxHolderViewAdapter extends RecyclerView.Adapter<CheckboxHold
 
     private List<Theme> list;
 
-
     private LayoutInflater layoutInflater;
 
     Context context;
 
     public CheckboxHolderViewAdapter(Context context) {
+        list = DataFactory.getThemes();
         this.context = context;
+        layoutInflater = LayoutInflater.from(context);
     }
 
     @NonNull
     @Override
-    public CheckboxHolderViewAdapter.CheckboxHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CheckboxHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = layoutInflater.inflate(R.layout.fragment_mainpage_checkbox_holder,parent,false);
         return new CheckboxHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CheckboxHolderViewAdapter.CheckboxHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CheckboxHolder holder, int position) {
         holder.textView.setText(list.get(position).getText());
-//        holder.imageView.setBackground();
-//        holder.imageView.set
+        holder.imageView.setBackgroundColor(list.get(position).getColor());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     public static class CheckboxHolder extends RecyclerView.ViewHolder {

@@ -200,18 +200,18 @@
                 android:layout_width="152dp"
                 android:layout_height="170dp"
                 android:layout_gravity="right"
-                android:layout_marginRight="24dp"
-                android:background="@color/ark_label_accent_text_color_night"
                 android:visibility="visible">
 
                 <ImageView
                     android:id="@+id/checkbox_bubble"
-                    android:layout_width="match_parent"
+                    android:layout_width="152dp"
+                    android:background="@color/ark_label_accent_text_color_night"
                     android:layout_height="match_parent"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/checkbox_recycler_view"
                     android:layout_width="match_parent"
-                    android:layout_height="158dp"/>
+                    android:layout_height="match_parent"/>
 
 <!--                <com.google.android.material.checkbox.MaterialCheckBox-->
 <!--                    android:id="@+id/checkbox1"-->

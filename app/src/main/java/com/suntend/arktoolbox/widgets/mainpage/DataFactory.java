@@ -1,6 +1,9 @@
 package com.suntend.arktoolbox.widgets.mainpage;
 
+import android.graphics.Color;
+
 import com.suntend.arktoolbox.widgets.mainpage.beans.Card;
+import com.suntend.arktoolbox.widgets.mainpage.beans.Theme;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,5 +18,14 @@ import java.util.List;
 public class DataFactory {
     public static List<Card> getCardsData() {
         return Arrays.asList(new Card("塞壬唱片", "MonsterSirenRecords", "泰拉世界十世纪最大的音乐发行商之一。", ""));
+    }
+
+    public static List<Theme> getThemes() {
+        return Arrays.asList(
+                new Theme(Color.parseColor("#B4CD83"),"凯尔希","null"),
+                new Theme(Color.parseColor("#83DBEB"),"阿米娅","null"),
+                new Theme(Color.parseColor("#FF644C"),"W","null"),
+                new Theme(Color.parseColor("#FFAB50"),"霜星","null")
+        );
     }
 }

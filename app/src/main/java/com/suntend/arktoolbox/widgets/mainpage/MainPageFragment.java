@@ -26,7 +26,13 @@ public class MainPageFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_mainpage,container,false);
         ImageView OpenNav = root.findViewById(R.id.openNav);
         ImageView changeTheme = root.findViewById(R.id.changeTheme);
+        RecyclerView checkboxRecyclerView = root.findViewById(R.id.checkbox_recycler_view);
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
+
+        LinearLayoutManager checkLayoutManager = new LinearLayoutManager(getContext());
+        checkLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        checkboxRecyclerView.setLayoutManager(checkLayoutManager);
+        checkboxRecyclerView.setAdapter(new CheckboxHolderViewAdapter(getContext()));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);

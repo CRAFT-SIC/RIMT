@@ -4,25 +4,25 @@ import android.graphics.Color;
 
 public class Theme {
 
-    private Color color;
+    private int color;
 
     private String text;
 
     private String link;
 
 
-    public Theme(Color color, String text, String link) {
+    public Theme(int color, String text, String link) {
         this.color = color;
         this.text = text;
         this.link = link;
     }
 
 
-    public Color getColor() {
+    public int getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(int color) {
         this.color = color;
     }
 
