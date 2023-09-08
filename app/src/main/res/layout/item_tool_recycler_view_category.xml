@@ -8,7 +8,7 @@
         android:layout_height="44dp"
         android:layout_marginTop="14dp"
         android:layout_marginBottom="5dp"
-        android:paddingHorizontal="20dp">
+        android:paddingHorizontal="8dp">
 
         <View
             android:id="@+id/divider_list_category"
@@ -21,11 +21,11 @@
             android:id="@+id/text_list_category_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="18dp"
             android:layout_centerVertical="true"
             android:ellipsize="end"
             android:maxLines="1"
             android:paddingHorizontal="8dp"
+            android:paddingTop="18dp"
             android:text="测试填充文本"
             android:textSize="18sp" />
     </RelativeLayout>
