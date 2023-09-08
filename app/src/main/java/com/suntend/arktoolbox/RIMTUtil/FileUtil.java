@@ -1,6 +1,7 @@
-//JamXi
 package com.suntend.arktoolbox.RIMTUtil;
-
+/*
+ * JamXi
+ */
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;

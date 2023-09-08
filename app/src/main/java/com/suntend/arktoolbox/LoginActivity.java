@@ -1,5 +1,7 @@
 package com.suntend.arktoolbox;
-
+/*
+ * JamXi
+ */
 import static com.suntend.arktoolbox.RIMTUtil.FlarumUserUtil.getUser;
 import static com.suntend.arktoolbox.RIMTUtil.FlarumUserUtil.setUser;
 

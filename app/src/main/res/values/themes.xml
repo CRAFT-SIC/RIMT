@@ -1,17 +1,18 @@
-<resources >
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.RIMT" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.RIMT.Day" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- 设置状态栏背景颜色为浅色 -->
         <item name="android:statusBarColor">#FFFFFF</item>
         <!-- 设置状态栏文字和图标颜色为深色 -->
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">true</item>
         <!-- 设置导航栏透明 -->
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
 
         <item name="black">@color/black</item>
         <item name="white">@color/white</item>
 
-        <item name="general_background_color">@color/white</item>
+        <item name="general_background_color">#FFFFFF</item>
         <item name="general_text_color">@color/general_text_color_day</item>
         <item name="general_secondery_text_color">@color/general_secondery_text_color_day</item>
 
@@ -32,25 +33,19 @@
         <item name="drawer_toolbox_checked_status_color">@color/drawer_toolbox_checked_status_color_day</item>
         <item name="drawer_toolbox_unchecked_status_color">@color/drawer_toolbox_unchecked_status_color_day</item>
 
-        <item name="drawer_sel">@drawable/drawer_sel_day</item>
-        <item name="drawer_unsel">@drawable/drawer_unsel_day</item>
-        <item name="drawer_feedback">@drawable/drawer_feedback_day</item>
-        <item name="drawer_settings_autoupdate">@drawable/drawer_settings_autoupdate_day</item>
-        <item name="drawer_settings_display_mode">@drawable/drawer_settings_display_mode_day</item>
-        <item name="drawer_settings_display_mode_disable">@drawable/drawer_settings_display_mode_disable_day</item>
-        <item name="drawer_settings_display_system">@drawable/drawer_settings_display_system_day</item>
+        <item name="drawer_unsel">@drawable/drawer_unsel</item>
+        <item name="drawer_feedback">@drawable/drawer_icon_feedback_day</item>
+        <item name="drawer_settings_autoupdate">@drawable/drawer_icon_update_day</item>
+        <item name="drawer_settings_display_mode">@drawable/drawer_icon_set_mode_day</item>
+        <item name="drawer_settings_display_mode_disable">@drawable/drawer_icon_set_mode_day</item>
+        <item name="drawer_settings_display_system">@drawable/drawer_icon_set_follow_day</item>
         <item name="drawer_settings_shareholder">@drawable/drawer_settings_shareholder_day</item>
 
-        <item name="nav_about_sel">@drawable/nav_about_sel_day</item>
-        <item name="nav_about_unsel">@drawable/nav_about_unsel_day</item>
-        <item name="nav_ark_sel">@drawable/nav_ark_sel_day</item>
-        <item name="nav_ark_unsel">@drawable/nav_ark_unsel_day</item>
-        <item name="nav_container_sel">@drawable/nav_container_sel_day</item>
-        <item name="nav_container_unsel">@drawable/nav_container_unsel_day</item>
-        <item name="nav_flarum_sel">@drawable/nav_flarum_sel_day</item>
-        <item name="nav_flarum_unsel">@drawable/nav_flarum_unsel_day</item>
-        <item name="nav_home_sel">@drawable/nav_home_sel_day_2</item>
-        <item name="nav_home_unsel">@drawable/nav_home_unsel_day</item>
+        <item name="nav_0_unsel">@drawable/nav_ark_0_unsel_day</item>
+        <item name="nav_1_unsel">@drawable/nav_ark_1_unsel_day</item>
+        <item name="nav_2_unsel">@drawable/nav_ark_2_unsel_day</item>
+        <item name="nav_3_unsel">@drawable/nav_ark_3_unsel_day</item>
+        <item name="nav_4_unsel">@drawable/nav_ark_4_unsel_day</item>
         <item name="nav_sel_bottom">@drawable/nav_sel_bottom_day</item>
 
         <item name="login_image">@drawable/login_image_day</item>
@@ -90,6 +85,42 @@
         <item name="icon_platform_normal">@drawable/icon_platform_normal_day</item>
         <item name="icon_platform_facebook">@drawable/icon_platform_facebook_day</item>
 
+    </style>
 
+    <style name="Base.Theme.Ark.Kaltsit" parent="Base.Theme.RIMT.Day">
+        <!-- drawer toolbox colors -->
+        <item name="drawer_sel">@drawable/drawer_sel_day_kaltsit</item>
+        <item name="nav_0_sel">@drawable/nav_ark_0_sel_day_kaltsit</item>
+        <item name="nav_1_sel">@drawable/nav_ark_1_sel_day_kaltsit</item>
+        <item name="nav_2_sel">@drawable/nav_ark_2_sel_day_kaltsit</item>
+        <item name="nav_3_sel">@drawable/nav_ark_3_sel_day_kaltsit</item>
+        <item name="nav_4_sel">@drawable/nav_ark_4_sel_day_kaltsit</item>
+    </style>
+
+    <style name="Base.Theme.Ark.Amiya" parent="Base.Theme.RIMT.Day">
+        <item name="drawer_sel">@drawable/drawer_sel_day_amiya</item>
+        <item name="nav_0_sel">@drawable/nav_ark_0_sel_day_amiya</item>
+        <item name="nav_1_sel">@drawable/nav_ark_1_sel_day_amiya</item>
+        <item name="nav_2_sel">@drawable/nav_ark_2_sel_day_amiya</item>
+        <item name="nav_3_sel">@drawable/nav_ark_3_sel_day_amiya</item>
+        <item name="nav_4_sel">@drawable/nav_ark_4_sel_day_amiya</item>
+    </style>
+
+    <style name="Base.Theme.Ark.Frostnova" parent="Base.Theme.RIMT.Day">
+        <item name="drawer_sel">@drawable/drawer_sel_day_frostnova</item>
+        <item name="nav_0_sel">@drawable/nav_ark_0_sel_day_frostnova</item>
+        <item name="nav_1_sel">@drawable/nav_ark_1_sel_day_frostnova</item>
+        <item name="nav_2_sel">@drawable/nav_ark_2_sel_day_frostnova</item>
+        <item name="nav_3_sel">@drawable/nav_ark_3_sel_day_frostnova</item>
+        <item name="nav_4_sel">@drawable/nav_ark_4_sel_day_frostnova</item>
+    </style>
+
+    <style name="Base.Theme.Ark.W" parent="Base.Theme.RIMT.Day">
+        <item name="drawer_sel">@drawable/drawer_sel_day_w</item>
+        <item name="nav_0_sel">@drawable/nav_ark_0_sel_day_w</item>
+        <item name="nav_1_sel">@drawable/nav_ark_1_sel_day_w</item>
+        <item name="nav_2_sel">@drawable/nav_ark_2_sel_day_w</item>
+        <item name="nav_3_sel">@drawable/nav_ark_3_sel_day_w</item>
+        <item name="nav_4_sel">@drawable/nav_ark_4_sel_day_w</item>
     </style>
 </resources>
