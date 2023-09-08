@@ -27,7 +27,9 @@ public class APP  extends Application {
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-
+                if (currentActivity ==null){
+                    currentActivity = activity;
+                }
             }
 
             @Override

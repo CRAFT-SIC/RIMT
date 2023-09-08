@@ -58,6 +58,11 @@
     <color name="ark_label_card_background_color_day">#FFFFFF</color>
     <color name="ark_label_divider_color_day">#D8D8D8</color>
 
+    <color name="ark_card_analyzer_accent_text_color_day">#FF0256FF</color>
+    <color name="ark_card_analyzer_progress_background_color_day">#FFF6F6F6</color>
+    <color name="ark_card_analyzer_dialog_dim_color_day">#50000000</color>
+    <color name="ark_card_analyzer_progress_1_color_day">#FFE0EAFF</color>
+    <color name="ark_card_analyzer_progress_2_color_day">#FF6282C7</color>
     <!-- Day -->
     <color name="ark_label_general_text_color_night">#FFFFFF</color>
     <color name="ark_label_tip_text_color_night">#BDBDBD</color>
@@ -70,4 +75,9 @@
     <color name="ark_label_card_background_color_night">#424353</color>
     <color name="ark_label_divider_color_night">#1A1A1A</color>
 
+    <color name="ark_card_analyzer_accent_text_color_night">#FF4E8BE7</color>
+    <color name="ark_card_analyzer_progress_background_color_night">#FF1E1B28</color>
+    <color name="ark_card_analyzer_dialog_dim_color_night">#90767676</color>
+    <color name="ark_card_analyzer_progress_1_color_night">#FF656776</color>
+    <color name="ark_card_analyzer_progress_2_color_night">#FF6981C2</color>
 </resources>

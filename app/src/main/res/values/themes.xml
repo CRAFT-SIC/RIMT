@@ -77,11 +77,19 @@
         <item name="icon_ark_label_save_normal">@drawable/icon_ark_label_save_normal_day</item>
         <item name="icon_ark_label_save_success">@drawable/icon_ark_label_save_success_day</item>
 
+        <item name="ark_card_analyzer_accent_text_color">@color/ark_card_analyzer_accent_text_color_day</item>
+        <item name="ark_card_analyzer_dialog_background_color">@color/ark_label_card_background_color_day</item>
+        <item name="ark_card_analyzer_progress_background_color">@color/ark_card_analyzer_progress_background_color_day</item>
+        <item name="ark_card_analyzer_dialog_dim_color">@color/ark_card_analyzer_dialog_dim_color_day</item>
+        <item name="ark_card_analyzer_progress_1_color">@color/ark_card_analyzer_progress_1_color_day</item>
+        <item name="ark_card_analyzer_progress_2_color">@color/ark_card_analyzer_progress_2_color_day</item>
+        <item name="ark_card_analyzer_dash_line">@drawable/shape_card_analyzer_dash_line_day</item>
+        <item name="ark_card_analyzer_dash_line_vertical">@drawable/shape_card_analyzer_dash_line_vertical_day</item>
+
         <!-- Platform Icons -->
         <item name="icon_platform_normal">@drawable/icon_platform_normal_day</item>
         <item name="icon_platform_facebook">@drawable/icon_platform_facebook_day</item>
 
 
     </style>
-
 </resources>

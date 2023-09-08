@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/ark_label_background_color"
     android:orientation="vertical">
-
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="?attr/ark_label_card_background_color">
 
         <ImageView
             android:id="@+id/iv_back"
@@ -15,7 +16,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
-            android:src="?attr/icon_ark_label_close" />
+            android:src="@mipmap/icon_ark_activity_back" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -42,105 +43,457 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/linear_info"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
+                android:id="@+id/linear_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="14dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="14dp"
+                    app:cardBackgroundColor="?attr/ark_label_card_background_color"
+                    app:cardCornerRadius="8dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="47dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginLeft="14dp"
-                            android:layout_marginRight="14dp"
-                            android:src="@mipmap/ic_launcher" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="数据总览"
-                            android:textColor="?attr/ark_label_general_text_color" />
-
-                        <TextView
-                            android:id="@+id/tv_roll_max_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="14dp"
-                            android:text="共2抽"
-                            android:textColor="?attr/ark_label_tip_text_color" />
-                    </LinearLayout>
-
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:dividerColor="#ECECEC" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="14dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="47dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                <LinearLayout
+                            <LinearLayout
+                                android:id="@+id/linear_change_pool"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="14dp"
+                                    android:scaleType="centerInside"
+                                    android:src="@mipmap/icon_ark_card_change_pool" />
+
+                                <TextView
+                                    android:id="@+id/tv_pool_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="14dp"
+                                    android:paddingRight="14dp"
+                                    android:text="数据总览"
+                                    android:textColor="?attr/ark_label_general_text_color" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/tv_roll_max_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="14dp"
+                                android:text="共-抽"
+                                android:textColor="?attr/ark_label_tip_text_color" />
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="wrap_content"
+                            android:layout_height="0.5dp"
+                            app:dividerColor="?attr/ark_label_divider_color" />
+
+                        <com.suntend.arktoolbox.widgets.ArkCardAnalyzerProgress
+                            android:id="@+id/ark_card_analyzer_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="240dp" />
+
+                        <TextView
+                            android:id="@+id/tv_time_interval"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="统计时间:2022/12/03-2023/08/23"
+                            android:textColor="?attr/ark_label_hint_text_color"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="16dp">
+
+                                <LinearLayout
+                                    android:id="@+id/linear_six_all_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="6"
+                                            android:textColor="?attr/ark_label_tip_text_color" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="★"
+                                            android:textColor="#FFF6D455" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_six_all_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="-"
+                                        android:textColor="?attr/ark_label_general_text_color"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <com.google.android.material.divider.MaterialDivider
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0.5dp"
+                                    app:dividerColor="?attr/ark_label_divider_color" />
+
+                                <LinearLayout
+                                    android:id="@+id/linear_pool_all_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="卡池总计"
+                                        android:textColor="?attr/ark_label_tip_text_color" />
+
+                                    <TextView
+                                        android:id="@+id/tv_pool_all_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="-"
+                                        android:textColor="?attr/ark_label_general_text_color"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginVertical="24dp"
+                                android:background="?attr/ark_card_analyzer_dash_line_vertical" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="16dp">
+
+                                <LinearLayout
+                                    android:id="@+id/linear_five_all_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="5"
+                                            android:textColor="?attr/ark_label_tip_text_color" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="★"
+                                            android:textColor="#FFF6D455" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_five_all_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="-"
+                                        android:textColor="?attr/ark_label_general_text_color"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <com.google.android.material.divider.MaterialDivider
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0.5dp"
+                                    app:dividerColor="?attr/ark_label_divider_color" />
+
+                                <LinearLayout
+                                    android:id="@+id/linear_six_average_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="6"
+                                            android:textColor="?attr/ark_label_tip_text_color" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="★"
+                                            android:textColor="#FFF6D455" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="平均抽数"
+                                            android:textColor="?attr/ark_label_tip_text_color" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_six_average_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="-"
+                                        android:textColor="?attr/ark_label_general_text_color"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginVertical="24dp"
+                                android:background="?attr/ark_card_analyzer_dash_line_vertical" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="16dp">
+
+                                <LinearLayout
+                                    android:id="@+id/linear_four_all_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="4"
+                                            android:textColor="?attr/ark_label_tip_text_color" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="★"
+                                            android:textColor="#FFF6D455" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_four_all_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="-"
+                                        android:textColor="?attr/ark_label_general_text_color"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                                <com.google.android.material.divider.MaterialDivider
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0.5dp"
+                                    app:dividerColor="?attr/ark_label_divider_color" />
+
+                                <LinearLayout
+                                    android:id="@+id/linear_five_average_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="5"
+                                            android:textColor="?attr/ark_label_tip_text_color" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="★"
+                                            android:textColor="#FFF6D455" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="平均抽数"
+                                            android:textColor="?attr/ark_label_tip_text_color" />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_five_average_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="-"
+                                        android:textColor="?attr/ark_label_general_text_color"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardBackgroundColor="?attr/ark_label_card_background_color"
+                    app:cardCornerRadius="8dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="47dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_marginLeft="12dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="数据总览"
-                            android:textColor="?attr/ark_label_general_text_color" />
-
-                        <TextView
-                            android:id="@+id/tv_month_statistics"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="14dp"
-                            android:text="月度寻访统计"
-                            android:textColor="?attr/ark_label_tip_text_color" />
-                    </LinearLayout>
-
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:dividerColor="#ECECEC" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="47dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:text="保底状况"
+                                android:textColor="?attr/ark_label_general_text_color" />
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                app:cardBackgroundColor="?attr/ark_card_analyzer_progress_background_color"
+                                app:cardElevation="0dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:includeFontPadding="false"
+                                    android:paddingHorizontal="6dp"
+                                    android:paddingVertical="2dp"
+                                    android:text="仅能查询分析30天 or 100条内寻访数据"
+                                    android:textColor="#FFAAAAAA"
+                                    android:textSize="10sp" />
+                            </androidx.cardview.widget.CardView>
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/tv_month_statistics"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="4dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:text="寻访统计"
+                                android:textColor="?attr/ark_card_analyzer_accent_text_color"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="wrap_content"
+                            android:layout_height="0.5dp"
+                            app:dividerColor="?attr/ark_label_divider_color" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
         <!-- token获取页面 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/card_before"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clickable="true"
+            app:cardBackgroundColor="?attr/ark_label_card_background_color"
             android:visibility="gone">
 
             <LinearLayout

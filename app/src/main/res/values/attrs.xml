@@ -67,7 +67,14 @@
     <attr name="icon_ark_label_save_normal" format="reference" />
     <attr name="icon_ark_label_save_success" format="reference" />
 
-
+    <attr name="ark_card_analyzer_accent_text_color" format="color" />
+    <attr name="ark_card_analyzer_dialog_background_color" format="color" />
+    <attr name="ark_card_analyzer_progress_background_color" format="color" />
+    <attr name="ark_card_analyzer_dialog_dim_color" format="color" />
+    <attr name="ark_card_analyzer_progress_1_color" format="color" />
+    <attr name="ark_card_analyzer_progress_2_color" format="color" />
+    <attr name="ark_card_analyzer_dash_line" format="reference" />
+    <attr name="ark_card_analyzer_dash_line_vertical" format="reference" />
     <!-- Platform Icons -->
     <attr name="icon_platform_normal" format="reference" />
     <attr name="icon_platform_facebook" format="reference" />

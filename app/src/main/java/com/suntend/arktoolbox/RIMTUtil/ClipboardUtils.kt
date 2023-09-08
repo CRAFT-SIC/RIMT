@@ -1,4 +1,4 @@
-package com.suntend.arktoolbox.RIMTUtil
+package RIMTUtil
 
 import android.content.ClipData
 import android.content.ClipDescription

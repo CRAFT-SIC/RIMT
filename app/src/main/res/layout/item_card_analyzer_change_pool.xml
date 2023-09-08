@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:paddingHorizontal="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_pool_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="云间清醒梦"
+            android:textColor="?attr/ark_label_general_text_color"
+            android:textSize="14sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="7dp"/>
+        <com.suntend.arktoolbox.widgets.LinearProgressBar
+            android:id="@+id/linear_progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+
+    </LinearLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_marginHorizontal="35dp"
+        android:layout_gravity="bottom"
+        app:dividerColor="?attr/ark_label_tip_background_color"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</FrameLayout>

@@ -13,4 +13,9 @@ public class ConvertUtils {
         final float scale = APP.currentActivity.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+    public static int sp2px(float spValue) {
+        float scaledDensity = APP.currentActivity.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * scaledDensity + 0.5f);
+    }
+
 }
