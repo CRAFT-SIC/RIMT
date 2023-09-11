@@ -5,8 +5,10 @@ import static com.suntend.arktoolbox.fragment.toolbox.bean.ToolboxBean.ToolInfoT
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.NestedScrollView;
@@ -49,6 +52,7 @@ import java.util.List;
  * 工具箱页面的fragment
  */
 public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdapter.OnItemClickListener {
+    private View thisView;//保留视图状态避免反复创建
     private ImageView openNav, imgListSwitch, imgToolboxDelete;//导航栏按钮,切换按钮,搜索历史删除
     private SearchView searchView;//搜索栏
     private CustomSpinnerView spinner;//分类下拉
@@ -57,9 +61,10 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     private NestedScrollView scrollView;
     private RecyclerView recyclerView;//主要列表
     private LinearLayout layoutMention, layoutRecommend;//提示页面与推荐功能
-    private RelativeLayout layoutCategory;//推荐部分
+    private RelativeLayout layoutCategory, relativeMask;//推荐部分
     private GridView gridView;//推荐列表和搜索历史
-    private TextView textMention, textMentionButton, textRecommend, textTitle;//提示页面的显示,标题
+    private TextView textMention, textMentionButton, textRecommend, textTitle,
+            textGuideNext, textGuideSkip;//提示页面的显示,标题,引导
     private ArkToolDatabaseHelper helper;//数据库辅助类
     private CategoryArrayAdapter categoryArrayAdapter;//分类列表适配器
     private ToolBoxRecyclerViewAdapter recyclerViewAdapter;
@@ -69,7 +74,11 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     private String searchContent = "";//记录当前的搜索框内容
     private WebView webView;
     public static final String LIST_TYPE_KEY = "tool_list_view_type";
+    public static final String FIRST_GUIDE_KEY = "first_guide_key";
+    private int guideProgress = 1;
     private String listType;
+    private ImageView tempImg1, tempImg2;//引导使用的临时视图
+    private TextView tempText1, tempText2;//引导使用的临时视图
 
     public ToolBoxFragment() {
     }
@@ -80,16 +89,18 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (thisView != null) return thisView;
+        Log.d("shownow", "创建工具箱碎片化页面");
         mContext = getContext();
         //初始化数据库辅助类并打开连接
         helper = ArkToolDatabaseHelper.getInstance(mContext);
         helper.openReadLink();
-        View view = inflater.inflate(R.layout.fragment_tool_box, container, false);
-        initView(view);
+        thisView = inflater.inflate(R.layout.fragment_tool_box, container, false);
+        initView(thisView);
         initListener();
-        return view;
+        return thisView;
     }
 
     private void initView(View view) {
@@ -112,6 +123,9 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
         imgListSwitch = view.findViewById(R.id.img_tool_list_switch);
         scrollView = view.findViewById(R.id.scrollView_tool_box);
         viewDividerUnderSearch = view.findViewById(R.id.view_divider_under_search);
+        relativeMask = view.findViewById(R.id.relative_mask_transparent);
+        textGuideNext = view.findViewById(R.id.text_guide_next);
+        textGuideSkip = view.findViewById(R.id.text_guide_skip);
 
         //初始化切换按钮的图像资源
         listType = helper.getConfigValue(LIST_TYPE_KEY);//初始化列表类型
@@ -135,6 +149,37 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
         gridList.add("掉落汇总");
         girdAdapter = new RecommendGirdAdapter(mContext, gridList);
         gridView.setAdapter(girdAdapter);
+
+        //显示引导页
+        if (helper.getConfigValue(FIRST_GUIDE_KEY).equals("no")) {
+            guideProgress = 1;
+            relativeMask.setVisibility(View.VISIBLE);
+            helper.updateConfigKey(FIRST_GUIDE_KEY, "yes");
+
+            //根据位置添加图像与文字
+            tempImg1 = new ImageView(mContext);
+            tempImg1.setLayoutParams(new RelativeLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            ));
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) tempImg1.getLayoutParams();
+            params.leftMargin = DensityUtil.dpToPx(mContext, 20);
+            params.topMargin = DensityUtil.dpToPx(mContext, 100);
+            tempImg1.setImageResource(R.mipmap.img_guide_category);
+            relativeMask.addView(tempImg1);
+
+            tempText1 = new TextView(mContext);
+            tempText1.setLayoutParams(new RelativeLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            ));
+            RelativeLayout.LayoutParams params2 = (RelativeLayout.LayoutParams) tempText1.getLayoutParams();
+            params2.leftMargin = DensityUtil.dpToPx(mContext, 160);
+            params2.topMargin = DensityUtil.dpToPx(mContext, 125);
+            tempText1.setText("在这切换筛选范围");
+            tempText1.setTextColor(mContext.getColor(R.color.white));
+            relativeMask.addView(tempText1);
+        }
     }
 
     private void initListener() {
@@ -249,6 +294,65 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
         //根据滑动高度显示视图
         scrollView.setOnScrollChangeListener((View.OnScrollChangeListener) (view, l, t, ol, ot) ->
                 viewDividerUnderSearch.setVisibility(t > DensityUtil.dpToPx(mContext, 40) ? View.VISIBLE : View.INVISIBLE));
+        textGuideSkip.setOnClickListener(view -> relativeMask.setVisibility(View.GONE));
+        textGuideNext.setOnClickListener(view -> {
+            switch (guideProgress) {
+                case 1:
+                    guideProgress = 2;
+                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) tempImg1.getLayoutParams();
+                    params.rightMargin = DensityUtil.dpToPx(mContext, 6);
+                    params.topMargin = DensityUtil.dpToPx(mContext, 212);
+                    params.addRule(RelativeLayout.ALIGN_PARENT_END);
+                    tempImg1.setImageResource(R.mipmap.img_guide_follow);
+
+                    RelativeLayout.LayoutParams params2 = (RelativeLayout.LayoutParams) tempText1.getLayoutParams();
+                    params2.topMargin = DensityUtil.dpToPx(mContext, 225);
+                    params2.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                    tempText1.setText("单击圆框部分/长摁功能\n都可以将功能加入收藏夹");
+                    break;
+                case 2:
+                    guideProgress = 3;
+                    textGuideNext.setText("知道啦");
+                    textGuideSkip.setVisibility(View.INVISIBLE);
+                    textGuideSkip.setOnClickListener(null);
+
+                    tempImg1.setImageResource(R.mipmap.img_guide_cancel);
+                    RelativeLayout.LayoutParams params3 = (RelativeLayout.LayoutParams) tempText1.getLayoutParams();
+                    params3.rightMargin = DensityUtil.dpToPx(mContext, 85);
+                    params3.removeRule(RelativeLayout.CENTER_HORIZONTAL);
+                    params3.addRule(RelativeLayout.ALIGN_PARENT_END);
+                    tempText1.setText("在只看收藏状态下\n可取消收藏的功能");
+
+                    tempImg2 = new ImageView(mContext);
+                    tempImg2.setLayoutParams(new RelativeLayout.LayoutParams(
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                    ));
+                    RelativeLayout.LayoutParams params4 = (RelativeLayout.LayoutParams) tempImg2.getLayoutParams();
+                    params4.rightMargin = DensityUtil.dpToPx(mContext, 6);
+                    params4.topMargin = DensityUtil.dpToPx(mContext, 100);
+                    params4.addRule(RelativeLayout.ALIGN_PARENT_END);
+                    tempImg2.setImageResource(R.mipmap.img_guide_only_follow);
+                    relativeMask.addView(tempImg2);
+
+                    tempText2 = new TextView(mContext);
+                    tempText2.setLayoutParams(new RelativeLayout.LayoutParams(
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                    ));
+                    RelativeLayout.LayoutParams params5 = (RelativeLayout.LayoutParams) tempText2.getLayoutParams();
+                    params5.leftMargin = DensityUtil.dpToPx(mContext, 60);
+                    params5.topMargin = DensityUtil.dpToPx(mContext, 115);
+                    tempText2.setText("勾选只看收藏\n可快速筛选已收藏功能");
+                    tempText2.setTextColor(mContext.getColor(R.color.white));
+                    relativeMask.addView(tempText2);
+                    break;
+                default:
+                    relativeMask.setVisibility(View.GONE);
+                    relativeMask.removeAllViews();
+                    break;
+            }
+        });
     }
 
     /**
@@ -261,7 +365,7 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
     public void onItemClick(View view, int position) {
         //todo:打开网页的逻辑
         ToolboxBean bean = recyclerViewAdapter.getItemByPosition(position);
-        if (bean.getName().equals("抽卡分析")){
+        if (bean.getName().equals("抽卡分析")) {
             mContext.startActivity(new Intent(mContext, ArkCardAnalyzerActivity.class));
             return;
         }

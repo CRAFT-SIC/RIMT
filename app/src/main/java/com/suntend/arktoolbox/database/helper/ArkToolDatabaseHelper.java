@@ -1,5 +1,6 @@
 package com.suntend.arktoolbox.database.helper;
 
+import static com.suntend.arktoolbox.fragment.toolbox.ToolBoxFragment.FIRST_GUIDE_KEY;
 import static com.suntend.arktoolbox.fragment.toolbox.ToolBoxFragment.LIST_TYPE_KEY;
 
 import android.content.ContentValues;
@@ -271,6 +272,7 @@ public class ArkToolDatabaseHelper extends SQLiteOpenHelper {
         //键值对
         List<ConfigValue> configValueList = new ArrayList<>();
         configValueList.add(new ConfigValue(LIST_TYPE_KEY, "list"));//工具箱的列表显示模式  list：列表  grid：网格
+        configValueList.add(new ConfigValue(FIRST_GUIDE_KEY, "no"));//是否已显示引导，no：未显示 yes：已显示
         insertConfigValue(configValueList);
     }
 
