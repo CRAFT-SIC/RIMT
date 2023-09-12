@@ -81,6 +81,9 @@
         <item name="icon_platform_normal">@drawable/icon_platform_normal_day</item>
         <item name="icon_platform_facebook">@drawable/icon_platform_facebook_day</item>
 
+        <!--MainPage Icons-->
+        <item name="icon_change_theme">@drawable/icon_change_theme_day</item>
+
 
     </style>
 

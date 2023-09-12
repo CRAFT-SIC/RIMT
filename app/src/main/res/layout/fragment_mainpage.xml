@@ -30,7 +30,7 @@
                 android:id="@+id/changeTheme"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                app:srcCompat="@color/ark_label_accent_text_color_day" />
+                android:src="?attr/icon_change_theme" />
 
         </LinearLayout>
 
@@ -121,16 +121,15 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_alignTop="@id/card_act_days"
-                            android:layout_toRightOf="@id/card_act_days"
+                            android:layout_toEndOf="@id/card_act_days"
                             android:background="@color/ark_label_card_background_color_night" />
-                        RelativeLayout
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/card_act_hours"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignTop="@id/card_act_days_icon"
-                            android:layout_toRightOf="@id/card_act_days_icon"
+                            android:layout_toEndOf="@id/card_act_days_icon"
                             android:text="@string/card_act_hours" />
 
                         <ImageView
