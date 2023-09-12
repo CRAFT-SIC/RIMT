@@ -33,6 +33,7 @@ import com.suntend.arktoolbox.MainActivity;
 import com.suntend.arktoolbox.R;
 import com.suntend.arktoolbox.RIMTUtil.DensityUtil;
 import com.suntend.arktoolbox.RIMTUtil.RIMTUtil;
+import com.suntend.arktoolbox.WebActivity;
 import com.suntend.arktoolbox.database.bean.ToolCategoryBean;
 import com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper;
 import com.suntend.arktoolbox.fragment.toolbox.adapter.CategoryArrayAdapter;
@@ -268,8 +269,21 @@ public class ToolBoxFragment extends Fragment implements ToolBoxRecyclerViewAdap
         RIMTUtil.ShowToast(mContext, "正在前往网页(待完善)");
         //webView.setVisibility(View.VISIBLE);
         //webView.loadUrl(bean.getAddressUrl());
-        Uri uri = Uri.parse(bean.getAddressUrl());
+
+        /*Uri uri = Uri.parse(bean.getAddressUrl());
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);*/
+
+        String url = String.valueOf(Uri.parse(bean.getAddressUrl()));
+        StartWebActivity(url);
+        //TODO:禁用activity动画
+        //overridePendingTransition(0, 0);
+    }
+
+    public void StartWebActivity(String url){
+        Intent intent;
+        intent = new Intent(getActivity(), WebActivity.class);
+        intent.putExtra("url",url);
         startActivity(intent);
     }
 
