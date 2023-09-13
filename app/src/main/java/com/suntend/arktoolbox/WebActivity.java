@@ -5,12 +5,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +52,8 @@ public void StartWebActivity(String url){
 public class WebActivity extends AppCompatActivity {
     private WebView webView;
     private WebSettings webSettings;
+    private View open_by_browser;
+    private String current_url;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -56,6 +63,17 @@ public class WebActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
+
+        //跳转到浏览器 按钮
+        open_by_browser = findViewById(R.id.btn_open_by_browser);
+        open_by_browser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(current_url != null){
+                    openByBrowser(current_url);
+                }
+            }
+        });
 
         webView = new WebView(WebActivity.this);
 
@@ -77,9 +95,8 @@ public class WebActivity extends AppCompatActivity {
 
         if(url != null){
             webView.loadUrl(url);
-            //todo
-            //setContentView(webView);
-            //R.layout.activity_web.addView(webView);
+            LinearLayout linearLayout = findViewById(R.id.web_layout);
+            linearLayout.addView(webView);
         }
         else{
             Toast.makeText(WebActivity.this, "URL错误！", Toast.LENGTH_SHORT).show();
@@ -99,9 +116,10 @@ public class WebActivity extends AppCompatActivity {
         }
 
         //实现跳转到其他应用
-        /*
         public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest){
             String url = webResourceRequest.getUrl().toString();
+            current_url = url; //同步当前链接以便跳转到浏览器打开
+            /*
             if (url.startsWith("bilibili://")){
                 //（例）大岛 bilibili://space/17008802?frommodule=H5&h5awaken=b3Blbl9hcHBfZnJvbV90eX
                 //并不需要知道具体的scheme，因为url会以string的形式直接传给intent
@@ -116,9 +134,15 @@ public class WebActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "没有权限或未找到应用", Toast.LENGTH_SHORT).show();
                 }
                 return true;
-            }
+            }*/
             return super.shouldOverrideUrlLoading(webView, webResourceRequest);
-        }*/
+        }
+    }
+
+    private void openByBrowser(String url){
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 
     @Override
