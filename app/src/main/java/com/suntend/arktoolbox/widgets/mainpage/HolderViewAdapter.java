@@ -14,6 +14,7 @@ import com.suntend.arktoolbox.R;
 import com.suntend.arktoolbox.widgets.mainpage.beans.Card;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,9 +29,12 @@ public class HolderViewAdapter extends RecyclerView.Adapter<HolderViewAdapter.Ma
 
     private LayoutInflater layoutInflater;
 
-    private ArrayList<Card> cardList;
+    Context context;
+
+    private List<Card> cardList;
 
     public HolderViewAdapter(Context context){
+        this.context = context;
         cardList = DataFactory.getCardsData();
         layoutInflater = LayoutInflater.from(context);
     }
