@@ -77,7 +77,9 @@ public class WebActivity extends AppCompatActivity {
 
         if(url != null){
             webView.loadUrl(url);
-            setContentView(webView);
+            //todo
+            //setContentView(webView);
+            //R.layout.activity_web.addView(webView);
         }
         else{
             Toast.makeText(WebActivity.this, "URL错误！", Toast.LENGTH_SHORT).show();
