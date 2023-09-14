@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
-    android:layout_height="200dp">
+    android:layout_width="275dp"
+    android:layout_height="130dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="15dp">
 
     <ImageView
         android:id="@+id/holder_image"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="20dp"/>
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="15dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="275dp"
+        android:layout_height="110dp"
         android:layout_gravity="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="150dp">
+        app:cardCornerRadius="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@android:color/holo_red_light" />
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="110dp">
+
             <ImageView
                 android:id="@+id/holder_goto"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:layout_gravity="right"/>
+                android:layout_gravity="right" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="105dp"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/holder_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="塞壬唱片-MSR"/>
+                    android:text="塞壬唱片-MSR" />
+
                 <TextView
                     android:id="@+id/holder_title_en"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="MonsterSirenRecords"/>
+                    android:text="MonsterSirenRecords" />
+
                 <ImageView
                     android:id="@+id/linear"
                     android:layout_width="match_parent"
@@ -44,12 +58,13 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@color/black" />
+
                 <TextView
                     android:id="@+id/holder_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="29dp"
-                    android:text="泰拉世界十世纪最大的音乐发行商之一。"/>
+                    android:text="泰拉世界十世纪最大的音乐发行商之一。" />
 
             </LinearLayout>
         </FrameLayout>
