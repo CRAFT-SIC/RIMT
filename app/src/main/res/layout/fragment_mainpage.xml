@@ -197,46 +197,47 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="152dp"
-                android:layout_height="170dp"
-                android:layout_gravity="right"
-                android:visibility="visible">
+                    android:id="@+id/checkbox"
+                    android:layout_width="152dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="right"
+                    android:visibility="invisible">
 
                 <ImageView
-                    android:id="@+id/checkbox_bubble"
-                    android:layout_width="152dp"
-                    android:background="@color/ark_label_accent_text_color_night"
-                    android:layout_height="match_parent"/>
+                        android:id="@+id/checkbox_bubble"
+                        android:layout_width="152dp"
+                        android:background="@color/ark_label_accent_text_color_night"
+                        android:layout_height="match_parent"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/checkbox_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                        android:id="@+id/checkbox_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
 
-<!--                <com.google.android.material.checkbox.MaterialCheckBox-->
-<!--                    android:id="@+id/checkbox1"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:checked="true"-->
-<!--                    android:padding="9dp"-->
-<!--                    android:text="@string/checkbox_item_1"-->
-<!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />-->
+                <!--                <com.google.android.material.checkbox.MaterialCheckBox-->
+                <!--                    android:id="@+id/checkbox1"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:checked="true"-->
+                <!--                    android:padding="9dp"-->
+                <!--                    android:text="@string/checkbox_item_1"-->
+                <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />-->
 
-<!--                <com.google.android.material.checkbox.MaterialCheckBox-->
-<!--                    android:id="@+id/checkbox2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@id/checkbox1"-->
-<!--                    android:padding="9dp"-->
-<!--                    android:text="@string/checkbox_item_2" />-->
+                <!--                <com.google.android.material.checkbox.MaterialCheckBox-->
+                <!--                    android:id="@+id/checkbox2"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_below="@id/checkbox1"-->
+                <!--                    android:padding="9dp"-->
+                <!--                    android:text="@string/checkbox_item_2" />-->
 
-<!--                <com.google.android.material.checkbox.MaterialCheckBox-->
-<!--                    android:id="@+id/checkbox3"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@id/checkbox2"-->
-<!--                    android:padding="9dp"-->
-<!--                    android:text="@string/checkbox_item_3" />-->
+                <!--                <com.google.android.material.checkbox.MaterialCheckBox-->
+                <!--                    android:id="@+id/checkbox3"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_below="@id/checkbox2"-->
+                <!--                    android:padding="9dp"-->
+                <!--                    android:text="@string/checkbox_item_3" />-->
             </RelativeLayout>
         </FrameLayout>
     <LinearLayout

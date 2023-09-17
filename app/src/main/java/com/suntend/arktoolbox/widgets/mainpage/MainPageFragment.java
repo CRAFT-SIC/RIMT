@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -19,6 +20,9 @@ import com.suntend.arktoolbox.R;
 
 //created by nooly
 public class MainPageFragment extends Fragment {
+
+    private boolean checkboxShow;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,6 +32,7 @@ public class MainPageFragment extends Fragment {
         ImageView changeTheme = root.findViewById(R.id.changeTheme);
         RecyclerView checkboxRecyclerView = root.findViewById(R.id.checkbox_recycler_view);
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
+        RelativeLayout checkboxLayout = root.findViewById(R.id.checkbox);
 
         LinearLayoutManager checkLayoutManager = new LinearLayoutManager(getContext());
         checkLayoutManager.setOrientation(RecyclerView.VERTICAL);
@@ -56,7 +61,14 @@ public class MainPageFragment extends Fragment {
         changeTheme.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                //TODO: Change Theme Button, maybe push a checkbox under this, its a dialog
+                if(checkboxShow){
+                    checkboxLayout.setVisibility(View.INVISIBLE);
+                    checkboxShow = false;
+                }
+                else{
+                    checkboxLayout.setVisibility(View.VISIBLE);
+                    checkboxShow = true;
+                }
             }
         });
 
