@@ -51,7 +51,6 @@ public class HolderViewAdapter extends RecyclerView.Adapter<HolderViewAdapter.Ma
         holder.holderContent.setText(cardList.get(position).getContent());
         holder.holderTitle.setText(cardList.get(position).getTitle());
         holder.holderTitleEN.setText(cardList.get(position).getTitleEN());
-//        Resources res = context.getResources();
         Drawable drawable = context.getDrawable(cardList.get(position).getImage());
         holder.holderImage.setImageDrawable(drawable);
     }

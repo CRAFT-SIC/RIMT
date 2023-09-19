@@ -1,6 +1,8 @@
 package com.suntend.arktoolbox.widgets.mainpage;
 
 import android.content.Context;
+import android.graphics.*;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.suntend.arktoolbox.R;
@@ -40,7 +43,12 @@ public class CheckboxHolderViewAdapter extends RecyclerView.Adapter<CheckboxHold
     @Override
     public void onBindViewHolder(@NonNull CheckboxHolder holder, int position) {
         holder.textView.setText(list.get(position).getText());
-        holder.imageView.setBackgroundColor(list.get(position).getColor());
+        Bitmap bitmap = Bitmap.createBitmap(25,25, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        Paint paint = new Paint();
+        paint.setColor(list.get(position).getColor());
+        canvas.drawCircle(12.5f,12.5f,12.5f,paint);
+        holder.imageView.setImageBitmap(bitmap);
         holder.radioButton.setChecked(list.get(position).isSelected());
         holder.radioButton.setOnClickListener(new View.OnClickListener() {
             @Override
