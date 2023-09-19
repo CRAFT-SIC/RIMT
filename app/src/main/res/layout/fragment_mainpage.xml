@@ -3,11 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="?attr/w"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="20dp"
+        android:background="?attr/mainpage_bg"
         android:orientation="vertical">
 
         <LinearLayout
@@ -27,10 +35,10 @@
                 android:layout_weight="1" />
 
             <ImageView
-                android:id="@+id/changeTheme"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="?attr/icon_change_theme" />
+                    android:id="@+id/changeTheme"
+                    android:layout_width="24dp"
+                    android:layout_height="match_parent"
+                    android:src="?attr/icon_change_theme"/>
 
         </LinearLayout>
 
@@ -39,22 +47,17 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/ark_label_hint_text_color_night" />
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom">
 
-                <com.google.android.material.card.MaterialCardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    app:cardBackgroundColor="@color/ark_label_background_color_day"
+                    android:background="?attr/ark_label_card_background_color"
                     app:cardCornerRadius="0dp"
                     app:cardElevation="20dp">
 
@@ -98,7 +101,8 @@
                             android:layout_height="60dp"
                             android:layout_below="@id/linear"
                             android:layout_marginRight="10dp"
-                            android:background="@color/ark_label_accent_text_color_night" />
+                            android:src="?attr/act1"
+                            />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/card_act_title"
@@ -110,36 +114,40 @@
                             android:textSize="12sp" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/card_act_days"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/card_act_icon"
-                            android:layout_toRightOf="@id/card_act_icon"
-                            android:text="@string/card_act_days" />
+                                android:id="@+id/card_act_days"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBottom="@id/card_act_icon"
+                                android:layout_toRightOf="@id/card_act_icon"
+                                android:text="@string/card_act_days"
+                                android:textSize="30sp"/>
 
-                        <ImageView
+                        <TextView
                             android:id="@+id/card_act_days_icon"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_alignTop="@id/card_act_days"
+                            android:layout_marginLeft="3dp"
+                            android:layout_alignBottom="@id/card_act_days"
                             android:layout_toEndOf="@id/card_act_days"
-                            android:background="@color/ark_label_card_background_color_night" />
+                            android:text="@string/day" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/card_act_hours"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/card_act_days_icon"
-                            android:layout_toEndOf="@id/card_act_days_icon"
-                            android:text="@string/card_act_hours" />
+                                android:id="@+id/card_act_hours"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/card_act_days"
+                                android:layout_toEndOf="@id/card_act_days_icon"
+                                android:text="@string/card_act_hours"
+                                android:textSize="30sp"/>
 
-                        <ImageView
+                        <TextView
                             android:id="@+id/card_act_hours_icon"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_alignTop="@id/card_act_hours"
+                            android:layout_marginLeft="3dp"
+                            android:layout_alignBottom="@id/card_act_hours"
                             android:layout_toRightOf="@id/card_act_hours"
-                            android:background="@color/ark_label_card_background_color_night" />
+                            android:text="@string/hours" />
 
                         <ImageView
                             android:id="@+id/card_next_act_icon"
@@ -149,50 +157,55 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
                             android:layout_toRightOf="@id/card_act_title"
-                            android:background="@color/ark_label_accent_text_color_night" />
+                            android:src="?attr/act_null"/>
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/card_next_act_title"
-                            android:layout_width="76dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/card_next_act_icon"
-                            android:layout_toRightOf="@id/card_next_act_icon"
-                            android:text="@string/card_act_title" />
+                                android:id="@+id/card_next_act_title"
+                                android:layout_width="76dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/card_next_act_icon"
+                                android:layout_toRightOf="@id/card_next_act_icon"
+                                android:text="@string/card_null_act_title"
+                                android:textSize="10sp"/>
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/card_next_act_days"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/card_next_act_icon"
+                            android:layout_alignBottom="@id/card_act_icon"
                             android:layout_toRightOf="@id/card_next_act_icon"
-                            android:text="@string/card_act_days" />
+                            android:text="@string/zero"
+                            android:textSize="30sp"/>
 
-                        <ImageView
+                        <TextView
                             android:id="@+id/card_next_act_days_icon"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_alignTop="@id/card_next_act_days"
+                            android:layout_marginLeft="3dp"
+                            android:layout_alignBottom="@id/card_next_act_days"
                             android:layout_toRightOf="@id/card_next_act_days"
-                            android:background="@color/ark_label_card_background_color_night" />
+                            android:text="@string/day" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/card_next_act_hours"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/card_next_act_days_icon"
+                            android:layout_alignTop="@id/card_next_act_days"
                             android:layout_toRightOf="@id/card_next_act_days_icon"
-                            android:text="@string/card_act_hours" />
+                            android:text="@string/zero"
+                            android:textSize="30sp"/>
 
-                        <ImageView
+                        <TextView
                             android:id="@+id/card_next_act_hours_icon"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_alignTop="@id/card_next_act_hours"
+                            android:layout_marginLeft="3dp"
+                            android:layout_alignBottom="@id/card_next_act_hours"
                             android:layout_toRightOf="@id/card_next_act_hours"
-                            android:background="@color/ark_label_card_background_color_night" />
+                            android:text="@string/hours" />
                     </RelativeLayout>
 
-                </com.google.android.material.card.MaterialCardView>
+                </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
 
@@ -212,32 +225,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/checkbox_recycler_view"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-
-                <!--                <com.google.android.material.checkbox.MaterialCheckBox-->
-                <!--                    android:id="@+id/checkbox1"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:checked="true"-->
-                <!--                    android:padding="9dp"-->
-                <!--                    android:text="@string/checkbox_item_1"-->
-                <!--                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />-->
-
-                <!--                <com.google.android.material.checkbox.MaterialCheckBox-->
-                <!--                    android:id="@+id/checkbox2"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_below="@id/checkbox1"-->
-                <!--                    android:padding="9dp"-->
-                <!--                    android:text="@string/checkbox_item_2" />-->
-
-                <!--                <com.google.android.material.checkbox.MaterialCheckBox-->
-                <!--                    android:id="@+id/checkbox3"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_below="@id/checkbox2"-->
-                <!--                    android:padding="9dp"-->
-                <!--                    android:text="@string/checkbox_item_3" />-->
+                        android:layout_height="match_parent"
+                        android:background="?attr/ark_label_card_background_color"/>
             </RelativeLayout>
         </FrameLayout>
     <LinearLayout
@@ -251,7 +240,8 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginRight="15dp"
-            android:background="@color/ark_label_accent_text_color_night"/>
+            android:src="?attr/layers"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -284,7 +274,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/ark_label_accent_text_color_night"
+                    android:src="?attr/tool1"
                     android:scaleType="fitXY" />
 
                 <TextView
@@ -304,7 +294,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/ark_label_accent_text_color_night"
+                    android:src="?attr/tool2"
                     android:scaleType="fitXY" />
 
                 <TextView
@@ -324,7 +314,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/ark_label_accent_text_color_night"
+                    android:src="?attr/tool3"
                     android:scaleType="fitXY" />
 
                 <TextView
@@ -344,7 +334,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/ark_label_accent_text_color_night"
+                    android:src="?attr/tool4"
                     android:scaleType="fitXY" />
 
                 <TextView
@@ -364,7 +354,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginRight="15dp"
-                android:background="@color/ark_label_accent_text_color_night"/>
+                android:src="?attr/tips"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -390,4 +381,5 @@
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

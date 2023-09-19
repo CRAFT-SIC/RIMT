@@ -13,13 +13,13 @@ public class Card {
 
    private String content;
 
-   private String image;
+   private int image;
 
     /**
      * class constructor
      * used by DataFactory
      * */
-    public Card(String title, String titleEN, String content, String image) {
+    public Card(String title, String titleEN, String content, int image) {
         this.title = title;
         this.titleEN = titleEN;
         this.content = content;
@@ -50,11 +50,11 @@ public class Card {
         this.content = content;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 }

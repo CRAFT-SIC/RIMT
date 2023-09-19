@@ -19,7 +19,8 @@
         android:layout_height="match_parent" />
 
     <RadioButton
-        android:id="@+id/checkbox_item_button"
-        android:layout_width="30dp"
-        android:layout_height="25dp" />
+            android:id="@+id/checkbox_item_button"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:checked="false"/>
 </LinearLayout>

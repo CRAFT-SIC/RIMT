@@ -1,6 +1,7 @@
 package com.suntend.arktoolbox.widgets.mainpage;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.suntend.arktoolbox.R;
 import com.suntend.arktoolbox.widgets.mainpage.beans.Card;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,11 +27,11 @@ public class HolderViewAdapter extends RecyclerView.Adapter<HolderViewAdapter.Ma
 
 {
 
-    private LayoutInflater layoutInflater;
+    private final LayoutInflater layoutInflater;
 
     Context context;
 
-    private List<Card> cardList;
+    private final List<Card> cardList;
 
     public HolderViewAdapter(Context context){
         this.context = context;
@@ -51,6 +51,9 @@ public class HolderViewAdapter extends RecyclerView.Adapter<HolderViewAdapter.Ma
         holder.holderContent.setText(cardList.get(position).getContent());
         holder.holderTitle.setText(cardList.get(position).getTitle());
         holder.holderTitleEN.setText(cardList.get(position).getTitleEN());
+//        Resources res = context.getResources();
+        Drawable drawable = context.getDrawable(cardList.get(position).getImage());
+        holder.holderImage.setImageDrawable(drawable);
     }
 
     @Override
@@ -59,10 +62,10 @@ public class HolderViewAdapter extends RecyclerView.Adapter<HolderViewAdapter.Ma
     }
 
     public static class MainPageCardHolder extends RecyclerView.ViewHolder {
-        private TextView holderTitle;
-        private ImageView holderImage;
-        private TextView holderTitleEN;
-        private TextView holderContent;
+        private final TextView holderTitle;
+        private final ImageView holderImage;
+        private final TextView holderTitleEN;
+        private final TextView holderContent;
         public MainPageCardHolder(@NonNull View itemView) {
             super(itemView);
             holderImage = itemView.findViewById(R.id.holder_image);

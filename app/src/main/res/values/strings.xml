@@ -47,7 +47,11 @@
     <string name="home_card_label1">WELCOME BACK DOCTOR</string>
     <string name="home_card_label2">XXXX @ X</string>
     <string name="card_act_title">多索留斯假日</string>
+    <string name="card_null_act_title">暂无限定/活动池</string>
     <string name="card_act_days">3</string>
     <string name="card_act_hours">3</string>
+    <string name="day" translatable="false">D</string>
+    <string name="hours" translatable="false">H</string>
+    <string name="zero" translatable="false">0</string>
 
 </resources>

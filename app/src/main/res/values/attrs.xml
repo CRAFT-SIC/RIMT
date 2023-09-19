@@ -76,4 +76,17 @@
 
     <!-- MainPage -->
     <attr name="icon_change_theme" format="reference" />
+    <attr name="act1" format="reference"/>
+    <attr name="act_null" format="reference"/>
+    <attr name="tips" format="reference"/>
+    <attr name="w" format="reference"/>
+    <attr name="layers" format="reference"/>
+    <attr name="mainpage_bg" format="reference"/>
+    <attr name="ips1" format="reference"/>
+    <attr name="ips2" format="reference"/>
+    <attr name="arrow_states" format="reference"/>
+    <attr name="tool1" format="reference"/>
+    <attr name="tool2" format="reference"/>
+    <attr name="tool3" format="reference"/>
+    <attr name="tool4" format="reference"/>
 </resources>

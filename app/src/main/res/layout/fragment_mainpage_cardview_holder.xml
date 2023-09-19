@@ -6,16 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="15dp">
 
-    <ImageView
-        android:id="@+id/holder_image"
-        android:layout_width="75dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="15dp" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="275dp"
         android:layout_height="110dp"
         android:layout_gravity="bottom"
+        android:background="?attr/ark_label_card_background_color"
         app:cardCornerRadius="0dp">
 
         <ImageView
@@ -30,12 +26,14 @@
                 android:id="@+id/holder_goto"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:layout_gravity="right" />
+                android:layout_gravity="right"
+                android:src="?attr/arrow_states"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="105dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -68,5 +66,15 @@
 
             </LinearLayout>
         </FrameLayout>
+
     </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+            android:id="@+id/holder_image"
+            android:layout_width="83dp"
+            android:layout_height="102dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:src="?attr/ips1"
+            android:scaleType="center"/>
 </FrameLayout>

@@ -18,9 +18,9 @@ import java.util.List;
 
 public class CheckboxHolderViewAdapter extends RecyclerView.Adapter<CheckboxHolderViewAdapter.CheckboxHolder> {
 
-    private List<Theme> list;
+    private final List<Theme> list;
 
-    private LayoutInflater layoutInflater;
+    private final LayoutInflater layoutInflater;
 
     Context context;
 
@@ -41,7 +41,20 @@ public class CheckboxHolderViewAdapter extends RecyclerView.Adapter<CheckboxHold
     public void onBindViewHolder(@NonNull CheckboxHolder holder, int position) {
         holder.textView.setText(list.get(position).getText());
         holder.imageView.setBackgroundColor(list.get(position).getColor());
+        holder.radioButton.setChecked(list.get(position).isSelected());
+        holder.radioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list.forEach(theme -> {
+                    theme.setSelected(false);
+                });
+                list.get(position).setSelected(true);
+                notifyDataSetChanged();
+            }
+        });
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -50,11 +63,11 @@ public class CheckboxHolderViewAdapter extends RecyclerView.Adapter<CheckboxHold
 
     public static class CheckboxHolder extends RecyclerView.ViewHolder {
 
-        private ImageView imageView;
+        private final ImageView imageView;
 
-        private TextView textView;
+        private final TextView textView;
 
-        private RadioButton radioButton;
+        private final RadioButton radioButton;
 
         public CheckboxHolder(@NonNull View itemView) {
             super(itemView);
