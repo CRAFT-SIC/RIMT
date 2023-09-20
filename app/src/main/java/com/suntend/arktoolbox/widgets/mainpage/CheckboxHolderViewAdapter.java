@@ -49,7 +49,15 @@ public class CheckboxHolderViewAdapter extends RecyclerView.Adapter<CheckboxHold
         paint.setColor(list.get(position).getColor());
         canvas.drawCircle(12.5f,12.5f,12.5f,paint);
         holder.imageView.setImageBitmap(bitmap);
-        holder.radioButton.setChecked(list.get(position).isSelected());
+        if(list.get(position).isSelected()) {
+            Drawable drawable = context.getDrawable(R.drawable.drawer_sel_day);
+            holder.radioButton.setImageDrawable(drawable);
+        }
+        else {
+            Drawable drawable = context.getDrawable(R.drawable.drawer_unsel_day);
+            holder.radioButton.setImageDrawable(drawable);
+        }
+
         holder.radioButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +83,7 @@ public class CheckboxHolderViewAdapter extends RecyclerView.Adapter<CheckboxHold
 
         private final TextView textView;
 
-        private final RadioButton radioButton;
+        private final ImageView radioButton;
 
         public CheckboxHolder(@NonNull View itemView) {
             super(itemView);

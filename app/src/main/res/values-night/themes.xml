@@ -83,7 +83,19 @@
 
         <!--MainPage Icons-->
         <item name="icon_change_theme">@drawable/icon_change_theme_night</item>
-
+        <item name="act1">@drawable/act1</item>
+        <item name="act_null">@drawable/act_null</item>
+        <item name="layers">@drawable/layers_night</item>
+        <item name="arrow_states">@drawable/arrow_states</item>
+        <item name="ips1">@drawable/ips1</item>
+        <item name="ips2">@drawable/ips2</item>
+        <item name="mainpage_bg">@drawable/mainpage_bg</item>
+        <item name="tips">@drawable/tips_night</item>
+        <item name="w">@drawable/w</item>
+        <item name="tool1">@drawable/tool1_night</item>
+        <item name="tool2">@drawable/tool2_night</item>
+        <item name="tool3">@drawable/tool3_night</item>
+        <item name="tool4">@drawable/tool4_night</item>
     </style>
 
 </resources>

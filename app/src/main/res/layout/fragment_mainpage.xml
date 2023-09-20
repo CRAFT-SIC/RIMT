@@ -215,10 +215,16 @@
                     android:layout_height="170dp"
                     android:layout_gravity="right"
                     android:visibility="invisible">
-
+                <ImageView
+                        android:id="@+id/checkbox_triangle"
+                        android:layout_marginRight="100dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:layout_toRightOf="@id/checkbox_bubble"/>
                 <ImageView
                         android:id="@+id/checkbox_bubble"
                         android:layout_width="152dp"
+                        android:layout_marginTop="15dp"
                         android:background="@color/ark_label_accent_text_color_night"
                         android:layout_height="match_parent"/>
 

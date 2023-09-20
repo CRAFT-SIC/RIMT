@@ -18,9 +18,9 @@
         android:layout_width="65dp"
         android:layout_height="match_parent" />
 
-    <RadioButton
+    <ImageView
             android:id="@+id/checkbox_item_button"
             android:layout_width="30dp"
             android:layout_height="25dp"
-            android:checked="false"/>
+            android:button="@drawable/drawer_unsel_day" android:checked="true"/>
 </LinearLayout>

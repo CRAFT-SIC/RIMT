@@ -1,6 +1,11 @@
 package com.suntend.arktoolbox.widgets.mainpage;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +48,22 @@ public class MainPageFragment extends Fragment {
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new HolderViewAdapter(getContext()));
+
+        TypedValue typedValue = new TypedValue();
+        getContext().getTheme().resolveAttribute(R.attr.ark_label_card_background_color, typedValue, true);
+        ImageView triangle = root.findViewById(R.id.checkbox_triangle);
+        Bitmap bitmap = Bitmap.createBitmap(30,15, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(typedValue.data);
+        Path path = new Path();
+        path.moveTo(15,0);
+        path.lineTo(0,15);
+        path.lineTo(30,15);
+        path.lineTo(15,0);
+        canvas.drawPath(path,paint);
+        triangle.setImageBitmap(bitmap);
 
         //设置打开侧边栏按钮
         OpenNav.setOnClickListener(new View.OnClickListener() {
