@@ -33,7 +33,7 @@ class ArkOfficialAdapter() :
         if (item.cover.startsWith("http")) {
             Glide.with(holder.itemView.context).load(item.cover).into(holder.mIvCover)
         } else {
-            holder.mIvCover.setImageResource(AttrUtil.getDrawableId(holder.itemView.context,item.cover))
+            holder.mIvCover.setImageResource(AttrUtil.getDrawableId(item.cover))
         }
         holder.mTvName.setText(item.name)
         holder.mTvTitleName.setText(item.name)

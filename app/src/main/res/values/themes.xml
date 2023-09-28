@@ -102,6 +102,7 @@
         <item name="ark_card_analyzer_dialog_dim_color">@color/ark_card_analyzer_dialog_dim_color_day</item>
         <item name="ark_card_analyzer_progress_1_color">@color/ark_card_analyzer_progress_1_color_day</item>
         <item name="ark_card_analyzer_progress_2_color">@color/ark_card_analyzer_progress_2_color_day</item>
+        <item name="ark_forum_top_tip_background">@color/ark_forum_top_tip_background_day</item>
         <item name="ark_card_analyzer_dash_line">@drawable/shape_card_analyzer_dash_line_day</item>
         <item name="ark_card_analyzer_dash_line_vertical">@drawable/shape_card_analyzer_dash_line_vertical_day</item>
 

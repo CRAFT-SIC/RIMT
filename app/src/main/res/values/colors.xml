@@ -108,4 +108,10 @@
     <color name="ark_card_analyzer_dialog_dim_color_night">#90767676</color>
     <color name="ark_card_analyzer_progress_1_color_night">#FF656776</color>
     <color name="ark_card_analyzer_progress_2_color_night">#FF6981C2</color>
+
+    <color name="ark_forum_accent_text_color">#FF0256FF</color>
+    <color name="ark_forum_top_tip_background_day">#FF424353</color>
+    <color name="ark_forum_top_tip_background_night">#1A1A1A</color>
+
+
 </resources>

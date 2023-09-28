@@ -25,7 +25,7 @@ public class AttrUtil {
         theme.resolveAttribute(attr, value, true);
         return value.resourceId;
     }
-    public static int getDrawableId(Context context, String defType) {
-        return context.getResources().getIdentifier(defType, "drawable", context.getPackageName());
+    public static int getDrawableId( String defType) {
+        return APP.currentActivity.getResources().getIdentifier(defType, "drawable", APP.currentActivity.getPackageName());
     }
 }

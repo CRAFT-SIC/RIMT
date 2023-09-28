@@ -44,7 +44,7 @@ class ArkOfficialInfoActivity : AppCompatActivity() {
         if (entity.cover.startsWith("http")) {
             Glide.with(this).load(entity.cover).into(mIvCover)
         } else {
-            mIvCover.setImageResource(AttrUtil.getDrawableId(this,entity.cover))
+            mIvCover.setImageResource(AttrUtil.getDrawableId(entity.cover))
         }
         mTvName.setText(entity.name)
         mTvTitleName.setText(entity.name)

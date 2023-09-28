@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/iv_user_head"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="只看楼主十个字就冲突"
+                android:textColor="?attr/ark_label_tip_text_color"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_user_head"
+                app:layout_constraintLeft_toRightOf="@id/iv_user_head"
+                app:layout_constraintTop_toTopOf="@id/iv_user_head" />
+
+            <com.suntend.arktoolbox.widgets.BadgeLinearLayout
+                android:id="@+id/linear_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
+                app:layout_constraintLeft_toRightOf="@id/tv_user_name"
+                app:layout_constraintTop_toTopOf="@id/tv_user_name"
+                tools:layout_height="20dp">
+
+            </com.suntend.arktoolbox.widgets.BadgeLinearLayout>
+
+            <com.suntend.arktoolbox.widgets.ShapeView
+                android:id="@+id/spv_forum_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="13dp"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="社区活动"
+                android:textColor="#ff0256ff"
+                android:textSize="10sp"
+                app:cornesRadius="2dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_user_head"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_user_head"
+                app:solidColor="#FFE0EAFF" />
+
+            <TextView
+                android:id="@+id/tv_forum_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="12dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="目标相关正文"
+                android:textColor="?attr/general_text_color"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@id/iv_user_head"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_user_head" />
+
+            <TextView
+                android:id="@+id/tv_forum_message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="12dp"
+                android:ellipsize="end"
+                android:maxLines="4"
+                android:minLines="2"
+                android:text="目标相关正文"
+                android:textColor="?attr/ark_label_tip_text_color"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@id/iv_user_head"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_forum_title" />
+
+            <TextView
+                android:id="@+id/tv_reply_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="12dp"
+                android:drawableLeft="@mipmap/icon_forum_reply"
+                android:drawablePadding="6dp"
+                android:text="362"
+                android:textColor="?attr/ark_label_tip_text_color"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/iv_user_head"
+                app:layout_constraintTop_toBottomOf="@id/tv_forum_message" />
+
+            <TextView
+                android:id="@+id/tv_reply_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="最新回复: 2022/08/26"
+                android:textColor="?attr/ark_label_hint_text_color"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reply_count"
+                app:layout_constraintLeft_toRightOf="@id/tv_reply_count"
+                app:layout_constraintTop_toTopOf="@id/tv_reply_count" />
+
+            <TextView
+                android:id="@+id/tv_collect_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:drawableLeft="@mipmap/icon_forum_un_collect"
+                android:drawablePadding="6dp"
+                android:text="362"
+                android:textColor="?attr/ark_label_tip_text_color"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_reply_count"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_reply_count" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

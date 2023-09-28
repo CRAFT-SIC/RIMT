@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/ark_label_card_background_color">
+
+                <ImageView
+                    android:id="@+id/iv_top_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_user_head"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="-21dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_top_bg" />
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginRight="90dp"
+                    android:text="鸡你太美"
+                    android:textColor="?attr/general_text_color"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toRightOf="@id/iv_user_head"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/iv_user_head" />
+
+                <TextView
+                    android:id="@+id/tv_user_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="ID : 23462532523"
+                    android:textColor="?attr/ark_label_secondary_text_color"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_user_head"
+                    app:layout_constraintLeft_toLeftOf="@id/tv_user_name" />
+
+                <com.suntend.arktoolbox.widgets.ShapeView
+                    android:id="@+id/spv_edit"
+                    android:layout_width="68dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:drawableLeft="@mipmap/icon_forum_person_edit"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="编辑"
+                    android:textColor="#ff0256ff"
+                    android:textSize="12sp"
+                    app:cornesRadius="22dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_user_name"
+                    app:solidColor="#FFE0EAFF" />
+
+                <com.suntend.arktoolbox.widgets.ShapeView
+                    android:id="@+id/spv_attention"
+                    android:layout_width="68dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:paddingHorizontal="13dp"
+                    android:paddingVertical="5dp"
+                    android:text="+ 关注"
+                    android:textColor="#ff0256ff"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:cornesRadius="22dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_user_name"
+                    app:solidColor="#FFE0EAFF" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_user_head" />
+
+                <TextView
+                    android:id="@+id/tv_signature_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="22dp"
+                    android:text="TA的签名"
+                    android:textColor="?attr/general_text_color"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_user_head" />
+
+                <TextView
+                    android:id="@+id/tv_signature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:textColor="?attr/ark_label_tip_text_color"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_signature_label"
+                    app:layout_constraintLeft_toRightOf="@id/tv_signature_label"
+                    app:layout_constraintTop_toTopOf="@id/tv_signature_label"
+                    tools:text="有事别来找我，没事别来找我" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="13dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_signature_label" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_badge"
+                    android:layout_width="250dp"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="71dp"
+                    app:cardBackgroundColor="?attr/ark_label_background_color"
+                    app:cardCornerRadius="7dp"
+                    app:layout_constraintDimensionRatio="250:58"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_user_head">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_badge_empty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="TA暂未展示徽章"
+                            android:textColor="#ffbdbdbd"
+                            android:textSize="12sp" />
+
+                        <com.suntend.arktoolbox.widgets.BadgeLinearLayout
+                            android:id="@+id/linear_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_fans_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22dp"
+                    android:text="0 粉丝数"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_attention_count"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/card_badge" />
+
+                <TextView
+                    android:id="@+id/tv_attention_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22dp"
+                    android:text="0 关注数"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/card_badge"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_fans_count" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="17dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_badge" />
+
+                <TextView
+                    android:id="@+id/tv_identity_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="TA的身份"
+                    android:textColor="?attr/general_text_color"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_badge" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="13dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_identity_label" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_height="35dp"
+                    android:background="@color/transparent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_identity_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_title_background"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="5dp"
+            app:cardBackgroundColor="?attr/ark_label_card_background_color"
+            app:cardCornerRadius="0dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:elevation="10dp">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/icon_ark_activity_back" />
+
+            <TextView
+                android:id="@+id/tv_title_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="个人中心"
+                android:textColor="?attr/ark_label_general_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+    </FrameLayout>
+
+</FrameLayout>

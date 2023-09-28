@@ -37,6 +37,10 @@
         <activity android:name="com.suntend.arktoolbox.ui.arklabel.ArkLabelEditActivity" />
         <activity android:name="com.suntend.arktoolbox.ui.arkofficial.ArkOfficialInfoActivity" />
         <activity android:name="com.suntend.arktoolbox.ui.arkcardanalyzer.ArkCardAnalyzerActivity"/>
+        <activity android:name="com.suntend.arktoolbox.ui.forum.ForumPersonEditActivity" />
+        <activity android:name="com.suntend.arktoolbox.ui.forum.BadgeListActivity" />
+        <activity android:name="com.suntend.arktoolbox.ui.forum.ForumPersonInfoActivity" />
+        <activity android:name="com.suntend.arktoolbox.ui.forum.ForumPublishActivity" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

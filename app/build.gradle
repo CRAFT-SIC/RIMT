@@ -79,4 +79,7 @@ dependencies {
     implementation 'androidx.media3:media3-datasource-okhttp:1.0.0-beta03'
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'com.gitee.zackratos:UltimateBarX:v0.8.0'
+    //轮播图
+    implementation 'com.github.zhpanvip:bannerviewpager:3.5.12'
+    implementation 'com.github.zhpanvip:viewpagerindicator:1.2.3'
 }

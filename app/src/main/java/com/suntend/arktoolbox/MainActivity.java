@@ -39,10 +39,10 @@ import com.suntend.arktoolbox.RIMTUtil.FlarumUserUtil;
 import com.suntend.arktoolbox.RIMTUtil.NavController;
 import com.suntend.arktoolbox.RIMTUtil.RIMTUtil;
 import com.suntend.arktoolbox.RIMTUtil.ThemeManager;
-import com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper;
 import com.suntend.arktoolbox.fragment.toolbox.ToolBoxFragment;
 import com.suntend.arktoolbox.ui.arklabel.ArkLabelFragment;
 import com.suntend.arktoolbox.ui.arkofficial.ArkOfficialFragment;
+import com.suntend.arktoolbox.ui.forum.ArkMainForumFragment;
 import com.suntend.arktoolbox.widgets.mainpage.MainPageFragment;
 
 import java.util.ArrayList;
@@ -94,12 +94,18 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(new ArkOfficialFragment());
         fragments.add(new ToolBoxFragment());
         fragments.add(new ArkLabelFragment());
-        fragments.add(new ArkToolBoxFragment());
+        fragments.add(new ArkMainForumFragment());
 
 
         // 使用FragmentManager将Fragment添加到FrameLayout中
+        for (Fragment fragment : fragments) {
+            fragmentManager.beginTransaction()
+                    .add(R.id.fragment_controller, fragment)
+                    .hide(fragment)
+                    .commit();
+        }
         fragmentManager.beginTransaction()
-                .replace(R.id.fragment_controller, fragments.get(0))
+                .show(fragments.get(0))
                 .commit();
     }
 
@@ -180,9 +186,18 @@ public class MainActivity extends AppCompatActivity {
                     dataExchange.setNavSelected(index);
                     Log.e("Set", String.valueOf(dataExchange.getNavSelected()));
                     RIMTUtil.ShowToast(getApplicationContext(), "游戏名:" + gameList.get(dataExchange.getGameSelected()) + "\n导航名:" + (NavController.getNavList().get(dataExchange.getNavSelected())));
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_controller, fragments.get(index))
-                            .commit();
+                    for (int findex = 0; findex < fragments.size(); findex++) {
+                        if (findex==index){
+                            getSupportFragmentManager().beginTransaction()
+                                    .show(fragments.get(findex))
+                                    .commit();
+                        }else {
+                            getSupportFragmentManager().beginTransaction()
+                                    .hide(fragments.get(findex))
+                                    .commit();
+                        }
+
+                    }
 
                     // 设置ImageView可见性
                     for (int k = 0; k < imageViewsB.length; k++) {

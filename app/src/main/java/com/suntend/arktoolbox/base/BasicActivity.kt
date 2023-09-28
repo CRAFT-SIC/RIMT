@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.suntend.arktoolbox.R
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 
 open class BasicActivity : AppCompatActivity() {
@@ -18,14 +19,19 @@ open class BasicActivity : AppCompatActivity() {
                 val result = getResources().getDimensionPixelSize(resourceId);
                 statusView.layoutParams =
                     LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, result)
-               statusView.background= content.getChildAt(0).background
+                if (content.getChildAt(0) != null) {
+                    statusView.background = content.getChildAt(0).background
+                }
                 content.addView(statusView, 0)
-
             }
+        }
+        findViewById<View>(R.id.iv_back)?.setOnClickListener {
+            finish()
         }
         resetDefaultStatusBar()
     }
-    fun resetDefaultStatusBar(){
+
+    fun resetDefaultStatusBar() {
         statusBarOnly {
             color = Color.TRANSPARENT
             fitWindow = false
