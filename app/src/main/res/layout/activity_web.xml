@@ -15,6 +15,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
         </LinearLayout>
+        
+        <ProgressBar
+            android:id="@+id/web_ProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:max="100"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
         <ImageView
             android:id="@+id/btn_open_by_browser"

@@ -3,6 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <!--
+    使用 Google Play 服务广告 ID 且以 Android 13（API 级别 33）及更高版本为目标平台的应用
+    必须在其清单文件中声明常规 AD_ID权限
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    -->
 
     <application
         android:name=".APP"
