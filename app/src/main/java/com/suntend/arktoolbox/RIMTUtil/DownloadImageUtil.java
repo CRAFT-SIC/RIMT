@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.Random;
 
 /**
@@ -17,9 +18,10 @@ import java.util.Random;
  */
 public class DownloadImageUtil {
     public static void downPic(String url,DownFinishListener downFinishListener){
-        // 获取存储卡的目录
+        //获取目录
         String filePath = Environment.getExternalStorageDirectory().getPath();
-        File file = new File(filePath + File.separator + "webViewCache");
+        File file = new File(filePath + File.separator + "Pictures" +
+                File.separator + "RIMT");
         if(!file.exists()){
             file.mkdir();
         }
@@ -27,7 +29,6 @@ public class DownloadImageUtil {
     }
 
     private static void loadPic(final String filePath, final String url, final DownFinishListener downFinishListener) {
-        Log.e("下载图片的url",url);
         new AsyncTask<Void,Void,String>(){
             String fileName;
             InputStream is;
@@ -38,7 +39,12 @@ public class DownloadImageUtil {
                 // 下载文件的名称
                 String[] split = url.split("/");
                 String newString = split[split.length - 1];
-                fileName =newString.substring(newString.length()-20,newString.length()-1) ;
+                try{
+                    fileName = URLDecoder.decode(newString);
+                } catch (Exception e) {
+                    fileName = newString;
+                }
+
                 // 创建目标文件,不是文件夹
                 File picFile = new File(filePath + File.separator + fileName);
                 if(picFile.exists()){
@@ -59,11 +65,9 @@ public class DownloadImageUtil {
                         out.write(b,0,end);
                     }
 
-                    Log.e("OK??","----------");
                     if(is!=null){
                         is.close();
                     }
-
                     if(out!=null){
                         out.close();
                     }
@@ -83,6 +87,7 @@ public class DownloadImageUtil {
             }
         }.execute();
     }
+
     //下载完成回调的接口
     public interface DownFinishListener{
         void getDownPath(String s);

@@ -7,30 +7,60 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="@color/white" >
 
-        <LinearLayout
-            android:id="@+id/web_layout"
+        <RelativeLayout
+            android:id="@+id/webView_coverLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        </LinearLayout>
-        
-        <ProgressBar
-            android:id="@+id/web_ProgressBar"
+
+            <ProgressBar
+                android:id="@+id/web_ProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:max="100"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="150dp"
+                android:text="加载中..."
+                android:textSize="20sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="200dp"
+                android:text="点击左下角按钮可以将当前网页在系统浏览器中打开"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="100dp" />
+
+        </RelativeLayout>
+
+        <WebView
+            android:id="@+id/webView_layout"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:max="100"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+            android:layout_height="match_parent" />
 
         <ImageView
             android:id="@+id/btn_open_by_browser"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="25dp"
             android:layout_alignParentBottom="true"
-            android:src="@mipmap/icon_ark_card_change_pool" />
+            android:src="@drawable/icon_platform_normal_day" />
 
     </RelativeLayout>
 
