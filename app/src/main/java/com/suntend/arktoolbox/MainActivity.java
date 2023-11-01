@@ -43,7 +43,7 @@ import com.suntend.arktoolbox.database.helper.ArkToolDatabaseHelper;
 import com.suntend.arktoolbox.fragment.toolbox.ToolBoxFragment;
 import com.suntend.arktoolbox.ui.arklabel.ArkLabelFragment;
 import com.suntend.arktoolbox.ui.arkofficial.ArkOfficialFragment;
-import com.suntend.arktoolbox.widgets.mainpage.MainPageFragment;
+import com.suntend.arktoolbox.ui.mainpage.MainPageFragment;
 
 import java.util.ArrayList;
 import java.util.List;

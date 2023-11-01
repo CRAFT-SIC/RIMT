@@ -73,6 +73,12 @@
 
     <!-- MainPage -->
     <attr name="change_theme" format="reference|color" />
+    <attr name="icon_select_theme" format="reference" />
+    <attr name="shape_mp_transparency" format="reference" />
+    <attr name="icon_mp_toolbox" format="reference" />
+    <attr name="icon_mp_official" format="reference" />
+    <attr name="icon_mp_official_open" format="reference" />
+    <attr name="color_mp_theme" format="reference" />
     <!-- ark Label-->
     <attr name="ark_label_general_text_color" format="color" />
     <attr name="ark_label_tip_text_color" format="color" />

@@ -1,39 +1,487 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:background="?attr/ark_label_background_color">
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="15dp"
-        android:layout_marginHorizontal="20dp"
         android:orientation="vertical">
 
-        <LinearLayout
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/mp_bg_amiya"
+            android:scaleType="centerCrop" />
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="20dp">
 
             <ImageView
                 android:id="@+id/openNav"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="?attr/fragment_nav"/>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_gravity="left"
+                android:src="?attr/fragment_nav" />
 
             <ImageView
-                android:id="@+id/changeTheme"
+                android:id="@+id/selectTheme"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                app:srcCompat="@color/ark_label_accent_text_color_day" />
+                android:layout_gravity="right"
+                android:src="?attr/icon_select_theme" />
 
-        </LinearLayout>
+        </FrameLayout>
+        
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="400dp" />
 
+                <!-- 欢迎 活动倒计时 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/shape_mp_gradient">
+                    
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="?attr/shape_mp_transparency">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="27dp"
+                            android:layout_marginTop="13dp"
+                            android:text="WELCOME BACK DOCTOR."
+                            android:textSize="18sp"
+                            android:textColor="#1A1A1A" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="27dp"
+                            android:layout_marginTop="37dp"
+                            android:text="罗德岛移动终端 v5.0"
+                            android:textSize="12sp"
+                            android:textColor="#1A1A1A" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="27dp"
+                            android:layout_marginTop="58dp"
+                            android:text="本期封面：唯@W"
+                            android:textSize="12sp"
+                            android:textColor="#767676" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginStart="27dp"
+                            android:layout_marginEnd="27dp"
+                            android:layout_marginTop="81dp"
+                            android:background="#AAAAAA" />
+
+                    </RelativeLayout>
+                    
+                </LinearLayout>
+
+                <!-- 工具箱 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/ark_label_background_color">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginTop="3dp"
+                            android:src="?attr/icon_mp_toolbox" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="65dp"
+                            android:text="工具箱 · 常用应用"
+                            android:textSize="16sp"
+                            android:textColor="#1A1A1A" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="35dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_alignParentEnd="true"
+                            android:text="更多 >>"
+                            android:textSize="12sp"
+                            android:textColor="#424353" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="35dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="#123456" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="#123456" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="#123456" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="#123456" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 官方页 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/ark_label_background_color">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="35dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginTop="3dp"
+                            android:src="?attr/icon_mp_official" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="65dp"
+                            android:text="鹰角网络 · 官方IP衍生"
+                            android:textSize="16sp"
+                            android:textColor="#1A1A1A" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="35dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_alignParentEnd="true"
+                            android:text="更多 >>"
+                            android:textSize="12sp"
+                            android:textColor="#424353" />
+
+                    </RelativeLayout>
+                    
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="35dp"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            
+                            <RelativeLayout
+                                android:layout_width="275dp"
+                                android:layout_height="125dp"
+                                android:layout_weight="1">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="15dp"
+                                    android:background="#FFFFFF" />
+                                
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="15dp"
+                                    android:background="?attr/color_mp_theme" />
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginStart="15dp"
+                                    android:elevation="5dp"
+                                    android:src="@drawable/official_cover_arknights"
+                                    android:scaleType="fitXY" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginStart="105dp"
+                                    android:text="塞壬唱片"
+                                    android:textSize="12sp"
+                                    android:textColor="#1A1A1A" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="50dp"
+                                    android:layout_marginStart="105dp"
+                                    android:text="MonsterSirenRecords"
+                                    android:textSize="12sp"
+                                    android:textColor="#BDBDBD" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:layout_marginTop="75dp"
+                                    android:layout_marginStart="105dp"
+                                    android:layout_marginEnd="30dp"
+                                    android:background="#BDBDBD" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="80dp"
+                                    android:layout_marginStart="105dp"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="泰拉世界十世纪最大的音乐发行商之一。"
+                                    android:textSize="12sp"
+                                    android:textColor="#BDBDBD" />
+                                
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="?attr/icon_mp_official_open"
+                                    android:scaleType="fitXY" />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="20dp"
+                                android:layout_height="1dp" />
+
+                            <RelativeLayout
+                                android:layout_width="275dp"
+                                android:layout_height="125dp"
+                                android:layout_weight="1">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="15dp"
+                                    android:background="#FFFFFF" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="15dp"
+                                    android:background="?attr/color_mp_theme" />
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginStart="15dp"
+                                    android:elevation="5dp"
+                                    android:src="@drawable/official_cover_arknights"
+                                    android:scaleType="fitXY" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginStart="105dp"
+                                    android:text="塞壬唱片"
+                                    android:textSize="12sp"
+                                    android:textColor="#1A1A1A" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="50dp"
+                                    android:layout_marginStart="105dp"
+                                    android:text="MonsterSirenRecords"
+                                    android:textSize="12sp"
+                                    android:textColor="#BDBDBD" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:layout_marginTop="75dp"
+                                    android:layout_marginStart="105dp"
+                                    android:layout_marginEnd="30dp"
+                                    android:background="#BDBDBD" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="80dp"
+                                    android:layout_marginStart="105dp"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="泰拉世界十世纪最大的音乐发行商之一。"
+                                    android:textSize="12sp"
+                                    android:textColor="#BDBDBD" />
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="?attr/icon_mp_official_open"
+                                    android:scaleType="fitXY" />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="20dp"
+                                android:layout_height="1dp" />
+
+                            <RelativeLayout
+                                android:layout_width="275dp"
+                                android:layout_height="125dp"
+                                android:layout_weight="1">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="15dp"
+                                    android:background="#FFFFFF" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="15dp"
+                                    android:background="?attr/color_mp_theme" />
+
+                                <ImageView
+                                    android:layout_width="75dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginStart="15dp"
+                                    android:elevation="5dp"
+                                    android:src="@drawable/official_cover_arknights"
+                                    android:scaleType="fitXY" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginStart="105dp"
+                                    android:text="塞壬唱片"
+                                    android:textSize="12sp"
+                                    android:textColor="#1A1A1A" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="50dp"
+                                    android:layout_marginStart="105dp"
+                                    android:text="MonsterSirenRecords"
+                                    android:textSize="12sp"
+                                    android:textColor="#BDBDBD" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:layout_marginTop="75dp"
+                                    android:layout_marginStart="105dp"
+                                    android:layout_marginEnd="30dp"
+                                    android:background="#BDBDBD" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="80dp"
+                                    android:layout_marginStart="105dp"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="泰拉世界十世纪最大的音乐发行商之一。"
+                                    android:textSize="12sp"
+                                    android:textColor="#BDBDBD" />
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="?attr/icon_mp_official_open"
+                                    android:scaleType="fitXY" />
+
+                            </RelativeLayout>
+                            
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="?attr/ark_label_background_color" />
+                
+            </LinearLayout>
+            
+        </ScrollView>
+            
+<!--
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -379,6 +827,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp">
 
-        </androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
+        </androidx.recyclerview.widget.RecyclerView>-->
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

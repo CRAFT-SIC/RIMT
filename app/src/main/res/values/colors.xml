@@ -5,6 +5,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
 
+    <!-- Theme Color -->
+    <color name="theme_arknights_w">#f33c2b</color>
+    <color name="theme_arknights_frostnova">#ff8400</color>
+    <color name="theme_arknights_kaltsit">#9bce00</color>
+    <color name="theme_arknights_amiya">#28c6db</color>
+
     <!-- Day -->
     <!-- drawer general colors -->
     <color name="general_text_color_day">#1A1A1A</color>

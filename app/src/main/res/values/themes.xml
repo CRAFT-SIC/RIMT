@@ -109,6 +109,10 @@
         <item name="icon_platform_normal">@drawable/icon_platform_normal_day</item>
         <item name="icon_platform_facebook">@drawable/icon_platform_facebook_day</item>
 
+        <!-- MainPage Icons -->
+        <item name="icon_select_theme">@drawable/icon_select_theme_day</item>
+        <item name="shape_mp_transparency">@drawable/shape_mp_transparency_day</item>
+
     </style>
 
     <style name="Base.Theme.Ark.Kaltsit" parent="Base.Theme.RIMT.Day">
@@ -119,6 +123,10 @@
         <item name="nav_2_sel">@drawable/nav_ark_2_sel_day_kaltsit</item>
         <item name="nav_3_sel">@drawable/nav_ark_3_sel_day_kaltsit</item>
         <item name="nav_4_sel">@drawable/nav_ark_4_sel_day_kaltsit</item>
+        <item name="icon_mp_toolbox">@drawable/icon_mp_toolbox_day_kaltsit</item>
+        <item name="icon_mp_official">@drawable/icon_mp_official_day_kaltsit</item>
+        <item name="icon_mp_official_open">@drawable/icon_mp_official_open_kaltsit</item>
+        <item name="color_mp_theme">@color/theme_arknights_kaltsit</item>
     </style>
 
     <style name="Base.Theme.Ark.Amiya" parent="Base.Theme.RIMT.Day">
@@ -128,6 +136,10 @@
         <item name="nav_2_sel">@drawable/nav_ark_2_sel_day_amiya</item>
         <item name="nav_3_sel">@drawable/nav_ark_3_sel_day_amiya</item>
         <item name="nav_4_sel">@drawable/nav_ark_4_sel_day_amiya</item>
+        <item name="icon_mp_toolbox">@drawable/icon_mp_toolbox_day_amiya</item>
+        <item name="icon_mp_official">@drawable/icon_mp_official_day_amiya</item>
+        <item name="icon_mp_official_open">@drawable/icon_mp_official_open_amiya</item>
+        <item name="color_mp_theme">@color/theme_arknights_amiya</item>
     </style>
 
     <style name="Base.Theme.Ark.Frostnova" parent="Base.Theme.RIMT.Day">
@@ -137,6 +149,10 @@
         <item name="nav_2_sel">@drawable/nav_ark_2_sel_day_frostnova</item>
         <item name="nav_3_sel">@drawable/nav_ark_3_sel_day_frostnova</item>
         <item name="nav_4_sel">@drawable/nav_ark_4_sel_day_frostnova</item>
+        <item name="icon_mp_toolbox">@drawable/icon_mp_toolbox_day_frostnova</item>
+        <item name="icon_mp_official">@drawable/icon_mp_official_day_frostnova</item>
+        <item name="icon_mp_official_open">@drawable/icon_mp_official_open_frostnova</item>
+        <item name="color_mp_theme">@color/theme_arknights_frostnova</item>
     </style>
 
     <style name="Base.Theme.Ark.W" parent="Base.Theme.RIMT.Day">
@@ -146,5 +162,9 @@
         <item name="nav_2_sel">@drawable/nav_ark_2_sel_day_w</item>
         <item name="nav_3_sel">@drawable/nav_ark_3_sel_day_w</item>
         <item name="nav_4_sel">@drawable/nav_ark_4_sel_day_w</item>
+        <item name="icon_mp_toolbox">@drawable/icon_mp_toolbox_day_w</item>
+        <item name="icon_mp_official">@drawable/icon_mp_official_day_w</item>
+        <item name="icon_mp_official_open">@drawable/icon_mp_official_open_w</item>
+        <item name="color_mp_theme">@color/theme_arknights_w</item>
     </style>
 </resources>

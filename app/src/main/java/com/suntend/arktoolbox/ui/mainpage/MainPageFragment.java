@@ -1,4 +1,4 @@
-package com.suntend.arktoolbox.widgets.mainpage;
+package com.suntend.arktoolbox.ui.mainpage;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,16 @@ import com.suntend.arktoolbox.ArkToolBoxFragment;
 import com.suntend.arktoolbox.MainActivity;
 import com.suntend.arktoolbox.R;
 
-//created by nooly
+public class MainPageFragment extends Fragment{
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View root = inflater.inflate(R.layout.fragment_mainpage, container, false);
+        ImageView openNav = root.findViewById(R.id.openNav);
+        ImageView selectTheme = root.findViewById(R.id.selectTheme);
+
+        return root;
+    }
+}
+/*
 public class MainPageFragment extends Fragment {
     @Nullable
     @Override
@@ -48,3 +57,4 @@ public class MainPageFragment extends Fragment {
         return root;
     }
 }
+*/
