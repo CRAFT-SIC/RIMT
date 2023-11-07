@@ -9,19 +9,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/mp_bg_amiya"
+            android:src="@drawable/mp_bg_kaltsit"
             android:scaleType="centerCrop" />
 
         <FrameLayout
+            android:id="@+id/toTouchListenerLayout_f"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp">
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="25dp">
 
             <ImageView
                 android:id="@+id/openNav"
@@ -40,8 +41,10 @@
         </FrameLayout>
         
         <ScrollView
+            android:id="@+id/toTouchListenerLayout_s"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:scrollbars="none">
             
             <LinearLayout
@@ -50,8 +53,8 @@
                 android:orientation="vertical">
                 
                 <View
-                    android:layout_width="1dp"
-                    android:layout_height="400dp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp" />
 
                 <!-- 欢迎 活动倒计时 -->
                 <LinearLayout
@@ -151,40 +154,132 @@
                         android:layout_marginHorizontal="35dp"
                         android:orientation="horizontal">
 
-                        <ImageView
+                        <RelativeLayout
                             android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="#123456" />
+                            android:layout_height="90dp">
+
+                            <View
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/shape_mp_card_background" />
+
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="12dp"
+                                android:layout_marginStart="12dp"
+                                android:scaleType="fitXY"
+                                android:src="@mipmap/icon_tool_draw_card" />
+
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="70dp"
+                                android:gravity="center"
+                                android:text="抽卡分析"
+                                android:textSize="14sp"
+                                android:textColor="?attr/ark_label_tip_text_color" />
+
+                        </RelativeLayout>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="1dp"
                             android:layout_weight="1" />
 
-                        <ImageView
+                        <RelativeLayout
                             android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="#123456" />
+                            android:layout_height="90dp">
+
+                            <View
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/shape_mp_card_background" />
+
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="12dp"
+                                android:layout_marginStart="12dp"
+                                android:scaleType="fitXY"
+                                android:src="@mipmap/icon_tool_operator_overview" />
+
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="70dp"
+                                android:gravity="center"
+                                android:text="干员一览"
+                                android:textSize="14sp"
+                                android:textColor="?attr/ark_label_tip_text_color" />
+
+                        </RelativeLayout>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="1dp"
                             android:layout_weight="1" />
 
-                        <ImageView
+                        <RelativeLayout
                             android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="#123456" />
+                            android:layout_height="90dp">
+
+                            <View
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/shape_mp_card_background" />
+
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="12dp"
+                                android:layout_marginStart="12dp"
+                                android:scaleType="fitXY"
+                                android:src="@mipmap/icon_tool_material_drop_rate" />
+
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="70dp"
+                                android:gravity="center"
+                                android:text="素材掉率"
+                                android:textSize="14sp"
+                                android:textColor="?attr/ark_label_tip_text_color" />
+
+                        </RelativeLayout>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="1dp"
                             android:layout_weight="1" />
 
-                        <ImageView
+                        <RelativeLayout
                             android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="#123456" />
+                            android:layout_height="90dp">
+
+                            <View
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/shape_mp_card_background" />
+
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="12dp"
+                                android:layout_marginStart="12dp"
+                                android:scaleType="fitXY"
+                                android:src="@mipmap/icon_tool_public_recruitment_2" />
+
+                            <TextView
+                                android:layout_width="60dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="70dp"
+                                android:gravity="center"
+                                android:text="公招计算"
+                                android:textSize="14sp"
+                                android:textColor="?attr/ark_label_tip_text_color" />
+
+                        </RelativeLayout>
 
                     </LinearLayout>
 
@@ -480,6 +575,125 @@
             </LinearLayout>
             
         </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/selectThemeRelativeLayout"
+            android:layout_width="152dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/icon_mp_bg_theme_card">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="31dp"
+                android:background="#FF644C"
+                app:shapeAppearance="@style/CircleStyle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="29dp"
+                android:gravity="center_vertical"
+                android:text="W"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/themeChange_0"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="23dp"
+                android:src="@drawable/drawer_unsel" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="65dp"
+                android:background="#FFAB50"
+                app:shapeAppearance="@style/CircleStyle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="63dp"
+                android:gravity="center_vertical"
+                android:text="霜星"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/themeChange_1"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="67dp"
+                android:layout_marginEnd="23dp"
+                android:src="@drawable/drawer_unsel" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="99dp"
+                android:background="#83DBEB"
+                app:shapeAppearance="@style/CircleStyle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="97dp"
+                android:gravity="center_vertical"
+                android:text="阿米娅"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/themeChange_2"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="101dp"
+                android:layout_marginEnd="23dp"
+                android:src="@drawable/drawer_unsel" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="133dp"
+                android:background="#B4CD83"
+                app:shapeAppearance="@style/CircleStyle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="131dp"
+                android:gravity="center_vertical"
+                android:text="凯尔希"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/themeChange_3"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="135dp"
+                android:layout_marginEnd="23dp"
+                android:src="@drawable/drawer_unsel" />
+
+        </RelativeLayout>
             
 <!--
         <FrameLayout
